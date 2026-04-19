@@ -1,0 +1,60 @@
+:host {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ui5-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 10px;
+  /* 胶囊形状 */
+  font-size: 11px;
+  font-weight: bold;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+}
+
+.ui5-badge__icon {
+  margin-right: 4px;
+  display: flex;
+  align-items: center;
+}
+
+/* --- 颜色方案 (SAP 语义化配色) --- */
+
+/* Scheme 1: 默认/中性 (Grey) */
+.ui5-badge--1 {
+  background-color: #f2f2f2;
+  color: #6a6d70;
+  border-color: #e5e5e5;
+}
+
+/* Scheme 2: 警告 (Orange) */
+.ui5-badge--2 {
+  background-color: #fff8f0;
+  color: #e9730c;
+  border-color: #f5dcc1;
+}
+
+/* Scheme 3: 错误 (Red) */
+.ui5-badge--3 {
+  background-color: #fff4f4;
+  color: #bb0000;
+  border-color: #f9d6d6;
+}
+
+/* Scheme 4: 成功 (Green) */
+.ui5-badge--4 {
+  background-color: #f6fff6;
+  color: #107e3e;
+  border-color: #d5ebd5;
+}
+
+/* Scheme 5: 信息 (Blue) */
+.ui5-badge--5 {
+  background-color: #f0f7ff;
+  color: #0a6ed1;
+  border-color: #d0e7ff;
+}

@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "ui5-busy-indicator": "../../../components/ui5-busy-indicator",
+    "ui5-button": "../../../components/ui5-button",
+    "ui5-card": "../../../components/ui5-card",
+    "ui5-message-strip": "../../../components/ui5-message-strip",
+    "ui5-page": "../../../components/ui5-page",
+    "ui5-shellbar": "../../../components/ui5-shellbar",
+    "ui5-toast": "../../../components/ui5-toast"
+  }
+}

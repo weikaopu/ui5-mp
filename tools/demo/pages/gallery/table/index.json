@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "ui5-message-strip": "../../../components/ui5-message-strip",
+    "ui5-page": "../../../components/ui5-page",
+    "ui5-shellbar": "../../../components/ui5-shellbar",
+    "ui5-table": "../../../components/ui5-table",
+    "ui5-table-row": "../../../components/ui5-table-row"
+  }
+}

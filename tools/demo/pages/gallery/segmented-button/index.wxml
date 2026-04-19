@@ -1,0 +1,42 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Segmented Button" />
+
+  <view class="fd-padding-md">
+
+    <!-- 场景 1: 纯文本切换 -->
+    <ui5-card title="Text Only">
+      <view class="fd-padding-md">
+        <ui5-segmented-button selectedKey="{{viewMode}}" bind:change="onViewChange">
+          <ui5-segmented-button-item key="day" text="Day" />
+          <ui5-segmented-button-item key="week" text="Week" />
+          <ui5-segmented-button-item key="month" text="Month" />
+        </ui5-segmented-button>
+        <view class="ui5-text-secondary fd-margin-top-sm">Selected View: {{viewMode}}</view>
+      </view>
+    </ui5-card>
+
+    <!-- 场景 2: 纯图标 (常用于对齐、排序等工具栏操作) -->
+    <ui5-card title="Icons Only">
+      <view class="fd-padding-md">
+        <ui5-segmented-button selectedKey="left">
+          <ui5-segmented-button-item key="left" icon="home" />
+          <ui5-segmented-button-item key="center" icon="settings" />
+          <ui5-segmented-button-item key="right" icon="search" />
+        </ui5-segmented-button>
+      </view>
+    </ui5-card>
+
+    <!-- 场景 3: 混合模式与禁用状态 -->
+    <ui5-card title="Mixed & Disabled States">
+      <view class="fd-padding-md">
+        <ui5-segmented-button selectedKey="edit">
+          <ui5-segmented-button-item key="view" text="View" icon="home" />
+          <ui5-segmented-button-item key="edit" text="Edit" icon="settings" />
+          <ui5-segmented-button-item key="delete" text="Delete" disabled />
+        </ui5-segmented-button>
+        <view class="ui5-text-secondary fd-margin-top-sm">"Delete" option is currently restricted.</view>
+      </view>
+    </ui5-card>
+
+  </view>
+</ui5-page>

@@ -1,0 +1,8 @@
+ui5-card {
+  margin-bottom: var(--sap-spacing-medium);
+  display: block;
+}
+
+.ui5-text-success {
+  font-weight: bold;
+}

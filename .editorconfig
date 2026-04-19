@@ -1,0 +1,33 @@
+# 根目录文件
+root = true
+
+# 所有文件适用
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# 特殊文件后缀规则
+[*.wxml]
+indent_style = space
+indent_size = 2
+
+[*.wxss]
+indent_style = space
+indent_size = 2
+
+[*.js]
+indent_style = space
+indent_size = 2
+
+[*.json]
+indent_style = space
+indent_size = 2
+
+# 忽略小程序构建目录
+[dist/**]
+indent_style = ignore
+indent_size = ignore

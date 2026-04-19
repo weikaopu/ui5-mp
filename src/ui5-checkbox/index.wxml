@@ -1,0 +1,7 @@
+<view class="ui5-checkbox {{disabled ? 'is-disabled' : ''}} {{checked ? 'is-checked' : ''}} ui5-checkbox--{{valueState}}" bindtap="onTap">
+  <view class="ui5-checkbox__box">
+    <!-- 勾选标记：使用之前的 CSS 绘图技巧 -->
+    <view wx:if="{{checked}}" class="ui5-checkbox__checkmark"></view>
+  </view>
+  <view wx:if="{{label}}" class="ui5-checkbox__label">{{label}}</view>
+</view>

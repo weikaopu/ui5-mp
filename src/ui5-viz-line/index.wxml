@@ -1,0 +1,28 @@
+<view class="ui5-viz-container">
+  <view class="ui5-viz-header" wx:if="{{title}}">
+    <text class="ui5-viz-title">{{title}}</text>
+  </view>
+
+  <view class="ui5-viz-chart-wrapper">
+    <canvas type="2d" id="lineChart" class="ui5-viz-canvas" bindtouchstart="handleTouch" bindtouchmove="handleTouch"
+      bindtouchend="handleHideTooltip"></canvas>
+
+    <!-- Tooltip 保持不变 -->
+    <view class="ui5-viz-tooltip" wx:if="{{tooltip.show}}" style="left: {{tooltip.x}}px; top: {{tooltip.y}}px;">
+      <view class="ui5-viz-tooltip-header">{{tooltip.label}}</view>
+      <view class="ui5-viz-tooltip-item" wx:for="{{tooltip.items}}" wx:key="name">
+        <view class="ui5-viz-tooltip-marker" style="background: {{item.color}}"></view>
+        <text class="ui5-viz-tooltip-name">{{item.name}}:</text>
+        <text class="ui5-viz-tooltip-val">{{item.value}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 新增：图例区域 -->
+  <view class="ui5-viz-legend" wx:if="{{showLegend && series.length > 0}}">
+    <view class="ui5-viz-legend-item" wx:for="{{series}}" wx:key="name">
+      <view class="ui5-viz-legend-icon" style="background: {{colorPalette[index % colorPalette.length]}}"></view>
+      <text class="ui5-viz-legend-text">{{item.name}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,44 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Sliders & Range Sliders" />
+
+  <view class="fd-padding-md">
+
+    <!-- 基础单滑块 -->
+    <ui5-card title="Standard Slider">
+      <view class="fd-padding-md">
+        <ui5-slider value="{{val1}}" min="0" max="100" showLabels showTickmarks step="10" bind:change="onSliderChange"
+          data-id="val1" />
+        <view class="ui5-text-secondary fd-margin-top-sm">Value: {{val1}}</view>
+      </view>
+    </ui5-card>
+
+    <!-- Range Slider 示例 -->
+    <ui5-card title="Range Slider">
+      <view class="fd-padding-md">
+        <view class="ui5-text-secondary">Price Range Selector</view>
+        <ui5-range-slider startValue="{{rangeVal.start}}" endValue="{{rangeVal.end}}" min="0" max="500" step="10"
+          showLabels showTickmarks bind:change="onRangeChange" />
+        <view class="ui5-text-secondary fd-margin-top-sm">
+          Selection:
+          <text class="ui5-text-success" style="font-weight:bold;">
+            ${{rangeVal.start}} - ${{rangeVal.end}}
+          </text>
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- 禁用与状态 -->
+    <ui5-card title="States & Tooltip">
+      <view class="fd-padding-md">
+        <ui5-range-slider startValue="30" endValue="70" disabled showLabels />
+        <view class="fd-margin-top-sm ui5-text-secondary">Disabled State</view>
+
+        <view style="margin-top: 32px;">
+          <ui5-slider value="40" showTooltip="{{false}}" />
+          <view class="ui5-text-secondary">No Tooltip Mode</view>
+        </view>
+      </view>
+    </ui5-card>
+
+  </view>
+</ui5-page>

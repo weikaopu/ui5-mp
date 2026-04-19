@@ -1,0 +1,87 @@
+:host {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ui5-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #354a5f;
+  /* 默认深蓝背景 */
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* --- 形状 --- */
+.ui5-avatar--Circle {
+  border-radius: 50%;
+}
+
+.ui5-avatar--Square {
+  border-radius: var(--sap-border-radius);
+}
+
+/* --- 尺寸 (Fiori 标准) --- */
+.ui5-avatar--XS {
+  width: 20px;
+  height: 20px;
+  font-size: 8px;
+}
+
+.ui5-avatar--S {
+  width: 32px;
+  height: 32px;
+  font-size: 12px;
+}
+
+.ui5-avatar--M {
+  width: 48px;
+  height: 48px;
+  font-size: 18px;
+}
+
+.ui5-avatar--L {
+  width: 72px;
+  height: 72px;
+  font-size: 28px;
+}
+
+.ui5-avatar--XL {
+  width: 112px;
+  height: 112px;
+  font-size: 44px;
+}
+
+.ui5-avatar__img {
+  width: 100%;
+  height: 100%;
+}
+
+.ui5-avatar__initials {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* --- 重音色 (Accents) --- */
+.ui5-avatar--accent1 {
+  background-color: #e38b16;
+}
+
+/* Orange */
+.ui5-avatar--accent2 {
+  background-color: #dc3912;
+}
+
+/* Red */
+.ui5-avatar--accent3 {
+  background-color: #107e3e;
+}
+
+/* Green */
+.ui5-avatar--accent4 {
+  background-color: #0854a0;
+}
+
+/* Blue */

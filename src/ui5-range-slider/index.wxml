@@ -1,0 +1,38 @@
+<view class="ui5-slider-container {{disabled ? 'ui5-slider-disabled' : ''}}">
+  <view class="ui5-slider-wrapper">
+    <view class="ui5-slider-label" wx:if="{{showLabels}}">{{min}}</view>
+
+    <view class="ui5-slider-inner" id="range-track">
+      <view class="ui5-slider-rail"></view>
+
+      <!-- 刻度点 -->
+      <view class="ui5-slider-tickmarks" wx:if="{{showTickmarks}}">
+        <view wx:for="{{ticks}}" wx:key="index"
+          class="ui5-slider-tick {{item >= startProgress && item <= endProgress ? 'ui5-slider-tick-active' : ''}}"
+          style="left: {{item}}%"></view>
+      </view>
+
+      <!-- 选中的进度范围 -->
+      <view class="ui5-slider-progress" style="left: {{startProgress}}%; width: {{endProgress - startProgress}}%">
+      </view>
+
+      <!-- 左滑块 -->
+      <view class="ui5-slider-handle {{activeHandle === 'start' ? 'ui5-slider-handle-active' : ''}}"
+        style="left: {{startProgress}}%" data-type="start" bindtouchstart="{{disabled ? '' : 'onTouchStart'}}"
+        bindtouchmove="{{disabled ? '' : 'onTouchMove'}}" bindtouchend="onTouchEnd">
+        <view class="ui5-slider-handle-dot"></view>
+        <view class="ui5-slider-tooltip" wx:if="{{showTooltip && activeHandle === 'start'}}">{{startValue}}</view>
+      </view>
+
+      <!-- 右滑块 -->
+      <view class="ui5-slider-handle {{activeHandle === 'end' ? 'ui5-slider-handle-active' : ''}}"
+        style="left: {{endProgress}}%" data-type="end" bindtouchstart="{{disabled ? '' : 'onTouchStart'}}"
+        bindtouchmove="{{disabled ? '' : 'onTouchMove'}}" bindtouchend="onTouchEnd">
+        <view class="ui5-slider-handle-dot"></view>
+        <view class="ui5-slider-tooltip" wx:if="{{showTooltip && activeHandle === 'end'}}">{{endValue}}</view>
+      </view>
+    </view>
+
+    <view class="ui5-slider-label" wx:if="{{showLabels}}">{{max}}</view>
+  </view>
+</view>

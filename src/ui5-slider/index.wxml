@@ -1,0 +1,28 @@
+<view class="ui5-slider-container {{disabled ? 'ui5-slider-disabled' : ''}}">
+  <view class="ui5-slider-wrapper">
+    <view class="ui5-slider-label ui5-slider-label-start" wx:if="{{showLabels}}">{{min}}</view>
+
+    <view class="ui5-slider-inner" id="slider-track" bindtouchstart="{{disabled ? '' : 'onTouchStart'}}"
+      bindtouchmove="{{disabled ? '' : 'onTouchMove'}}" bindtouchend="{{disabled ? '' : 'onTouchEnd'}}">
+      <!-- 基础轨道 -->
+      <view class="ui5-slider-rail"></view>
+
+      <!-- 刻度点容器 -->
+      <view class="ui5-slider-tickmarks" wx:if="{{showTickmarks}}">
+        <view wx:for="{{ticks}}" wx:key="index"
+          class="ui5-slider-tick {{item <= progress ? 'ui5-slider-tick-active' : ''}}" style="left: {{item}}%"></view>
+      </view>
+
+      <!-- 进度条 -->
+      <view class="ui5-slider-progress" style="width: {{progress}}%"></view>
+
+      <!-- 滑块 -->
+      <view class="ui5-slider-handle {{isDragging ? 'ui5-slider-handle-active' : ''}}" style="left: {{progress}}%">
+        <view class="ui5-slider-handle-dot"></view>
+        <view class="ui5-slider-tooltip" wx:if="{{showTooltip && isDragging}}">{{currentValue}}</view>
+      </view>
+    </view>
+
+    <view class="ui5-slider-label ui5-slider-label-end" wx:if="{{showLabels}}">{{max}}</view>
+  </view>
+</view>

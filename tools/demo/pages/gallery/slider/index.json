@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "ui5-card": "../../../components/ui5-card",
+    "ui5-page": "../../../components/ui5-page",
+    "ui5-range-slider": "../../../components/ui5-range-slider",
+    "ui5-shellbar": "../../../components/ui5-shellbar",
+    "ui5-slider": "../../../components/ui5-slider"
+  }
+}

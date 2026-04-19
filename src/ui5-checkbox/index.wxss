@@ -1,0 +1,74 @@
+:host {
+  display: inline-block;
+  margin-right: var(--sap-spacing-medium);
+  vertical-align: middle;
+}
+
+.ui5-checkbox {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.ui5-checkbox__box {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--sap-field-border-color);
+  border-radius: var(--sap-border-radius);
+  /* SAP Horizon 通常是 4px 或 8px */
+  background-color: var(--sap-field-background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease-in;
+  position: relative;
+}
+
+.ui5-checkbox__label {
+  margin-left: 8px;
+  font-size: 14px;
+  color: var(--sap-text-color);
+}
+
+/* 选中状态 */
+.is-checked .ui5-checkbox__box {
+  background-color: var(--sap-primary-color);
+  border-color: var(--sap-primary-color);
+}
+
+/* 纯 CSS 绘制勾选标记 (V 字) */
+.ui5-checkbox__checkmark {
+  width: 10px;
+  height: 5px;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  transform: rotate(-45deg);
+  margin-top: -2px;
+  /* 微调位置 */
+}
+
+/* 禁用状态 */
+.is-disabled {
+  opacity: 0.4;
+}
+
+/* 交互态：点击时盒子稍微变暗 */
+.ui5-checkbox:active .ui5-checkbox__box {
+  opacity: 0.8;
+}
+
+/* --- Value States --- */
+.ui5-checkbox.ui5-checkbox--Error .ui5-checkbox__box {
+  border-color: var(--sap-error-color);
+  border-width: 2px;
+}
+
+.ui5-checkbox.ui5-checkbox--Warning .ui5-checkbox__box {
+  border-color: var(--sap-warning-color);
+}
+
+/* 状态下的文字颜色（可选） */
+.ui5-checkbox--Error .ui5-checkbox__label {
+  color: var(--sap-error-color);
+}

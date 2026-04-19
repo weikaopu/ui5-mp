@@ -1,0 +1,6 @@
+<view class="ui5-checkbox-group">
+  <view wx:if="{{label}}" class="ui5-group-label">{{label}}</view>
+  <view class="ui5-group-content">
+    <slot></slot>
+  </view>
+</view>

@@ -1,0 +1,40 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Rating Indicator" />
+
+  <view class="fd-padding-md">
+
+    <!-- 基础交互示例 -->
+    <ui5-card title="Interactive Rating">
+      <view class="fd-padding-md">
+        <ui5-rating-indicator label="How would you rate our service?" value="{{rating1}}" bind:change="onRatingChange"
+          data-index="1" />
+        <view class="ui5-text-secondary fd-margin-top-sm">
+          Current Score: <text class="ui5-text-success" style="font-weight:bold;">{{rating1}} / 5</text>
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- 自定义最大值与只读模式 -->
+    <ui5-card title="Read-only & Custom Max">
+      <view class="fd-padding-md">
+        <ui5-rating-indicator label="Average Customer Rating (Read-only)" value="4" readonly />
+        <view style="margin-top: 20px;">
+          <ui5-rating-indicator label="Ten-star scale" max="10" value="{{rating2}}" bind:change="onRatingChange"
+            data-index="2" />
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- 列表集成场景 (常见于评论列表) -->
+    <view class="gallery-section-title">Integrated in List</view>
+    <ui5-list header-text="User Reviews">
+      <ui5-item title="John Doe" description="Excellent UI library, very professional." hasActions>
+        <ui5-rating-indicator slot="actions" value="5" readonly />
+      </ui5-item>
+      <ui5-item title="Jane Smith" description="Good, but needs more icons." hasActions>
+        <ui5-rating-indicator slot="actions" value="4" readonly />
+      </ui5-item>
+    </ui5-list>
+
+  </view>
+</ui5-page>

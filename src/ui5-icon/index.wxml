@@ -1,0 +1,4 @@
+<view
+  class="ui5-icon-canvas icon--{{name}}"
+  style="color: {{color}}; transform: scale({{size / 24}});"
+></view>

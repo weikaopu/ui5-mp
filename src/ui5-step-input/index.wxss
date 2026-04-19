@@ -1,0 +1,104 @@
+:host {
+  display: block;
+  margin-bottom: var(--sap-spacing-medium);
+}
+
+.ui5-step-input__field-wrapper {
+  display: flex;
+  height: 36px;
+  background-color: var(--sap-field-background-color);
+  border: 1px solid var(--sap-field-border-color);
+  border-radius: var(--sap-border-radius);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.ui5-step-input__inner {
+  flex: 1;
+  height: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: var(--sap-text-color);
+  border-left: 1px solid var(--sap-border-color);
+  border-right: 1px solid var(--sap-border-color);
+}
+
+.ui5-step-input__action {
+  width: 44px;
+  /* 移动端增大点击区域 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--sap-background-color);
+  color: var(--sap-primary-color);
+  transition: all 0.2s ease;
+  pointer-events: auto;
+  /* 默认允许点击 */
+}
+
+/* 按钮禁用态：灰色且不可点击 */
+.ui5-step-input__action.is-button-disabled {
+  color: var(--sap-neutral-color) !important;
+  opacity: 0.3 !important;
+  background-color: transparent !important;
+  /* 关键：阻止事件触发，防止长按定时器在禁用状态下启动 */
+  pointer-events: none;
+}
+
+/* 确保图标颜色跟随父级 */
+.icon-plus::before,
+.icon-plus::after {
+  background-color: currentColor;
+}
+
+.ui5-step-input__action--active {
+  background-color: #e5e5e5;
+}
+
+/* 纯 CSS 绘制图标 */
+.icon-minus {
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+
+.icon-plus {
+  width: 10px;
+  height: 10px;
+  position: relative;
+}
+
+.icon-plus::before,
+.icon-plus::after {
+  content: "";
+  position: absolute;
+  background: currentColor;
+}
+
+.icon-plus::before {
+  width: 10px;
+  height: 2px;
+  top: 4px;
+  left: 0;
+}
+
+.icon-plus::after {
+  width: 2px;
+  height: 10px;
+  top: 0;
+  left: 4px;
+}
+
+/* 状态样式 */
+.ui5-input--Error .ui5-step-input__field-wrapper {
+  border-color: var(--sap-error-color);
+  border-width: 2px;
+}
+
+.ui5-input--Warning .ui5-step-input__field-wrapper {
+  border-color: var(--sap-error-color);
+}
+
+.is-disabled {
+  opacity: 0.4;
+}

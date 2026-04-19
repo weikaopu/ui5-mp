@@ -1,0 +1,90 @@
+:host {
+  display: inline-block;
+  /* 或者 block，取决于你希望按钮默认是换行还是并排 */
+  vertical-align: middle;
+}
+
+/**
+ * ui5-mp: Button Component
+ */
+
+.ui5-btn {
+  /* 基础重置 */
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 16px;
+  height: 36px;
+  /* Fiori 移动端标准高度 */
+  font-size: var(--sap-font-size);
+  font-weight: 500;
+  border-radius: var(--sap-border-radius);
+  border: 1px solid transparent;
+  transition: all 0.1s ease-in;
+  background-color: transparent;
+  line-height: 1;
+}
+
+/* 移除原生 button 的默认黑边框 */
+.ui5-btn::after {
+  border: none;
+}
+
+.ui5-btn__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- 样式变体 (Types) --- */
+
+/* Default / Standard - 灰色描边 */
+.ui5-btn--default {
+  background-color: var(--sap-content-color);
+  border-color: var(--sap-field-border-color);
+  color: var(--sap-primary-color);
+}
+
+/* Emphasized - 蓝色高亮 */
+.ui5-btn--emphasized {
+  background-color: var(--sap-primary-color);
+  border-color: var(--sap-primary-color);
+  color: #ffffff;
+}
+
+/* Transparent / Ghost - 无边框 */
+.ui5-btn--transparent {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--sap-primary-color);
+}
+
+/* Negative - 红色告警 */
+.ui5-btn--negative {
+  background-color: transparent;
+  border-color: var(--sap-error-color);
+  color: var(--sap-error-color);
+}
+
+/* --- 交互状态 --- */
+
+/* 点击态 (Active) */
+.ui5-btn--active {
+  transform: scale(0.98);
+  opacity: 0.7;
+}
+
+.ui5-btn--emphasized.ui5-btn--active {
+  background-color: #06407a;
+  /* 稍微加深的蓝色 */
+}
+
+/* 禁用态 (Disabled) */
+.is-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}

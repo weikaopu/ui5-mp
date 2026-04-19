@@ -1,0 +1,34 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.ui5-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  padding: 0 16px;
+  background-color: var(--sap-content-color);
+  box-sizing: border-box;
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.05);
+  /* 底部栏向上的微弱阴影 */
+}
+
+.ui5-bar--footer {
+  border-top: 1px solid var(--sap-border-color);
+}
+
+.ui5-bar__left,
+.ui5-bar__right {
+  display: flex;
+  align-items: center;
+  min-width: 40px;
+}
+
+.ui5-bar__content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 0 8px;
+}

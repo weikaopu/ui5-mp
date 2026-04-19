@@ -1,0 +1,34 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Step Input" />
+
+  <view class="fd-padding-md">
+
+    <!-- 基础示例 -->
+    <ui5-card title="Basic Step Input">
+      <view class="fd-padding-md">
+        <ui5-step-input label="Default (Step 1)" value="{{value1}}" bind:change="onChange" data-index="1" />
+        <ui5-step-input label="Custom Step (Step 5)" value="{{value2}}" step="5" bind:change="onChange" data-index="2"
+          style="margin-top: 16px;" />
+      </view>
+    </ui5-card>
+
+    <!-- 边界限制 -->
+    <ui5-card title="Range & Validation">
+      <view class="fd-padding-md">
+        <ui5-step-input label="Min 0, Max 10" value="{{value3}}" min="0" max="10" bind:change="onChange"
+          data-index="3" />
+        <view class="ui5-text-secondary fd-margin-top-sm">按钮会在达到边界时自动变灰禁用</view>
+      </view>
+    </ui5-card>
+
+    <!-- 状态与交互 -->
+    <ui5-card title="Value States">
+      <view class="fd-padding-md">
+        <ui5-step-input label="Error State" value="40" valueState="Error" />
+        <ui5-step-input label="Warning State" value="25" valueState="Warning" style="margin-top: 16px;" />
+        <ui5-step-input label="Read-only" value="100" readonly style="margin-top: 16px;" />
+      </view>
+    </ui5-card>
+
+  </view>
+</ui5-page>

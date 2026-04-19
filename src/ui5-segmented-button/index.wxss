@@ -1,0 +1,13 @@
+:host {
+  display: block;
+  margin-bottom: var(--sap-spacing-medium);
+}
+
+.ui5-segmented-button {
+  display: flex;
+  height: 36px;
+  border: 1px solid var(--sap-field-border-color);
+  border-radius: var(--sap-border-radius);
+  overflow: hidden; /* 确保子项圆角被裁切 */
+  background-color: var(--sap-field-background-color);
+}

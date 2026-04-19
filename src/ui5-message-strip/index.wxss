@@ -1,0 +1,56 @@
+:host {
+  display: block;
+  margin: var(--sap-spacing-small) var(--sap-spacing-medium);
+}
+
+.ui5-ms {
+  display: flex;
+  align-items: flex-start;
+  padding: 8px 12px;
+  border-radius: var(--sap-border-radius);
+  border-left: 4px solid transparent;
+  font-size: var(--sap-font-size-small);
+}
+
+/* 语义化样式 */
+.ui5-ms--information {
+  background-color: #f0f7ff;
+  border-color: var(--sap-information-color);
+  color: var(--sap-information-color);
+}
+
+.ui5-ms--success {
+  background-color: #f6fff6;
+  border-color: var(--sap-success-color);
+  color: var(--sap-success-color);
+}
+
+.ui5-ms--error {
+  background-color: #fff4f4;
+  border-color: var(--sap-error-color);
+  color: var(--sap-error-color);
+}
+
+.ui5-ms--warning {
+  background-color: #fff8f0;
+  border-color: var(--sap-warning-color);
+  color: var(--sap-warning-color);
+}
+
+.ui5-ms__icon {
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  height: 1.4em;
+  /* 与文字对齐 */
+}
+
+.ui5-ms__text {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.ui5-ms__close {
+  margin-left: 8px;
+  opacity: 0.6;
+}

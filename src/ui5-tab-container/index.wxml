@@ -1,0 +1,23 @@
+<!-- 或称 IconTabBar，是用于组织复杂页面内容的核心容器。它的特点是：顶部的选项卡带有精美的激活下划线，且内容区随选项卡切换。 -->
+<!-- 设计两个组件：ui5-tab-container（父容器）和 ui5-tab（子项）。 -->
+<view class="ui5-tc">
+  <!-- 选项卡头部 -->
+  <scroll-view class="ui5-tc__header" scroll-x scroll-with-animation>
+    <view class="ui5-tc__tabs">
+      <view wx:for="{{items}}" wx:key="key" class="ui5-tab-item {{currentKey === item.key ? 'is-selected' : ''}}"
+        bindtap="onTabTap" data-key="{{item.key}}">
+        <view wx:if="{{item.icon}}" class="ui5-tab-item__icon">
+          <ui5-icon name="{{item.icon}}" size="20" />
+        </view>
+        <view class="ui5-tab-item__text">{{item.text}}</view>
+        <!-- 激活状态的下划线 -->
+        <view class="ui5-tab-item__line"></view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 内容区插槽 -->
+  <view class="ui5-tc__content">
+    <slot></slot>
+  </view>
+</view>

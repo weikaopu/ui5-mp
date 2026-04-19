@@ -1,0 +1,47 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Selection Components" />
+
+  <view class="fd-padding-md">
+
+    <!-- Select: 底部抽屉选择 -->
+    <ui5-card title="Select">
+      <view class="fd-padding-md">
+        <ui5-select label="Country/Region" options="{{countries}}" value="{{selectedCountry}}"
+          bind:change="onSelectChange" />
+        <ui5-select label="Shipping Method (Error)" options="{{shipping}}" valueState="Error"
+          valueStateText="This method is currently unavailable" style="margin-top: 16px;" />
+      </view>
+    </ui5-card>
+
+    <!-- Switch: 开关切换 -->
+    <ui5-card title="Switch">
+      <view class="fd-padding-md">
+        <ui5-item title="Push Notifications" description="Receive instant updates" hasActions="{{true}}">
+          <ui5-switch slot="actions" checked="{{true}}" />
+        </ui5-item>
+        <ui5-item title="Graphic Mode (On/Off Icons)" description="Display icons instead of text" hasActions="{{true}}">
+          <ui5-switch slot="actions" checked="{{true}}" graphical />
+        </ui5-item>
+        <ui5-item title="Dark Mode" description="Apply dark theme to the application" hasActions="{{true}}">
+          <ui5-switch slot="actions" bind:change="onSwitchChange" />
+        </ui5-item>
+        <ui5-item title="Disabled Setting" hasActions="{{true}}">
+          <ui5-switch slot="actions" disabled />
+        </ui5-item>
+      </view>
+    </ui5-card>
+
+    <!-- Checkbox: 多选与状态 -->
+    <ui5-card title="Checkbox Group">
+      <view class="fd-padding-md">
+        <ui5-checkbox-group label="Select Communication Channels" bind:change="onGroupChange">
+          <ui5-checkbox label="Email" value="email" checked />
+          <ui5-checkbox label="SMS (High Priority)" value="sms" valueState="Warning" />
+          <ui5-checkbox label="Push Notification" value="push" />
+          <ui5-checkbox label="Fax" value="fax" disabled />
+        </ui5-checkbox-group>
+      </view>
+    </ui5-card>
+
+  </view>
+</ui5-page>

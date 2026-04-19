@@ -1,0 +1,12 @@
+.ui5-form-group {
+  margin-bottom: var(--sap-spacing-large);
+}
+
+.ui5-form-group__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--sap-text-secondary-color);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--sap-border-color);
+  margin-bottom: var(--sap-spacing-medium);
+}

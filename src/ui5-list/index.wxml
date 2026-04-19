@@ -1,0 +1,16 @@
+<view class="ui5-list-container">
+  <!-- 列表页眉（可选） -->
+  <view wx:if="{{headerText}}" class="ui5-list__header">
+    <text>{{headerText}}</text>
+  </view>
+
+  <!-- 列表项插槽 -->
+  <view class="ui5-list__content {{noBorder ? 'ui5-list--no-border' : ''}}">
+    <slot></slot>
+  </view>
+
+  <!-- 列表页脚（可选） -->
+  <view wx:if="{{footerText}}" class="ui5-list__footer">
+    <text>{{footerText}}</text>
+  </view>
+</view>

@@ -1,0 +1,48 @@
+:host {
+  display: block;
+  margin-bottom: var(--sap-spacing-medium);
+}
+
+.ui5-select__field-wrapper {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  background-color: var(--sap-field-background-color);
+  border: 1px solid var(--sap-field-border-color);
+  border-radius: var(--sap-border-radius);
+  padding: 0 12px;
+  position: relative;
+}
+
+.ui5-select__inner {
+  flex: 1;
+  font-size: 14px;
+  color: var(--sap-text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ui5-select__inner.is-placeholder {
+  color: var(--sap-text-secondary-color);
+}
+
+/* 纯 CSS 绘制下拉箭头 (Fiori 细线风格) */
+.ui5-select__arrow {
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--sap-primary-color);
+  border-bottom: 1.5px solid var(--sap-primary-color);
+  transform: rotate(45deg);
+  margin-top: -4px;
+  margin-left: 8px;
+}
+
+.ui5-select--Error .ui5-select__field-wrapper {
+  border-color: var(--sap-error-color);
+  border-width: 2px;
+}
+
+.is-disabled {
+  opacity: 0.4;
+}

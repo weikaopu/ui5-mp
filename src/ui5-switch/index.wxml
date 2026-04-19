@@ -1,0 +1,15 @@
+<view class="ui5-switch {{disabled ? 'is-disabled' : ''}} {{checked ? 'is-checked' : ''}}" bindtap="onToggle">
+  <view class="ui5-switch__track">
+    <!-- 开关内的文本/图标预览 -->
+    <view class="ui5-switch__text ui5-switch__text--on">
+      <ui5-icon name="accept" size="10" wx:if="{{graphical}}" />
+      <text wx:else>ON</text>
+    </view>
+    <view class="ui5-switch__text ui5-switch__text--off">
+      <ui5-icon name="decline" size="10" wx:if="{{graphical}}" />
+      <text wx:else>OFF</text>
+    </view>
+    <!-- 滑块 -->
+    <view class="ui5-switch__handle"></view>
+  </view>
+</view>

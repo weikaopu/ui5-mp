@@ -1,0 +1,11 @@
+<view class="ui5-bar {{design === 'footer' ? 'ui5-bar--footer' : ''}}">
+  <view class="ui5-bar__left">
+    <slot name="start"></slot>
+  </view>
+  <view class="ui5-bar__content">
+    <slot></slot>
+  </view>
+  <view class="ui5-bar__right">
+    <slot name="end"></slot>
+  </view>
+</view>

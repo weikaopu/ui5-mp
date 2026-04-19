@@ -1,0 +1,109 @@
+:host {
+  display: block;
+}
+
+.ui5-dialog-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui5-dialog-root.is-visible {
+  display: flex;
+}
+
+.ui5-dialog-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.ui5-dialog-container {
+  position: relative;
+  width: 90%;
+  /* 移动端 Dialog 占据更大宽度 */
+  max-height: 85vh;
+  background-color: var(--sap-content-color);
+  /* Horizon 风格：圆角更大，阴影更深 */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Header: 官方风格标题栏 */
+.ui5-dialog-header {
+  height: 56px;
+  /* 官方标准高度 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 移动端通常居中标题 */
+  padding: 0 16px;
+  border-bottom: 1px solid var(--sap-border-color);
+  background-color: var(--sap-content-color);
+}
+
+.ui5-dialog-title {
+  font-size: 16px;
+  font-weight: 700;
+  /* Fiori Horizon 强调加粗标题 */
+  color: var(--sap-text-color);
+}
+
+/* Content: 增加呼吸感 */
+.ui5-dialog-content {
+  flex: 1;
+  padding: 20px 16px;
+  /* 官方内容区更开阔 */
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--sap-text-color);
+}
+
+/* Footer: 官方 Toolbar 风格 */
+.ui5-dialog-footer {
+  height: 52px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* 按钮靠右 */
+  background-color: #ffffff;
+  /* 通常与内容区一致，通过边框分割 */
+  border-top: 1px solid var(--sap-border-color);
+}
+
+/* 按钮间距补全 */
+.ui5-dialog-footer slot,
+.ui5-dialog-footer view {
+  display: flex;
+  gap: 8px;
+  /* 按钮之间的 8px 间距 */
+}
+
+/* 平滑的 Fade In + Scale */
+@keyframes ui5-dialog-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.ui5-dialog-root.is-visible .ui5-dialog-container {
+  animation: ui5-dialog-appear 0.25s cubic-bezier(0.1, 0.7, 0.1, 1);
+}

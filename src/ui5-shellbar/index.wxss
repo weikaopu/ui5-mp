@@ -1,0 +1,59 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.ui5-shellbar {
+  height: 48px;
+  /* Fiori 标准 Shellbar 高度 */
+  background-color: var(--sap-shell-color);
+  color: var(--sap-text-inverted-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--sap-spacing-medium);
+  box-shadow: var(--sap-shadow-level-1);
+}
+
+.ui5-shellbar__left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.ui5-shellbar__logo {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: var(--sap-spacing-small);
+}
+
+.ui5-shellbar__title {
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ui5-shellbar__right {
+  display: flex;
+  align-items: center;
+  gap: var(--sap-spacing-small);
+  /* 动作图标之间的间距 */
+}
+
+.ui5-shellbar-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.ui5-shellbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  /* 充满 navBarHeight */
+  padding: 0 16rpx;
+}

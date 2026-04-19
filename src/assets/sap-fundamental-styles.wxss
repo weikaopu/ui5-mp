@@ -1,0 +1,123 @@
+/**
+ * 全局样式库应当严格对齐 SAP Fiori 3 (Quartz Light) 或最新的 Horizon 主题色调。
+ * ui5-mp: SAP Fiori Styles for Mini Program
+ * Core Design Tokens & Global Styles
+ */
+
+page {
+  /* --- Color Palette (SAP Quartz Light / Horizon) --- */
+  --sap-primary-color: #0854a0;
+  --sap-shell-color: #354a5f;
+  --sap-background-color: #f7f7f7;
+  --sap-content-color: #ffffff;
+
+  /* Semantic Colors */
+  --sap-success-color: #107e3e;
+  --sap-warning-color: #e9730c;
+  --sap-error-color: #bb0000;
+  --sap-information-color: #0a6ed1;
+  --sap-neutral-color: #6a6d70;
+
+  /* Text Colors */
+  --sap-text-color: #32363a;
+  --sap-text-secondary-color: #6a6d70;
+  --sap-text-inverted-color: #ffffff;
+
+  /* Border & Field Colors */
+  --sap-field-border-color: #89919a;
+  --sap-field-background-color: #ffffff;
+  --sap-group-title-color: #6a6d70;
+
+  /* --- Layout & Spacing --- */
+  --sap-spacing-tiny: 4px;
+  /* 0.25rem */
+  --sap-spacing-small: 8px;
+  /* 0.5rem */
+  --sap-spacing-medium: 16px;
+  /* 1rem */
+  --sap-spacing-large: 32px;
+  /* 2rem */
+
+  /* --- Borders & Shadows --- */
+  --sap-border-radius: 8px;
+  /* Horizon style uses larger radius, Quartz uses 4px */
+  --sap-shadow-level-1: 0 0 0.125rem 0 rgba(0, 0, 0, 0.1), 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.1);
+  --sap-shadow-level-2: 0 0 0.125rem 0 rgba(0, 0, 0, 0.1), 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
+
+  /* --- Typography --- */
+  /* 小程序默认系统字体，若需 72 字体需另外加载 */
+  --sap-font-size: 14px;
+  --sap-font-size-small: 12px;
+  --sap-font-size-large: 16px;
+  --sap-font-size-header: 20px;
+
+  /* Base Styles */
+  background-color: var(--sap-background-color);
+  color: var(--sap-text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: var(--sap-font-size);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+
+  /* SAP VizFrame Standard Palette */
+  --sap-viz-color-1: #5899da;
+  /* Blue */
+  --sap-viz-color-2: #e8743b;
+  /* Orange */
+  --sap-viz-color-3: #19a979;
+  /* Green */
+  --sap-viz-color-4: #ed4a7b;
+  /* Red */
+  --sap-viz-color-5: #945ecf;
+  /* Purple */
+  --sap-viz-grid-line: #f0f0f0;
+  --sap-viz-axis-label: #6a6d70;
+}
+
+/* 基础辅助类：快速应用 SAP 边距 */
+.fd-margin-md {
+  margin: var(--sap-spacing-medium);
+}
+
+.fd-margin-top-sm {
+  margin-top: var(--sap-spacing-small);
+}
+
+.fd-padding-md {
+  padding: var(--sap-spacing-medium);
+}
+
+/* 容器类：模拟 Fiori Page 布局 */
+.ui5-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 文本类：次要辅助文字 */
+.ui5-text-secondary {
+  color: var(--sap-text-secondary-color);
+  font-size: var(--sap-font-size-small);
+}
+
+/* 状态类：成功/错误等文本颜色 */
+.ui5-text-success {
+  color: var(--sap-success-color);
+}
+
+.ui5-text-error {
+  color: var(--sap-error-color);
+}
+
+/**
+ * 针对原生组件的重置 (Reset)
+ * 小程序的 button/input 等自带样式较重，需要在这里统一处理基础外观
+ */
+button::after {
+  border: none;
+}
+
+input {
+  font-family: inherit;
+}

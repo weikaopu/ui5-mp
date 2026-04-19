@@ -1,0 +1,17 @@
+<view class="ui5-viz-container">
+  <view class="ui5-viz-header" wx:if="{{title}}">
+    <text class="ui5-viz-title">{{title}}</text>
+  </view>
+
+  <view class="ui5-viz-chart-wrapper">
+    <!-- 使用 type="2d" 性能更好 -->
+    <canvas type="2d" id="columnChart" class="ui5-viz-canvas" bindtouchstart="handleTouch" bindtouchmove="handleTouch"
+      bindtouchend="handleHideTooltip"></canvas>
+
+    <!-- Tooltip 浮层 -->
+    <view class="ui5-viz-tooltip" wx:if="{{tooltip.show}}" style="left: {{tooltip.x}}px; top: {{tooltip.y}}px;">
+      <view class="ui5-viz-tooltip-label">{{tooltip.label}}</view>
+      <view class="ui5-viz-tooltip-value">{{tooltip.value}}</view>
+    </view>
+  </view>
+</view>

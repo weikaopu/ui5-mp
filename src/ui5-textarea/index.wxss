@@ -1,0 +1,43 @@
+:host {
+  display: block;
+  margin-bottom: var(--sap-spacing-medium);
+}
+
+.ui5-textarea__field-wrapper {
+  position: relative;
+  background-color: var(--sap-field-background-color);
+  border: 1px solid var(--sap-field-border-color);
+  border-radius: var(--sap-border-radius);
+  padding: 8px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  /* 当超过 max-height 时允许内部滚动 */
+}
+
+.ui5-textarea__inner {
+  width: 100%;
+  font-size: 14px;
+  color: var(--sap-text-color);
+  line-height: 21px;
+  /* 1.5 * 14px = 21px，必须固定以便计算高度 */
+  padding: 0;
+  margin: 0;
+}
+
+.ui5-textarea__counter {
+  position: absolute;
+  bottom: 4px;
+  right: 8px;
+  font-size: 11px;
+  color: var(--sap-text-secondary-color);
+}
+
+/* 状态样式直接复用 ui5-input 的 logic */
+.is-focused .ui5-textarea__field-wrapper {
+  border-width: 2px;
+  border-color: var(--sap-primary-color);
+  padding: 7px;
+  /* 补偿 1px 边框 */
+}

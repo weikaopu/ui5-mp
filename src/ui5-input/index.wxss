@@ -1,0 +1,116 @@
+:host {
+  display: block;
+  margin-bottom: var(--sap-spacing-medium);
+}
+
+.ui5-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.ui5-input__label {
+  font-size: 12px;
+  color: var(--sap-text-secondary-color);
+  margin-bottom: 4px;
+}
+
+.ui5-input__label.is-required::after {
+  content: "*";
+  color: var(--sap-error-color);
+  margin-left: 4px;
+}
+
+.ui5-input__field-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 36px;
+  background-color: var(--sap-field-background-color);
+  border: 1px solid var(--sap-field-border-color);
+  border-radius: var(--sap-border-radius);
+  padding: 0 8px;
+  transition: border 0.1s ease-in;
+}
+
+.ui5-input__inner {
+  flex: 1;
+  height: 100%;
+  font-size: 14px;
+  color: var(--sap-text-color);
+}
+
+/* --- Value States (语义化状态) --- */
+.ui5-input--Error .ui5-input__field-wrapper {
+  border-color: var(--sap-error-color);
+  border-width: 2px;
+}
+
+.ui5-input--Error .ui5-input__state-text {
+  color: var(--sap-error-color);
+}
+
+.ui5-input--Warning .ui5-input__field-wrapper {
+  border-color: var(--sap-warning-color);
+}
+
+.ui5-input--Warning .ui5-input__state-text {
+  color: var(--sap-warning-color);
+}
+
+.ui5-input--Success .ui5-input__field-wrapper {
+  border-color: var(--sap-success-color);
+}
+
+.ui5-input__state-text {
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+/* 禁用与只读 */
+.is-disabled {
+  opacity: 0.4;
+}
+
+.is-readonly .ui5-input__field-wrapper {
+  background-color: transparent;
+  border-style: dashed;
+}
+
+/* 焦点状态 */
+.is-focused .ui5-input__field-wrapper {
+  border-width: 2px;
+  /* Fiori Horizon 特色：Focus 时边框加粗 */
+  border-color: var(--sap-primary-color);
+  padding: 0 7px;
+  /* 补偿边框加粗带来的 1px 偏移，保持内容不晃动 */
+}
+
+/* Fiori 细节：Focus 时 Label 颜色也可以稍微加深或变蓝 */
+.is-focused .ui5-input__label {
+  color: var(--sap-primary-color);
+}
+
+/* 带有状态的焦点状态 */
+.ui5-input--Error.is-focused .ui5-input__field-wrapper {
+  border-color: var(--sap-error-color);
+}
+
+/* 水平布局模式 */
+.container--Horizontal {
+  flex-direction: row;
+  align-items: center;
+}
+
+.container--Horizontal .ui5-input__label {
+  width: 30%;
+  /* Label 占 30% 宽度 */
+  margin-bottom: 0;
+  padding-right: 12px;
+  text-align: right;
+  /* Fiori 规范：水平布局时 Label 通常右对齐 */
+}
+
+.container--Horizontal .ui5-input__field-wrapper {
+  flex: 1;
+  /* 输入框占满剩余空间 */
+}

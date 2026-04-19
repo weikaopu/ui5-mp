@@ -1,0 +1,3 @@
+<view class="ui5-segmented-button">
+  <slot></slot>
+</view>

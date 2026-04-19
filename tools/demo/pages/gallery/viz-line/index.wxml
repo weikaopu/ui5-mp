@@ -1,0 +1,34 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Viz Analytics Line" />
+
+  <view class="fd-padding-md">
+
+    <!-- 多线对比分析 -->
+    <ui5-card title="Operational Performance">
+      <view slot="action">
+        <text class="ui5-text-secondary" style="font-size: 12px;">Q1 2024</text>
+      </view>
+
+      <view class="fd-padding-md">
+        <ui5-viz-line title="Revenue vs Cost" series="{{performanceSeries}}" showLegend="{{true}}" />
+      </view>
+
+      <view class="fd-padding-md" style="border-top: 1px solid #f0f0f0;">
+        <view class="ui5-text-secondary">
+          Analysis: <text class="ui5-text-error" style="font-weight:bold;">Cost increased by 15%</text> in March due to
+          logistics.
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- 简单的单线趋势图 -->
+    <view class="fd-margin-top-sm">
+      <ui5-card title="Active Users (Weekly)">
+        <view class="fd-padding-md">
+          <ui5-viz-line series="{{userSeries}}" colorPalette="{{['#19a979']}}" showLegend="{{false}}" />
+        </view>
+      </ui5-card>
+    </view>
+
+  </view>
+</ui5-page>

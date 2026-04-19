@@ -1,0 +1,41 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Card Component" />
+
+  <view class="fd-padding-md">
+
+    <!-- 场景 1: 基础文本卡片 -->
+    <view class="gallery-section-title">Standard Card</view>
+    <ui5-card title="Contact Information" subtitle="Primary Contact Details" icon="home">
+      <view class="fd-padding-md">
+        <view class="ui5-text-secondary">Email: support@sap.com</view>
+        <view style="margin-top: 8px;">Address: 123 Science Avenue, Shanghai, China</view>
+      </view>
+    </ui5-card>
+
+    <!-- 场景 2: 列表卡片 (最经典的 Fiori 组合) -->
+    <view class="gallery-section-title">List Card</view>
+    <ui5-card title="Recent Orders" subtitle="Last 3 transactions" status="3 Total">
+      <ui5-list no-border>
+        <ui5-item title="MacBook Pro 16" description="Delivered on Oct 24" status="$2,499" />
+        <ui5-item title="iPhone 15 Pro" description="In Transit" status="$999" />
+        <ui5-item title="Magic Mouse" description="Pending Approval" status="$79" />
+      </ui5-list>
+    </ui5-card>
+
+    <!-- 场景 3: 交互式卡片 + 状态展示 -->
+    <view class="gallery-section-title">Interactive Analytical Card</view>
+    <ui5-card title="Project Alpha" subtitle="Development Phase" status="75%" icon="settings" interactive="{{true}}"
+      bind:click="onCardPress">
+      <view class="fd-padding-md">
+        <view style="display: flex; justify-content: space-between; align-items: center;">
+          <view>
+            <view class="ui5-text-success">Phase 1: Completed</view>
+            <view class="ui5-text-secondary">Next milestone: UAT</view>
+          </view>
+          <ui5-badge colorScheme="4" icon="accept">On Track</ui5-badge>
+        </view>
+      </view>
+    </ui5-card>
+
+  </view>
+</ui5-page>

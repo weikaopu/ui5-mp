@@ -1,0 +1,35 @@
+.ui5-toast-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 15%;
+  /* 弹出位置通常在页面中下方 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  pointer-events: none;
+  /* 穿透点击，不干扰页面操作 */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.ui5-toast-container.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ui5-toast {
+  background-color: rgba(50, 54, 58, 0.9);
+  /* SAP Quartz Dark 风格背景 */
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 20px;
+  /* 胶囊型 */
+  font-size: 14px;
+  box-shadow: var(--sap-shadow-level-2);
+  max-width: 80%;
+  text-align: center;
+  word-break: break-all;
+}

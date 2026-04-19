@@ -1,0 +1,23 @@
+<!-- 在 SAP Fiori 中，Dialog 是模态的，通常包含一个标题栏（Header）、可滚动的内容区（Content） 和一个固定在底部的按钮区（Footer）。 -->
+<view class="ui5-dialog-root {{visible ? 'is-visible' : ''}}" style="z-index: 1500;">
+  <!-- 遮罩层 -->
+  <view class="ui5-dialog-mask" bindtap="onMaskTap"></view>
+
+  <!-- 弹窗主体 -->
+  <view class="ui5-dialog-container">
+    <!-- Header -->
+    <view class="ui5-dialog-header">
+      <view class="ui5-dialog-title">{{headerText}}</view>
+    </view>
+
+    <!-- Content (可滚动)，使用 min-height 保证内容少时也不难看 -->
+    <scroll-view scroll-y class="ui5-dialog-content" style="min-height: 60px;">
+      <slot></slot>
+    </scroll-view>
+
+    <!-- Footer (放置动作按钮) -->
+    <view class="ui5-dialog-footer">
+      <slot name="footer"></slot>
+    </view>
+  </view>
+</view>

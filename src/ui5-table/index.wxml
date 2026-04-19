@@ -1,0 +1,14 @@
+<!-- 在 SAP Fiori 中，ui5-table（Responsive Table）是数据展示的灵魂。移动端表格与 PC 端最大
+的区别在于：它需要支持列的响应式隐藏（重要列显示，次要列折叠或隐藏）以及列对齐规范。 -->
+<view class="ui5-table">
+  <!-- 表头：只显示 mainColumns -->
+  <view class="ui5-table-header">
+    <view wx:for="{{mainColumns}}" wx:key="key" class="header-cell"
+      style="justify-content: {{item.halign || 'flex-start'}}">
+      {{item.name}}
+    </view>
+  </view>
+
+  <!-- 行内容槽位 -->
+  <slot></slot>
+</view>

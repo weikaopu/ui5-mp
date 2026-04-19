@@ -1,0 +1,11 @@
+<button 
+  class="ui5-btn ui5-btn--{{type}} {{disabled ? 'is-disabled' : ''}}" 
+  hover-class="ui5-btn--active"
+  disabled="{{disabled}}"
+  loading="{{loading}}"
+  bindtap="onTap"
+>
+  <view class="ui5-btn__inner">
+    <slot></slot>
+  </view>
+</button>

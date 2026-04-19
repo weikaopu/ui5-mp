@@ -1,0 +1,44 @@
+.ui5-page-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* SAP Fiori 设计准则建议：当全局加载开启时，应自动隐藏或抑制局部的加载状态。 */
+/* 当 ui5-page 处于 busy 状态时，隐藏所有局部的 busy-indicator (非全屏的那些) */
+/* FIXME Some selectors are not allowed in component wxss, including tag name selectors, ID selectors, and attribute selectors. */
+.ui5-page-wrapper[data-busy="true"] ui5-busy-indicator:not(.is-full-screen) {
+  display: none;
+}
+
+.ui5-page__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: var(--sap-shell-color);
+  overflow: hidden;
+  /* 防止内容溢出导致高度错觉 */
+}
+
+.ui5-page__content {
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 修复 Floating Footer 没效果的问题 */
+.ui5-page__footer.is-floating {
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom) + 16px);
+  left: 16px;
+  right: 16px;
+  width: auto;
+  z-index: 99;
+  border-radius: var(--sap-border-radius);
+  box-shadow: var(--sap-shadow-level-2);
+  background: var(--sap-content-color);
+  overflow: hidden;
+  border: 1px solid var(--sap-border-color);
+}

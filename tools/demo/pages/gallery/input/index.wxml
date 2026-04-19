@@ -1,0 +1,27 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Input Component" />
+
+  <view class="fd-padding-md">
+    <ui5-card title="Standard Inputs">
+      <view class="fd-padding-md">
+        <ui5-input label="Full Name" placeholder="Enter name" required />
+        <ui5-input label="Read-only Field" value="SAP Fiori" readonly />
+        <ui5-input label="Password" type="password" />
+      </view>
+    </ui5-card>
+
+    <ui5-card title="Value States">
+      <view class="fd-padding-md">
+        <ui5-input label="Error State" valueState="Error" valueStateText="Invalid email address" />
+        <ui5-input label="Warning State" valueState="Warning" valueStateText="Password is weak" />
+        <ui5-input label="Success State" valueState="Success" />
+      </view>
+    </ui5-card>
+
+    <ui5-card title="Horizontal Layout">
+      <view class="fd-padding-md">
+        <ui5-input label="Label Left" labelLayout="Horizontal" placeholder="Aligned to left" />
+      </view>
+    </ui5-card>
+  </view>
+</ui5-page>

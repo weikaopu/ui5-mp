@@ -1,0 +1,41 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Viz Analytics Dashboard" />
+
+  <view class="fd-padding-md">
+
+    <!-- 场景一：标准趋势图（单色） -->
+    <ui5-card title="Monthly Revenue">
+      <view slot="action">
+        <text class="ui5-text-success">↑ 12.5%</text>
+      </view>
+      <view class="fd-padding-md">
+        <ui5-viz-column title="Revenue (k USD)" data="{{monthlyData}}" colorPalette="{{['#5899da']}}" />
+      </view>
+    </ui5-card>
+
+    <!-- 场景二：多维度对比（多色 + 自定义调色盘） -->
+    <view class="fd-margin-top-sm">
+      <ui5-card title="Product Categories">
+        <view class="fd-padding-md">
+          <ui5-viz-column data="{{categoryData}}"
+            colorPalette="{{['#5899da', '#e8743b', '#19a979', '#ed4a7b', '#945ecf']}}" />
+        </view>
+      </ui5-card>
+    </view>
+
+    <!-- 场景三：交互联动（使用之前的 Slider 控制图表数据） -->
+    <view class="fd-margin-top-sm">
+      <ui5-card title="Dynamic Simulation">
+        <view class="fd-padding-md">
+          <view class="ui5-text-secondary" style="margin-bottom: 20px;">Adjust threshold for Project A:</view>
+          <ui5-slider value="{{simValue}}" min="100" max="900" bind:change="onSimChange" />
+
+          <view style="margin-top: 20px;">
+            <ui5-viz-column data="{{simData}}" />
+          </view>
+        </view>
+      </ui5-card>
+    </view>
+
+  </view>
+</ui5-page>

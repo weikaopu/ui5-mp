@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "ui5-card": "../../../components/ui5-card",
+    "ui5-checkbox": "../../../components/ui5-checkbox",
+    "ui5-checkbox-group": "../../../components/ui5-checkbox-group",
+    "ui5-item": "../../../components/ui5-item",
+    "ui5-page": "../../../components/ui5-page",
+    "ui5-select": "../../../components/ui5-select",
+    "ui5-shellbar": "../../../components/ui5-shellbar",
+    "ui5-switch": "../../../components/ui5-switch"
+  }
+}

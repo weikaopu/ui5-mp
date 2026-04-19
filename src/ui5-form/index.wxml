@@ -1,0 +1,4 @@
+<view class="ui5-form">
+  <view wx:if="{{title}}" class="ui5-form__title">{{title}}</view>
+  <slot></slot>
+</view>

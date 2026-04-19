@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  margin: var(--sap-spacing-medium) 0;
+}
+
+.ui5-list-container {
+  background-color: var(--sap-content-color);
+  border-top: 1px solid var(--sap-border-color);
+  border-bottom: 1px solid var(--sap-border-color);
+}
+
+.ui5-list__header {
+  padding: var(--sap-spacing-small) var(--sap-spacing-medium);
+  background-color: var(--sap-background-color);
+  color: var(--sap-text-secondary-color);
+  font-size: var(--sap-font-size-small);
+  text-transform: uppercase;
+}
+
+.ui5-list__footer {
+  padding: var(--sap-spacing-small) var(--sap-spacing-medium);
+  color: var(--sap-text-secondary-color);
+  font-size: var(--sap-font-size-small);
+  border-top: 1px solid var(--sap-border-color);
+}
+
+/* 如果不需要最后一行分割线，可以通过此处的子元素选择器控制，
+   但由于小程序 Shadow DOM 限制，通常在 ui5-item 里处理 border-bottom */
+.ui5-list--no-border .ui5-li {
+  border-bottom: none;
+}

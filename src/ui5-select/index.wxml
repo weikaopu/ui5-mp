@@ -1,0 +1,17 @@
+<view class="ui5-select-container ui5-select--{{valueState}} {{disabled ? 'is-disabled' : ''}}">
+  <view wx:if="{{label}}" class="ui5-select__label">{{label}}</view>
+
+  <view class="ui5-select__field-wrapper" bindtap="onOpen">
+    <view class="ui5-select__inner {{!selectedText ? 'is-placeholder' : ''}}">
+      {{selectedText || placeholder}}
+    </view>
+    <view class="ui5-select__icon-area">
+      <!-- Fiori 风格的下拉箭头 -->
+      <view class="ui5-select__arrow"></view>
+    </view>
+  </view>
+
+  <view wx:if="{{valueStateText && valueState !== 'None'}}" class="ui5-input__state-text">
+    {{valueStateText}}
+  </view>
+</view>

@@ -1,0 +1,27 @@
+<view class="ui5-table-row" hover-class="ui5-table-row--active">
+  <!-- 1. 主行区域：横向展示非 Popin 列 -->
+  <view class="ui5-table-row__main">
+    <view wx:for="{{mainCells}}" wx:key="key" class="ui5-table-row__cell"
+      style="flex: {{item.width || 1}}; justify-content: {{item.halign || 'flex-start'}};">
+      <!-- 根据 key 从 data 对象取值 -->
+      <view class="{{item.isTitle ? 'ui5-table-row__title' : ''}}">
+        {{data[item.key]}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 2. Popin 区域：纵向展示所有 demandPopin 为 true 的列 -->
+  <view class="ui5-table-row__popin" wx:if="{{popinCells.length > 0}}">
+    <view wx:for="{{popinCells}}" wx:key="key" class="ui5-table-row__popin-item">
+      <text class="ui5-table-row__popin-label">{{item.name}}:</text>
+      <view class="ui5-table-row__popin-value">
+        <!-- 如果是状态类型，渲染 Badge -->
+        <ui5-badge wx:if="{{item.type === 'status'}}" colorScheme="{{data[item.stateKey]}}">
+          {{data[item.key]}}
+        </ui5-badge>
+        <!-- 如果是普通文本 -->
+        <text wx:else>{{data[item.key]}}</text>
+      </view>
+    </view>
+  </view>
+</view>

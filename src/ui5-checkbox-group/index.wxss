@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  margin-bottom: var(--sap-spacing-medium);
+}
+
+.ui5-group-label {
+  font-size: 12px;
+  color: var(--sap-text-secondary-color);
+  margin-bottom: 8px;
+}
+
+.ui5-group-content {
+  display: flex;
+  flex-direction: column;
+  /* 默认垂直排列 */
+}

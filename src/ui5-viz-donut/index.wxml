@@ -1,0 +1,26 @@
+<view class="ui5-viz-container">
+  <view class="ui5-viz-header" wx:if="{{title}}">
+    <text class="ui5-viz-title">{{title}}</text>
+  </view>
+
+  <view class="ui5-viz-chart-wrapper">
+    <canvas type="2d" id="donutChart" class="ui5-viz-canvas" bindtouchstart="handleTouch"></canvas>
+
+    <!-- Donut Tooltip -->
+    <view class="ui5-viz-tooltip" wx:if="{{tooltip.show}}" style="left: {{tooltip.x}}px; top: {{tooltip.y}}px;">
+      <view class="ui5-viz-tooltip-item">
+        <view class="ui5-viz-tooltip-marker" style="background: {{tooltip.color}}"></view>
+        <text class="ui5-viz-tooltip-name">{{tooltip.label}}</text>
+      </view>
+      <view class="ui5-viz-tooltip-value">{{tooltip.value}} ({{tooltip.percent}}%)</view>
+    </view>
+  </view>
+
+  <!-- 图例 -->
+  <view class="ui5-viz-legend" wx:if="{{showLegend && data.length > 0}}">
+    <view class="ui5-viz-legend-item" wx:for="{{data}}" wx:key="name">
+      <view class="ui5-viz-legend-icon" style="background: {{colorPalette[index % colorPalette.length]}}"></view>
+      <text class="ui5-viz-legend-text">{{item.name}}</text>
+    </view>
+  </view>
+</view>

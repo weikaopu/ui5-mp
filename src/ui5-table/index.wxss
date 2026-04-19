@@ -1,0 +1,43 @@
+.ui5-table-header {
+  display: flex;
+  background-color: #f7f7f7;
+  border-bottom: 2rpx solid #e5e5e5;
+  padding: 20rpx 10rpx;
+}
+.header-cell {
+  flex: 1;
+  font-size: 24rpx;
+  color: #666;
+  font-weight: bold;
+  display: flex;
+}
+.ui5-table-row {
+  border-bottom: 1rpx solid #eee;
+}
+.main-content {
+  display: flex;
+  padding: 30rpx 10rpx;
+}
+.cell {
+  flex: 1;
+  font-size: 28rpx;
+  display: flex;
+}
+.cell-title {
+  font-weight: bold;
+  color: #346187; /* UI5 经典蓝色调 */
+}
+.popin-content {
+  background-color: #fcfcfc;
+  padding: 20rpx 40rpx;
+  border-top: 1rpx solid #f0f0f0;
+}
+.popin-line {
+  display: flex;
+  margin-bottom: 15rpx;
+  font-size: 26rpx;
+}
+.popin-label {
+  width: 200rpx;
+  color: #888;
+}

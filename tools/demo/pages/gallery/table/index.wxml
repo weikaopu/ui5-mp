@@ -1,0 +1,20 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Responsive Table" />
+
+  <view class="fd-padding-md">
+    <ui5-message-strip type="information" hideCloseButton>
+      The columns 'Supplier' and 'Weight' are configured to pop-in on mobile screens.
+    </ui5-message-strip>
+
+    <view style="margin-top: 16px;">
+      <ui5-table columns="{{tableColumns}}" empty="{{products.length === 0}}">
+        <!--
+          使用通用版 ui5-table-row
+          它会根据 columns 里的 demandPopin 自动分发内容
+        -->
+        <ui5-table-row wx:for="{{products}}" wx:key="id" columns="{{tableColumns}}" data="{{item}}"
+          bind:click="onRowSelect" />
+      </ui5-table>
+    </view>
+  </view>
+</ui5-page>

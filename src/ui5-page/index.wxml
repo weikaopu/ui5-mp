@@ -1,0 +1,22 @@
+<view class="ui5-page-wrapper" style="--ui5-global-busy: {{busy ? 1 : 0}};">
+  <!-- 顶层 Header -->
+  <view class="ui5-page__header" style="height: {{totalHeaderHeight}}px;">
+    <!-- 将高度下传给 shellbar -->
+    <slot name="header"></slot>
+  </view>
+
+  <!-- 主体内容 -->
+  <scroll-view scroll-y class="ui5-page__content" style="padding-top: {{totalHeaderHeight}}px;">
+    <slot></slot>
+    <!-- 悬浮底部的占位 -->
+    <view wx:if="{{floatingFooter}}" style="height: 100px; width: 100%;"></view>
+  </scroll-view>
+
+  <!-- 底部栏 -->
+  <view class="ui5-page__footer {{floatingFooter ? 'is-floating' : ''}}">
+    <!-- TODO <button>floating footer</button> -->
+  </view>
+
+  <!-- 全屏遮罩放在页面最底部 -->
+  <ui5-busy-indicator active="{{busy}}" fullScreen="{{true}}" text="{{busyText}}" />
+</view>

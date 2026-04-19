@@ -1,0 +1,57 @@
+:host {
+  display: block;
+  background-color: var(--sap-content-color);
+}
+
+.ui5-tc__header {
+  width: 100%;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--sap-border-color);
+  background-color: var(--sap-background-color);
+}
+
+.ui5-tc__tabs {
+  display: flex;
+  padding: 0 8px;
+}
+
+.ui5-tab-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 16px;
+  color: var(--sap-text-secondary-color);
+  transition: all 0.2s;
+}
+
+.ui5-tab-item__text {
+  font-size: 14px;
+}
+
+.ui5-tab-item__icon {
+  margin-bottom: 4px;
+}
+
+/* 选中状态 */
+.ui5-tab-item.is-selected {
+  color: var(--sap-primary-color);
+}
+
+.ui5-tab-item__line {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 3px;
+  background-color: transparent;
+  border-radius: 3px 3px 0 0;
+}
+
+.is-selected .ui5-tab-item__line {
+  background-color: var(--sap-primary-color);
+}
+
+.ui5-tc__content {
+  padding: 16px;
+}

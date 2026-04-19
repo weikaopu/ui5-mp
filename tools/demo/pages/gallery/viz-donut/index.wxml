@@ -1,0 +1,35 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Viz Analytics Donut" />
+
+  <view class="fd-padding-md">
+
+    <!-- 场景一：库存分布（标准环形图） -->
+    <ui5-card title="Inventory Distribution">
+      <view slot="action">
+        <text class="ui5-text-secondary" style="font-size: 12px;">Global Warehouse</text>
+      </view>
+
+      <view class="fd-padding-md">
+        <ui5-viz-donut title="Stock by Region" data="{{inventoryData}}" showLegend="{{true}}" />
+      </view>
+
+      <view class="fd-padding-md" style="border-top: 1px solid #f0f0f0;">
+        <view class="ui5-text-secondary">
+          Summary: <text class="ui5-text-success" style="font-weight:bold;">EMEA Region</text> holds the largest share
+          of assets.
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- 场景二：紧凑模式（调整孔径比例） -->
+    <view class="fd-margin-top-sm">
+      <ui5-card title="System Health">
+        <view class="fd-padding-md">
+          <ui5-viz-donut data="{{healthData}}" innerRadiusRatio="{{0.8}}"
+            colorPalette="{{['#107e3e', '#bb0000', '#e9730c']}}" showLegend="{{true}}" />
+        </view>
+      </ui5-card>
+    </view>
+
+  </view>
+</ui5-page>

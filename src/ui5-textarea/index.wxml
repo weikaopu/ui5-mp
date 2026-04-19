@@ -1,0 +1,18 @@
+<view class="ui5-input-container {{isFocused ? 'is-focused' : ''}} ui5-input--{{valueState}}">
+  <view wx:if="{{label}}" class="ui5-input__label">{{label}}</view>
+
+  <view class="ui5-textarea__field-wrapper"
+    style="min-height: {{computedMinHeight}}; max-height: {{computedMaxHeight}};">
+    <textarea class="ui5-textarea__inner" value="{{value}}" placeholder="{{placeholder}}"
+      disabled="{{disabled || readonly}}" maxlength="{{maxlength}}" auto-height="{{growing}}"
+      style="min-height: {{computedMinHeight}};" bindinput="onInput" bindfocus="onFocus" bindblur="onBlur" />
+    <!-- 字数统计 -->
+    <view wx:if="{{showExceededText}}" class="ui5-textarea__counter">
+      {{value.length || 0}}/{{maxlength}}
+    </view>
+  </view>
+
+  <view wx:if="{{valueStateText && valueState !== 'None'}}" class="ui5-input__state-text">
+    {{valueStateText}}
+  </view>
+</view>

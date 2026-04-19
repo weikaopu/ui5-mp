@@ -1,0 +1,27 @@
+<!-- 专门用于需要精确控制数值增减的场景。它的核心特征是：中间是数值输入框，左右两侧分别是减号（-）和加号（+）按钮，且支持步长（Step）、最大值（Max）和最小值（Min）限制。 -->
+<view
+  class="ui5-step-input {{disabled ? 'is-disabled' : ''}} {{readonly ? 'is-readonly' : ''}} ui5-input--{{valueState}}">
+  <view wx:if="{{label}}" class="ui5-step-input__label">{{label}}</view>
+
+  <view class="ui5-step-input__field-wrapper">
+    <!-- 减号按钮 -->
+    <view
+      class="ui5-step-input__action ui5-step-input__action--decrement {{ (value <= min || disabled || readonly) ? 'is-button-disabled' : '' }}"
+      bindtouchstart="onStartDecrement" bindtouchend="onStopCounter" bindtouchcancel="onStopCounter"
+      hover-class="ui5-step-input__action--active">
+      <view class="icon-minus"></view>
+    </view>
+
+    <!-- 数值输入区 -->
+    <input class="ui5-step-input__inner" type="digit" value="{{value}}" disabled="{{disabled || readonly}}"
+      bindinput="onInput" bindblur="onBlur" />
+
+    <!-- 加号按钮 -->
+    <view
+      class="ui5-step-input__action ui5-step-input__action--increment {{ (value >= (max || 999999) || disabled || readonly) ? 'is-button-disabled' : '' }}"
+      bindtouchstart="onStartIncrement" bindtouchend="onStopCounter" bindtouchcancel="onStopCounter"
+      hover-class="ui5-step-input__action--active">
+      <view class="icon-plus"></view>
+    </view>
+  </view>
+</view>

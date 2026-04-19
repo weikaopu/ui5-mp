@@ -1,0 +1,6 @@
+.gallery-section-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--sap-text-secondary-color);
+  margin: 24px 16px 8px;
+}

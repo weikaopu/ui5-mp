@@ -1,0 +1,45 @@
+<ui5-page busy="{{isGlobalLoading}}" busy-text="Processing Request...">
+  <ui5-shellbar slot="header" title="Dialog Scenarios" />
+
+  <view class="fd-padding-md">
+    <ui5-message-strip type="information">
+      Click the button below to trigger a complex form dialog with validation and async states.
+    </ui5-message-strip>
+
+    <view style="margin-top: 20px;">
+      <ui5-button type="emphasized" bind:click="openFormDialog">Create New Product</ui5-button>
+    </view>
+  </view>
+
+  <!-- 复杂表单弹窗 -->
+  <ui5-dialog id="formDialog" visible="{{dialogVisible}}" header-text="Product Details">
+    <!-- 内容区：表单录入 -->
+    <view class="fd-padding-md">
+      <ui5-input label="Product Name" placeholder="Enter name" value="{{formData.name}}" required
+        valueState="{{formErrors.name ? 'Error' : 'None'}}" valueStateText="Name is required"
+        bind:change="onNameChange" />
+
+      <ui5-select label="Category" options="{{categories}}" value="{{formData.category}}"
+        bind:change="onCategoryChange" />
+
+      <ui5-step-input label="Initial Quantity" value="{{formData.qty}}" min="0" max="10" bind:change="onQtyChange" />
+
+      <ui5-message-strip wx:if="{{submitError}}" type="error">
+        Failed to save data. Please check your network.
+      </ui5-message-strip>
+    </view>
+
+    <!-- 底部按钮：多状态处理 -->
+    <view slot="footer">
+      <ui5-button type="transparent" bind:click="closeDialog" disabled="{{isSubmitting}}">
+        Cancel
+      </ui5-button>
+      <ui5-button type="emphasized" bind:click="onSubmit" loading="{{isSubmitting}}">
+        Save Product
+      </ui5-button>
+    </view>
+  </ui5-dialog>
+
+  <!-- 成功提示 -->
+  <ui5-toast id="successToast">Product created successfully!</ui5-toast>
+</ui5-page>

@@ -1,0 +1,12 @@
+<view class="ui5-avatar ui5-avatar--{{size}} ui5-avatar--{{shape}} ui5-avatar--accent{{accentColor}}" bindtap="onTap">
+  <!-- 优先显示图片 -->
+  <image wx:if="{{image}}" class="ui5-avatar__img" src="{{image}}" mode="aspectFill" />
+  <!-- 其次显示缩写 -->
+  <view wx:elif="{{initials}}" class="ui5-avatar__initials">
+    {{initials}}
+  </view>
+  <!-- 最后显示图标 (支持传入的 icon 属性或默认 contact) -->
+  <view wx:else class="ui5-avatar__icon">
+    <ui5-icon name="{{icon || 'contact'}}" size="{{iconSize}}" />
+  </view>
+</view>

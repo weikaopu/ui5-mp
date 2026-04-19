@@ -1,0 +1,37 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Textarea" />
+
+  <view class="fd-padding-md">
+
+    <!-- 基础多行输入 -->
+    <ui5-card title="Basic Textarea">
+      <view class="fd-padding-md">
+        <ui5-textarea label="Notes" placeholder="Enter your notes here..." bind:change="onTextChange" />
+      </view>
+    </ui5-card>
+
+    <!-- 带字数限制和统计 -->
+    <ui5-card title="Counter & Auto-height">
+      <view class="fd-padding-md">
+        <ui5-textarea label="Detailed Description" placeholder="This textarea expands as you type" maxlength="200"
+          showExceededText autoHeight value="{{longText}}" />
+        <view class="ui5-text-secondary fd-margin-top-sm">开启 autoHeight 后，高度随内容自动撑开</view>
+      </view>
+    </ui5-card>
+
+    <ui5-card title="Growing Textarea">
+      <ui5-textarea label="Growing Textarea" growing="{{true}}" rows="2" growingMaxLines="6"
+        placeholder="Type a long story..." />
+    </ui5-card>
+
+    <!-- 语义化状态 -->
+    <ui5-card title="Value States">
+      <view class="fd-padding-md">
+        <ui5-textarea label="Error State" value="Invalid content text" valueState="Error"
+          valueStateText="This content contains restricted words." />
+        <ui5-textarea label="Disabled State" value="You cannot edit this content" disabled style="margin-top: 16px;" />
+      </view>
+    </ui5-card>
+
+  </view>
+</ui5-page>

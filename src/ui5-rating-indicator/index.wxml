@@ -1,0 +1,9 @@
+<view class="ui5-rating {{disabled ? 'is-disabled' : ''}} {{readonly ? 'is-readonly' : ''}}">
+  <view wx:if="{{label}}" class="ui5-rating__label">{{label}}</view>
+
+  <view class="ui5-rating__stars">
+    <view wx:for="{{max}}" wx:key="*this" class="ui5-rating__star-container" bindtap="onTap" data-index="{{index + 1}}">
+      <view class="ui5-star {{ (value >= index + 1) ? 'is-selected' : '' }}"></view>
+    </view>
+  </view>
+</view>

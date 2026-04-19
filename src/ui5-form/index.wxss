@@ -1,0 +1,11 @@
+:host {
+  display: block;
+  padding: var(--sap-spacing-medium);
+}
+
+.ui5-form__title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--sap-text-color);
+  margin-bottom: var(--sap-spacing-medium);
+}
