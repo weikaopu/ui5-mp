@@ -2,11 +2,11 @@
   <view class="ui5-switch__track">
     <!-- 开关内的文本/图标预览 -->
     <view class="ui5-switch__text ui5-switch__text--on">
-      <ui5-icon name="accept" size="10" wx:if="{{graphical}}" />
+      <ui5-icon src="sap-icon://accept" size="10" wx:if="{{graphical}}" />
       <text wx:else>ON</text>
     </view>
     <view class="ui5-switch__text ui5-switch__text--off">
-      <ui5-icon name="decline" size="10" wx:if="{{graphical}}" />
+      <ui5-icon src="sap-icon://decline" size="10" wx:if="{{graphical}}" />
       <text wx:else>OFF</text>
     </view>
     <!-- 滑块 -->

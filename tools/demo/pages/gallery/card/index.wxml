@@ -5,7 +5,7 @@
 
     <!-- 场景 1: 基础文本卡片 -->
     <view class="gallery-section-title">Standard Card</view>
-    <ui5-card title="Contact Information" subtitle="Primary Contact Details" icon="home">
+    <ui5-card title="Contact Information" subtitle="Primary Contact Details" icon="sap-icon://home">
       <view class="fd-padding-md">
         <view class="ui5-text-secondary">Email: support@sap.com</view>
         <view style="margin-top: 8px;">Address: 123 Science Avenue, Shanghai, China</view>
@@ -24,15 +24,15 @@
 
     <!-- 场景 3: 交互式卡片 + 状态展示 -->
     <view class="gallery-section-title">Interactive Analytical Card</view>
-    <ui5-card title="Project Alpha" subtitle="Development Phase" status="75%" icon="settings" interactive="{{true}}"
-      bind:click="onCardPress">
+    <ui5-card title="Project Alpha" subtitle="Development Phase" status="75%" icon="sap-icon://settings"
+      interactive="{{true}}" bind:click="onCardPress">
       <view class="fd-padding-md">
         <view style="display: flex; justify-content: space-between; align-items: center;">
           <view>
             <view class="ui5-text-success">Phase 1: Completed</view>
             <view class="ui5-text-secondary">Next milestone: UAT</view>
           </view>
-          <ui5-badge colorScheme="4" icon="accept">On Track</ui5-badge>
+          <ui5-badge colorScheme="4" icon="sap-icon://accept">On Track</ui5-badge>
         </view>
       </view>
     </ui5-card>

@@ -4,7 +4,7 @@
     <view class="ui5-shellbar__left">
       <!-- 返回按钮：只有在非首页（可以返回）时显示 -->
       <view wx:if="{{showBack}}" class="ui5-shellbar__back" bindtap="onBackTap">
-        <ui5-icon name="arrow-left" size="10" />
+        <ui5-icon src="sap-icon://navigation-left-arrow" size="10" />
       </view>
 
       <image wx:if="{{logo}}" class="ui5-shellbar__logo" src="{{logo}}" mode="aspectFit" bindtap="onLogoTap" />

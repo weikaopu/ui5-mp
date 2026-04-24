@@ -22,6 +22,8 @@
     </ui5-list>
 
     <ui5-list header-text="表单">
+      <ui5-item title="Text" description="展示文本排版与行数截断示例。" type="Navigation" bind:click="navTo" data-url="text" />
+      <ui5-item title="Title" description="标题级别与对齐示例。" type="Navigation" bind:click="navTo" data-url="title" />
       <ui5-item title="Input" description="展示输入组件的各种状态变体（如 Default, Error, Disabled 等）。" type="Navigation"
         bind:click="navTo" data-url="input" />
       <ui5-item title="Step Input" description="展示其对数值范围的选择控制、长按连发的便利性以及在不同语义化状态（ValueState）下的视觉反馈。" type="Navigation"
@@ -40,7 +42,8 @@
         type="Navigation" bind:click="navTo" data-url="feedback" />
       <ui5-item title="Rating" description="演示其在交互模式与只读模式下的状态差异，以及它作为一种直观的语义化评分工具在业务场景中的应用。" type="Navigation"
         bind:click="navTo" data-url="rating" />
-      <ui5-item title="Icon" description="TODO" type="Navigation" bind:click="navTo" data-url="icon" />
+      <ui5-item title="Icon" description="实现一个类似 SAP Icon Explorer" type="Navigation" bind:click="navTo"
+        data-url="icon" />
       <ui5-item title="Table" description="演示将重点展示如何通过一份 columns 配置，让表格在手机窄屏上自动将次要信息（如供应商、重量、尺寸）折叠到主行下方。"
         type="Navigation" bind:click="navTo" data-url="table" />
     </ui5-list>
@@ -54,8 +57,9 @@
         bind:click="navTo" data-url="viz-line" />
     </ui5-list>
 
-    <ui5-list header-text="流程 Process Flow">
-      <ui5-item title="WIP" description="work in progress" type="Navigation" bind:click="navTo" data-url="todo" />
+    <ui5-list header-text="流程">
+      <ui5-item title="Process Flow" description="流程节点状态与进度展示" type="Navigation" bind:click="navTo"
+        data-url="process-flow" />
     </ui5-list>
 
   </view>

@@ -1,3 +1,5 @@
+// https://ui5.github.io/webcomponents/components/fiori/Page/
+
 Component({
   options: {
     multipleSlots: true,

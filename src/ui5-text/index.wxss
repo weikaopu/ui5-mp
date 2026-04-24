@@ -1,0 +1,59 @@
+.ui5-text {
+  display: block;
+  line-height: 1.5;
+  word-break: break-word;
+  color: var(--sap-text-color, #22313f);
+}
+
+.ui5-text--h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.ui5-text--h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.ui5-text--h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.ui5-text--h4 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.ui5-text--h5 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.ui5-text--subtitle {
+  font-size: 14px;
+  color: var(--sap-text-subtle-color, #6f7d8c);
+}
+
+.ui5-text--body {
+  font-size: 14px;
+}
+
+.ui5-text--small {
+  font-size: 12px;
+}
+
+.ui5-text--subtle {
+  color: var(--sap-text-subtle-color, #6f7d8c);
+}
+
+.ui5-text--emphasized {
+  font-weight: 600;
+}
+
+.ui5-text--no-wrap {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

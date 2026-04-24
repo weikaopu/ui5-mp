@@ -7,6 +7,6 @@
   </view>
   <!-- 最后显示图标 (支持传入的 icon 属性或默认 contact) -->
   <view wx:else class="ui5-avatar__icon">
-    <ui5-icon name="{{icon || 'contact'}}" size="{{iconSize}}" />
+    <ui5-icon src="{{icon}}" size="{{iconSize}}" />
   </view>
 </view>

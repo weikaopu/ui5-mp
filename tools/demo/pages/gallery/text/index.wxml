@@ -1,0 +1,37 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Text Component" />
+
+  <view class="fd-padding-md">
+    <ui5-card title="Text Level">
+      <view class="fd-padding-md">
+        <ui5-text level="H1" design="Emphasized">Headline 1</ui5-text>
+        <ui5-text level="H2" style="margin-top: 10px;">Headline 2</ui5-text>
+        <ui5-text level="H3" design="Subtle" style="margin-top: 10px;">Headline 3 Subtle</ui5-text>
+      </view>
+    </ui5-card>
+
+    <ui5-card title="正文与截断">
+      <view class="fd-padding-md">
+        <ui5-text maxLines="2">
+          这是一个 ui5-text 的多行文本示例。组件支持最大行数限制，超过后自动应用省略号。适合用作卡片摘要、说明文本等场景。
+        </ui5-text>
+      </view>
+    </ui5-card>
+
+    <ui5-card title="禁止换行">
+      <view class="fd-padding-md">
+        <ui5-text wrapping="false" level="Body">
+          这是一个禁止换行的 ui5-text 示例。长文本会被截断并显示省略号，适用于单行标签和导航项。
+        </ui5-text>
+      </view>
+    </ui5-card>
+
+    <ui5-card title="Small / Subtle 文本">
+      <view class="fd-padding-md">
+        <ui5-text level="Small" design="Subtle">
+          Small text with subtle design, commonly used for secondary labels or help text.
+        </ui5-text>
+      </view>
+    </ui5-card>
+  </view>
+</ui5-page>

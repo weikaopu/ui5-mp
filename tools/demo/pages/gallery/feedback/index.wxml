@@ -4,8 +4,7 @@
   <view class="fd-padding-md">
 
     <!-- MessageStrip: 页面内嵌通知 -->
-    <view class="gallery-section-title">Message Strip</view>
-    <ui5-card>
+    <ui5-card title="Message Strip">
       <view class="fd-padding-md">
         <ui5-message-strip type="information" hideCloseButton="true">
           Information: New updates are available for this product.
@@ -26,8 +25,7 @@
     </ui5-card>
 
     <!-- Busy Indicator: 局部与全屏加载 -->
-    <view class="gallery-section-title">Busy Indicator</view>
-    <ui5-card title="Loading States">
+    <ui5-card title="Busy Indicator, Loading States">
       <view class="fd-padding-md" style="text-align: center;">
         <view class="ui5-text-secondary">Local Loading (Small):</view>
         <ui5-busy-indicator active size="S" />
@@ -40,8 +38,7 @@
     </ui5-card>
 
     <!-- Toast: 轻量化弹出提示 -->
-    <view class="gallery-section-title">Toast Message</view>
-    <ui5-card>
+    <ui5-card title="Toast Message">
       <view class="fd-padding-md">
         <ui5-button type="transparent" bind:click="showToast">
           Show Toast Notification
@@ -52,5 +49,5 @@
   </view>
 
   <!-- 全局组件定义 -->
-  <ui5-toast id="demoToast">Message Sent Successfully!</ui5-toast>
+  <ui5-toast id="demoToast"></ui5-toast>
 </ui5-page>

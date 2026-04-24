@@ -1,0 +1,26 @@
+<view class="ui5-process-flow {{_orientationClass}}">
+  <block wx:for="{{_nodes}}" wx:key="key">
+    <view class="ui5-process-flow__item {{item.stateClass}} {{item.active ? 'active' : ''}}" data-key="{{item.key}}"
+      bindtap="onNodeClick">
+      <view class="ui5-process-flow__marker-row">
+        <view class="ui5-process-flow__marker {{item.completed ? 'completed' : ''}} {{item.active ? 'active' : ''}}">
+          <block wx:if="{{item.icon}}">
+            <ui5-icon src="{{item.icon}}" />
+          </block>
+          <block wx:else>
+            <text>{{item.index}}</text>
+          </block>
+        </view>
+        <view class="ui5-process-flow__connector {{item.completed ? 'completed' : ''}}" wx:if="{{!item.isLast}}" />
+      </view>
+      <view class="ui5-process-flow__content">
+        <view class="ui5-process-flow__title">{{item.title}}</view>
+        <view class="ui5-process-flow__subtitle">{{item.subtitle}}</view>
+        <view class="ui5-process-flow__description">{{item.description}}</view>
+        <view class="ui5-process-flow__badge-row">
+          <ui5-badge type="{{item.badgeType}}" text="{{item.statusText || item.status || ''}}" />
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

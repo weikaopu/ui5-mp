@@ -1,8 +1,13 @@
-<view class="ui5-badge ui5-badge--{{colorScheme}}">
+<view class="ui5-badge ui5-badge--{{_colorScheme}}">
   <view wx:if="{{icon}}" class="ui5-badge__icon">
-    <ui5-icon name="{{icon}}" size="10" />
+    <ui5-icon src="{{icon}}" size="10" />
   </view>
-  <text class="ui5-badge__text">
-    <slot></slot>
-  </text>
+  <view class="ui5-badge__text">
+    <block wx:if="{{text}}">
+      {{text}}
+    </block>
+    <block wx:else>
+      <slot />
+    </block>
+  </view>
 </view>

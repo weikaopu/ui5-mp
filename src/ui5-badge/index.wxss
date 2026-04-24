@@ -6,6 +6,7 @@
 .ui5-badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   height: 20px;
   padding: 0 8px;
   border-radius: 10px;
@@ -20,6 +21,13 @@
   margin-right: 4px;
   display: flex;
   align-items: center;
+}
+
+.ui5-badge__text {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  font-size: 12px;
 }
 
 /* --- 颜色方案 (SAP 语义化配色) --- */

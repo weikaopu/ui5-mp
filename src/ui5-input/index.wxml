@@ -1,6 +1,7 @@
 <!-- 在 SAP Fiori 规范（特别是 Horizon 主题）中，输入框不仅仅是一个输入区域，它是一个包含 Label（标签）、Content（输入区） 和 State Message（状态反馈） 的组合体。 -->
 
-<view class="ui5-input-container container--{{labelLayout}} {{isFocused ? 'is-focused' : ''}} {{readonly ? 'is-readonly' : ''}} {{disabled ? 'is-disabled' : ''}} ui5-input--{{valueState}}">
+<view
+  class="ui5-input-container container--{{labelLayout}} {{isFocused ? 'is-focused' : ''}} {{readonly ? 'is-readonly' : ''}} {{disabled ? 'is-disabled' : ''}} ui5-input--{{valueState}}">
   <!-- 标签部分 -->
   <view wx:if="{{label}}" class="ui5-input__label {{required ? 'is-required' : ''}}">
     {{label}}
@@ -8,23 +9,15 @@
 
   <!-- 输入主体 -->
   <view class="ui5-input__field-wrapper">
-    <input
-      class="ui5-input__inner"
-      value="{{value}}"
-      placeholder="{{placeholder}}"
-      placeholder-class="ui5-input__placeholder"
-      password="{{type === 'password'}}"
-      type="{{type === 'number' ? 'number' : 'text'}}"
-      disabled="{{disabled || readonly}}"
-      bindinput="onInput"
-      bindfocus="onFocus"
-      bindblur="onBlur"
-    />
+    <input class="ui5-input__inner" value="{{value}}" placeholder="{{placeholder}}"
+      placeholder-class="ui5-input__placeholder" password="{{type === 'password'}}"
+      type="{{type === 'number' ? 'number' : 'text'}}" disabled="{{disabled || readonly}}" bindinput="onInput"
+      bindfocus="onFocus" bindblur="onBlur" />
 
     <!-- 右侧图标区：清除按钮或状态图标 -->
     <view class="ui5-input__icon-area">
       <view wx:if="{{showClearIcon && value && !readonly}}" class="ui5-input__clear" bindtap="onClear">
-        <ui5-icon name="decline" size="12" color="var(--sap-neutral-color)" />
+        <ui5-icon src="sap-icon://decline" size="12" color="var(--sap-neutral-color)" />
       </view>
     </view>
   </view>

@@ -1,0 +1,8 @@
+<view class="{{_classes}}" style="{{_style}}">
+  <block wx:if="{{text}}">
+    <text>{{text}}</text>
+  </block>
+  <block wx:else>
+    <slot />
+  </block>
+</view>

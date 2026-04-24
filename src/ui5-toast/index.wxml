@@ -1,5 +1,5 @@
-<view class="ui5-toast-container {{visible ? 'is-visible' : ''}}">
+<view class="ui5-toast-container {{_visible ? 'is-visible' : ''}}">
   <view class="ui5-toast">
-    <slot></slot>
+    {{text}}
   </view>
 </view>

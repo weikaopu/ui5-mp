@@ -4,6 +4,7 @@
     "pages/gallery/card/index",
     "pages/gallery/dialog/index",
     "pages/gallery/feedback/index",
+    "pages/gallery/icon/index",
     "pages/gallery/input/index",
     "pages/gallery/rating/index",
     "pages/gallery/segmented-button/index",
@@ -13,6 +14,9 @@
     "pages/gallery/tab/index",
     "pages/gallery/table/index",
     "pages/gallery/textarea/index",
+    "pages/gallery/text/index",
+    "pages/gallery/title/index",
+    "pages/gallery/process-flow/index",
     "pages/gallery/viz-column/index",
     "pages/gallery/viz-donut/index",
     "pages/gallery/viz-line/index"

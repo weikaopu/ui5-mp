@@ -1,0 +1,102 @@
+.explorer-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f7;
+}
+
+/* 搜索栏样式 */
+.header {
+  padding: 20rpx 30rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #f0f2f5;
+  padding: 15rpx 25rpx;
+  border-radius: 8rpx;
+}
+
+.search-input {
+  flex: 1;
+  margin-left: 15rpx;
+  font-size: 28rpx;
+}
+
+.stats {
+  font-size: 22rpx;
+  color: #888;
+  margin-top: 10rpx;
+  text-align: right;
+}
+
+/* 网格布局 */
+.content-area {
+  flex: 1;
+  overflow: hidden;
+}
+
+.icon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10rpx;
+}
+
+.icon-card {
+  width: 33.33%;
+  padding: 20rpx 10rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border: 1rpx solid #f0f0f0;
+}
+
+.icon-wrapper {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-name {
+  font-size: 20rpx;
+  color: #333;
+  margin-top: 10rpx;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tag-labels {
+  margin-top: 8rpx;
+  display: flex;
+  gap: 4rpx;
+}
+
+.tag {
+  font-size: 16rpx;
+  background: #eef3f8;
+  color: #556b82;
+  padding: 2rpx 8rpx;
+  border-radius: 4rpx;
+}
+
+.tag-more {
+  font-size: 16rpx;
+  color: #999;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 200rpx;
+  color: #999;
+}

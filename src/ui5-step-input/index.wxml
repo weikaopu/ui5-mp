@@ -9,7 +9,7 @@
       class="ui5-step-input__action ui5-step-input__action--decrement {{ (value <= min || disabled || readonly) ? 'is-button-disabled' : '' }}"
       bindtouchstart="onStartDecrement" bindtouchend="onStopCounter" bindtouchcancel="onStopCounter"
       hover-class="ui5-step-input__action--active">
-      <view class="icon-minus"></view>
+      <ui5-icon src="sap-icon://less" />
     </view>
 
     <!-- 数值输入区 -->
@@ -21,7 +21,7 @@
       class="ui5-step-input__action ui5-step-input__action--increment {{ (value >= (max || 999999) || disabled || readonly) ? 'is-button-disabled' : '' }}"
       bindtouchstart="onStartIncrement" bindtouchend="onStopCounter" bindtouchcancel="onStopCounter"
       hover-class="ui5-step-input__action--active">
-      <view class="icon-plus"></view>
+      <ui5-icon src="sap-icon://add" />
     </view>
   </view>
 </view>

@@ -17,7 +17,7 @@ Page({
   showToast() {
     const toast = this.selectComponent('#demoToast')
     if (toast) {
-      toast.show()
+      toast.show('Message Sent Successfully!')
     }
   },
 

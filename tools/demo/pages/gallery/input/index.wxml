@@ -6,7 +6,7 @@
       <view class="fd-padding-md">
         <ui5-input label="Full Name" placeholder="Enter name" required />
         <ui5-input label="Read-only Field" value="SAP Fiori" readonly />
-        <ui5-input label="Password" type="password" />
+        <ui5-input label="Password" type="password" showClearIcon />
       </view>
     </ui5-card>
 

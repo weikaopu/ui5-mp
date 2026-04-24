@@ -7,7 +7,7 @@
       <view wx:for="{{items}}" wx:key="key" class="ui5-tab-item {{currentKey === item.key ? 'is-selected' : ''}}"
         bindtap="onTabTap" data-key="{{item.key}}">
         <view wx:if="{{item.icon}}" class="ui5-tab-item__icon">
-          <ui5-icon name="{{item.icon}}" size="20" />
+          <ui5-icon src="{{item.icon}}" size="20" />
         </view>
         <view class="ui5-tab-item__text">{{item.text}}</view>
         <!-- 激活状态的下划线 -->
