@@ -29,27 +29,26 @@ page {
   --sap-group-title-color: #6a6d70;
 
   /* --- Layout & Spacing --- */
-  --sap-spacing-tiny: 4px;
-  /* 0.25rem */
-  --sap-spacing-small: 8px;
-  /* 0.5rem */
-  --sap-spacing-medium: 16px;
-  /* 1rem */
-  --sap-spacing-large: 32px;
-  /* 2rem */
+  --sap-spacing-tiny: 8rpx;
+  /* 4px */
+  --sap-spacing-small: 16rpx;
+  /* 8px */
+  --sap-spacing-medium: 32rpx;
+  /* 16px */
+  --sap-spacing-large: 64rpx;
+  /* 32px */
 
   /* --- Borders & Shadows --- */
-  --sap-border-radius: 8px;
+  --sap-border-radius: 16rpx;
   /* Horizon style uses larger radius, Quartz uses 4px */
-  --sap-shadow-level-1: 0 0 0.125rem 0 rgba(0, 0, 0, 0.1), 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.1);
-  --sap-shadow-level-2: 0 0 0.125rem 0 rgba(0, 0, 0, 0.1), 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
+  --sap-shadow-level-1: 0 0 4rpx 0 rgba(0, 0, 0, 0.1), 0 8rpx 16rpx 0 rgba(0, 0, 0, 0.1);
+  --sap-shadow-level-2: 0 0 4rpx 0 rgba(0, 0, 0, 0.1), 0 16rpx 32rpx 0 rgba(0, 0, 0, 0.2);
 
   /* --- Typography --- */
-  /* 小程序默认系统字体，若需 72 字体需另外加载 */
-  --sap-font-size: 14px;
-  --sap-font-size-small: 12px;
-  --sap-font-size-large: 16px;
-  --sap-font-size-header: 20px;
+  --sap-font-size: 28rpx;
+  --sap-font-size-small: 24rpx;
+  --sap-font-size-large: 32rpx;
+  --sap-font-size-header: 40rpx;
 
   /* Base Styles */
   background-color: var(--sap-background-color);
