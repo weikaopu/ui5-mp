@@ -1,0 +1,145 @@
+.ui5-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  font-family: var(--sapFontFamily, "72", "72full", Arial, Helvetica, sans-serif);
+  font-size: var(--sapFontSize, 24rpx);
+  background-color: var(--sapButton_Background, #eff4f9);
+  color: var(--sapTextColor, #32363a);
+  border: 1rpx solid var(--sapButton_BorderColor, #d9d9d9);
+  max-width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+.ui5-tag-icon {
+  margin-right: 8rpx;
+  flex-shrink: 0;
+  font-size: 24rpx;
+}
+
+.ui5-tag-text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Wrapping Types */
+.ui5-tag--Normal .ui5-tag-text {
+  word-break: break-all;
+  white-space: normal;
+}
+
+.ui5-tag--None {
+  display: inline-flex;
+}
+
+.ui5-tag--None .ui5-tag-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Semantic Designs */
+.ui5-tag--Positive {
+  background-color: #f6fdf9;
+  color: #107e3e;
+  border-color: #b1e0c5;
+}
+
+.ui5-tag--Negative {
+  background-color: #fff4f4;
+  color: #bb0000;
+  border-color: #ff9a9a;
+}
+
+/* Color Schemes (Indications) - 示例几个常用色系 */
+.ui5-tag--scheme-1 {
+  background-color: #ffebef;
+  color: #bb0000;
+  border-color: #ff9a9a;
+}
+
+.ui5-tag--scheme-2 {
+  background-color: #fdf3da;
+  color: #e9730c;
+  border-color: #f9cb9c;
+}
+
+.ui5-tag--scheme-3 {
+  background-color: #eaf1fb;
+  color: #0a6ed1;
+  border-color: #b4d2ed;
+}
+
+.ui5-tag--scheme-4 {
+  background-color: #e5f4e9;
+  color: #107e3e;
+  border-color: #b1e0c5;
+}
+
+.ui5-tag--scheme-5 {
+  background-color: #f4f5f6;
+  color: #6a6d70;
+  border-color: #c2c5c7;
+}
+
+.ui5-tag--scheme-6 {
+  background-color: #f0f1f2;
+  color: #32363a;
+  border-color: #757a7f;
+}
+
+.ui5-tag--scheme-7 {
+  background-color: #fff4f4;
+  color: #bb0000;
+  border-color: #ff9a9a;
+}
+
+.ui5-tag--scheme-8 {
+  background-color: #fef7f1;
+  color: #e9730c;
+  border-color: #f9cb9c;
+}
+
+.ui5-tag--scheme-9 {
+  background-color: #f5fafd;
+  color: #0a6ed1;
+  border-color: #b4d2ed;
+}
+
+.ui5-tag--scheme-10 {
+  background-color: #f6fdf9;
+  color: #107e3e;
+  border-color: #b1e0c5;
+}
+
+/* Interactive */
+.ui5-tag--interactive {
+  cursor: pointer;
+}
+
+.ui5-tag--interactive:active {
+  background-color: var(--sapActiveColor, rgba(0, 100, 210, 0.1));
+}
+
+/* Disabled */
+.ui5-tag--disabled {
+  opacity: var(--sapContent_DisabledOpacity, 0.4);
+  pointer-events: none;
+}
+
+/* Tooltip 样式 (保持与 ui5-link 一致) */
+.ui5-tag-tooltip {
+  position: fixed;
+  transform: translateX(-50%);
+  background-color: #32363a;
+  color: #ffffff;
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  z-index: 1000;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.2);
+}

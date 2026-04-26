@@ -1,0 +1,27 @@
+<view class="ui5-popover-container {{visible ? 'ui5-popover--open' : ''}} ui5Class">
+  <!-- 遮罩层 -->
+  <view class="ui5-popover-backdrop {{modal ? 'ui5-popover-backdrop--modal' : ''}}" bindtap="_onBackdropTap"></view>
+
+  <!-- 弹出内容 -->
+  <view class="ui5-popover-root" style="top: {{popoverTop}}px; left: {{popoverLeft}}px;">
+    <view class="ui5-popover-header">
+      <slot name="header" wx:if="{{!headerText}}"></slot>
+      <ui5-bar wx:else design="Header">
+        <view slot="startContent" style="padding-left: 16rpx; font-weight: bold;">{{headerText}}</view>
+      </ui5-bar>
+    </view>
+
+    <scroll-view scroll-y enhanced show-scrollbar="{{true}}" class="ui5-popover-content">
+      <slot></slot>
+    </scroll-view>
+
+    <view class="ui5-popover-footer">
+      <slot name="footer"></slot>
+    </view>
+
+    <!-- 箭头逻辑：根据 actualPlacement 决定是应用 left 还是 top 偏移 -->
+    <view wx:if="{{!hideArrow}}" class="ui5-popover-arrow ui5-popover-arrow--{{actualPlacement}}"
+      style="{{(actualPlacement === 'Top' || actualPlacement === 'Bottom') ? 'left: ' + arrowLeft + 'px' : 'top: ' + arrowTop + 'px'}}">
+    </view>
+  </view>
+</view>

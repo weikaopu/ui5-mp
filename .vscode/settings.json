@@ -7,5 +7,5 @@
   "css.validate": true,
   "javascript.format.semicolons": "remove",
   "typescript.format.semicolons": "remove",
-  "cSpell.words": ["wxml", "wxss"]
+  "cSpell.words": ["bindlongpress", "bindtap", "wxml", "wxss"]
 }

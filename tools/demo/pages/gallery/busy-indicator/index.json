@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "Busy Indicator Gallery",
+  "usingComponents": {
+    "ui5-page": "../../../components/ui5-page/index",
+    "ui5-shellbar": "../../../components/ui5-shellbar/index",
+    "ui5-card": "../../../components/ui5-card/index",
+    "ui5-busy-indicator": "../../../components/ui5-busy-indicator/index",
+    "ui5-button": "../../../components/ui5-button/index"
+  }
+}

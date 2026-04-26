@@ -1,0 +1,27 @@
+.demo-container {
+  display: flex;
+  justify-content: center;
+  padding: 40rpx 0;
+}
+
+.demo-container-placements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20rpx;
+  padding: 60rpx 0;
+}
+
+.demo-row {
+  display: flex;
+  gap: 100rpx;
+}
+
+.auto-flip-container {
+  position: relative;
+  height: 500rpx;
+  /* 模拟一个受限的容器区域 */
+  width: 100%;
+  border: 1rpx dashed #ccc;
+  padding: 10rpx;
+}

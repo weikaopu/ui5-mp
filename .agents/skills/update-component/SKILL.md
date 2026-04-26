@@ -4,9 +4,9 @@ description: 更新一个已有的 ui5-mp 组件。制定生成符合 UI5 设计
 user-invocable: false
 ---
 
-# 创建一个新的 ui5-mp 组件
+# 更新一个已有的 ui5-mp 组件
 
-你现在需要帮我更新一些 UI 组件，当这个 skill 激活时，你需要完成以下动作：
+你现在需要帮我更新一些 UI 组件，当这个 skill 激活时，把 src/ 和 tools/ 目录都加入你的上下文，然后你需要完成以下动作：
 
 ## 使用场景
 
@@ -15,8 +15,8 @@ user-invocable: false
 ## 规则
 
 - 你总是应该根据 .gitignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
-- 你需要读取 create-component 技能(`.agents/skills/create-component/SKILL.md`)的所有规则，但不必新建文件，因为文件都已经存在了。
-- 检查组件是否已引入 `../../behaviors/base-behavior`，如果没有，请重构以支持通用属性。
+- 你需要读取 create-component 技能(.agents/skills/create-component/SKILL.md)的所有规则，但不必新建文件，因为文件都已经存在了。
+- 检查组件是否已引入 ../../behaviors/ 目录下的 Behavior，如果没有，请重构以支持通用属性。
 - 检查和对比该组件的实现和 UI5 设计规范，检查 observers 是否完整覆盖了 properties。如果 UI5 原生组件有而小程序组件没有的属性（Property），且该属性影响视觉渲染，则必须标记为待实现。我来确认是否需要实现，以及实现哪一些。
 - 检查和对比该组件的实现和小程序 UI 规范之间有哪些不兼容和冲突，尝试以优先尊循小程序 UI 规范修复问题。我来测试是否通过。
 

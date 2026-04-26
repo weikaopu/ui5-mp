@@ -11,7 +11,7 @@ Page({
         statusText: '已完成',
         state: 'Completed',
         badgeType: 'success',
-        icon: 'sap-icon://status-completed'
+        icon: 'status-completed'
       },
       {
         key: 'step-2',

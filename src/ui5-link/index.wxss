@@ -1,0 +1,58 @@
+/* 基于 SAP Fundamental Styles 变量 */
+.ui5-link {
+  display: inline-block;
+  color: var(--sapLinkColor, #0064d2);
+  text-decoration: underline;
+  font-family: var(--sapFontFamily, "72", "72full", Arial, Helvetica, sans-serif);
+  font-size: var(--sapFontSize, 28rpx);
+  position: relative;
+}
+
+.ui5-link--disabled {
+  color: var(--sapContent_DisabledTextColor, #929999);
+  text-decoration: none;
+  pointer-events: none;
+  opacity: var(--sapContent_DisabledOpacity, 0.4);
+}
+
+.ui5-link--Emphasized {
+  font-weight: bold;
+}
+
+.ui5-link--Subtle,
+.ui5-link--Transparent {
+  text-decoration: none;
+}
+
+.ui5-link--Normal {
+  word-break: break-all;
+  white-space: normal;
+}
+
+.ui5-link--None {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+.ui5-link:active {
+  background-color: var(--sapActiveColor, rgba(0, 100, 210, 0.1));
+}
+
+/* Tooltip 样式 */
+.ui5-link-tooltip {
+  position: fixed;
+  transform: translateX(-50%);
+  background-color: #32363a;
+  color: #ffffff;
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  z-index: 1000;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.2);
+}

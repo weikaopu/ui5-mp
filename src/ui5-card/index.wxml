@@ -4,7 +4,7 @@
       <!-- 卡片头部 -->
       <view class="ui5-card__header-main">
         <view wx:if="{{icon}}" class="ui5-card__header-icon">
-          <ui5-icon src="{{icon}}" size="20" color="var(--sap-primary-color)" />
+          <ui5-icon name="{{icon}}" size="20" color="var(--sap-primary-color)" />
         </view>
         <view class="ui5-card__header-text">
           <view class="ui5-card__title">{{title}}</view>

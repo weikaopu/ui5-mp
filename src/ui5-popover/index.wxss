@@ -1,0 +1,99 @@
+.ui5-popover-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.ui5-popover--open {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.ui5-popover-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.ui5-popover-backdrop--modal {
+  background-color: var(--sapContent_TransparentOverlayColor, rgba(0, 0, 0, 0.3));
+}
+
+.ui5-popover-root {
+  position: absolute;
+  z-index: 10;
+  background-color: var(--sapGroup_ContentBackground, #ffffff);
+  border-radius: var(--sapElement_BorderCornerRadius, 16rpx);
+  box-shadow: var(--sapContent_ShadowLevel2, 0 10rpx 40rpx 0 rgba(0, 0, 0, 0.15));
+  min-width: 100rpx;
+  min-height: 80rpx;
+  max-width: 90vw;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  border: 1rpx solid var(--sapGroup_TitleBorderColor, #d9d9d9);
+}
+
+.ui5-popover-header,
+.ui5-popover-footer {
+  flex-shrink: 0;
+}
+
+.ui5-popover-content {
+  flex: 1;
+  height: 0;
+  /* 关键：强制 flex 子元素尊重容器高度约束以触发滚动 */
+  padding: 16rpx;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 简单的箭头样式 */
+.ui5-popover-arrow {
+  position: absolute;
+  width: 20rpx;
+  height: 20rpx;
+  background-color: inherit;
+  transform: rotate(45deg);
+  border: 1rpx solid var(--sapGroup_TitleBorderColor, #89919a);
+  z-index: -1;
+  /* 降低箭头层级，防止遮挡内容区域的点击 */
+}
+
+.ui5-popover-arrow--Bottom {
+  top: -10rpx;
+  border-right: none;
+  border-bottom: none;
+  margin-left: -10rpx;
+  /* 用于视觉居中微调 */
+}
+
+.ui5-popover-arrow--Top {
+  bottom: -10rpx;
+  border-left: none;
+  border-top: none;
+  margin-left: -10rpx;
+}
+
+.ui5-popover-arrow--Left {
+  right: -10rpx;
+  border-left: none;
+  border-bottom: none;
+  margin-top: -10rpx;
+}
+
+.ui5-popover-arrow--Right {
+  left: -10rpx;
+  border-right: none;
+  border-top: none;
+  margin-top: -10rpx;
+}

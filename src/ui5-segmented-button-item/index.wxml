@@ -1,4 +1,4 @@
 <view class="ui5-sb-item {{selected ? 'is-selected' : ''}} {{disabled ? 'is-disabled' : ''}}" bindtap="onTap">
-  <ui5-icon wx:if="{{icon}}" src="{{icon}}" size="16" />
+  <ui5-icon wx:if="{{icon}}" name="{{icon}}" size="16" />
   <text wx:if="{{text}}" class="ui5-sb-item__text">{{text}}</text>
 </view>

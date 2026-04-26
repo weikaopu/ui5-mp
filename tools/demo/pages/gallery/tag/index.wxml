@@ -1,0 +1,59 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Tag Gallery" show-back-button></ui5-shellbar>
+
+  <view class="fd-padding-md">
+    <!-- 基础语义展示 -->
+    <ui5-card title="Standard Designs">
+      <view class="fd-padding-md demo-container">
+        <ui5-tag>Default</ui5-tag>
+        <ui5-tag design="Positive">Positive</ui5-tag>
+        <ui5-tag design="Negative">Negative</ui5-tag>
+      </view>
+    </ui5-card>
+
+    <!-- 交互与图标 -->
+    <ui5-card title="Icons & Interaction">
+      <view class="fd-padding-md demo-container">
+        <ui5-tag icon="customer">With Icon</ui5-tag>
+        <ui5-tag interactive bind:click="onTagClick">Interactive Tag</ui5-tag>
+        <ui5-tag icon="hint" tooltip="This is a longpress tooltip for Tag">
+          With Tooltip (Longpress)
+        </ui5-tag>
+      </view>
+    </ui5-card>
+
+    <!-- 配色方案演示 -->
+    <ui5-card title="Color Schemes (Set 1-10)">
+      <view class="fd-padding-md demo-container">
+        <ui5-tag color-scheme="1">Scheme 1</ui5-tag>
+        <ui5-tag color-scheme="2">Scheme 2</ui5-tag>
+        <ui5-tag color-scheme="3">Scheme 3</ui5-tag>
+        <ui5-tag color-scheme="4">Scheme 4</ui5-tag>
+        <ui5-tag color-scheme="5">Scheme 5</ui5-tag>
+        <ui5-tag color-scheme="6">Scheme 6</ui5-tag>
+        <ui5-tag color-scheme="7">Scheme 7</ui5-tag>
+        <ui5-tag color-scheme="8">Scheme 8</ui5-tag>
+        <ui5-tag color-scheme="9">Scheme 9</ui5-tag>
+        <ui5-tag color-scheme="10">Scheme 10</ui5-tag>
+      </view>
+    </ui5-card>
+
+    <!-- 文本处理 -->
+    <ui5-card title="Wrapping Type">
+      <view class="fd-padding-md">
+        <view class="demo-item">
+          <view class="demo-description">Normal (Default):</view>
+          <ui5-tag wrapping-type="Normal">
+            This is a very long tag text that will wrap to multiple lines when container is small.
+          </ui5-tag>
+        </view>
+        <view class="demo-item" style="width: 300rpx;">
+          <view class="demo-description">None (Truncated):</view>
+          <ui5-tag wrapping-type="None">
+            This long tag will be truncated with ellipsis.
+          </ui5-tag>
+        </view>
+      </view>
+    </ui5-card>
+  </view>
+</ui5-page>

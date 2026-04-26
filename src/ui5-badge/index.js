@@ -1,43 +1,34 @@
+// https://ui5.github.io/webcomponents/components/Badge/
+const baseBehavior = require('../behaviors/base-behavior')
+const tooltipBehavior = require('../behaviors/tooltip-behavior')
+
 Component({
-  options: { addGlobalClass: true },
+  externalClasses: ['ui5Class'],
+  options: {
+    addGlobalClass: true,
+    pureDataPattern: /^_/,
+  },
+  behaviors: [baseBehavior, tooltipBehavior],
   properties: {
-    icon: String,
+    /**
+     * 定义角标内显示的图标名称。
+     */
+    icon: {
+      type: String,
+      value: '',
+    },
+    /**
+     * 定义配色方案。可选值：1-10。
+     */
     colorScheme: {
-      type: String,
-      value: '1'
-    },
-    type: {
-      type: String,
-      value: ''
-    },
-    text: {
-      type: String,
-      value: ''
+      type: Number,
+      value: 1,
     }
   },
-  data: {
-    _colorScheme: '1'
-  },
-  observers: {
-    type(type = '') {
-      const typeMap = {
-        success: '4',
-        positive: '4',
-        information: '5',
-        info: '5',
-        warning: '2',
-        error: '3',
-        negative: '3',
-        neutral: '1'
-      }
-      this.setData({
-        _colorScheme: typeMap[type.toLowerCase()] || this.data.colorScheme || '1'
-      })
-    },
-    colorScheme(colorScheme = '1') {
-      this.setData({
-        _colorScheme: colorScheme
-      })
+  methods: {
+    _handleTap() {
+      if (this.data.disabled) return
+      this.triggerEvent('click')
     }
   }
 })

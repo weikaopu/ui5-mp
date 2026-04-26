@@ -1,0 +1,116 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Popover Gallery" show-back-button></ui5-shellbar>
+
+  <view class="fd-padding-md">
+    <!-- 基础展示 -->
+    <ui5-card title="Basic Popover">
+      <view class="fd-padding-md demo-container">
+        <ui5-button id="btnOpen" bindclick="onOpenPopover">Open Popover</ui5-button>
+
+        <ui5-popover open="{{isModalOpen}}" id="myPopover" header-text="Settings">
+          <view style="padding: 20rpx; width: 350rpx;">
+            <ui5-text>This is a basic popover triggered by the button above.</ui5-text>
+          </view>
+          <view slot="footer"
+            style="display: flex; justify-content: flex-end; padding: 16rpx; border-top: 1rpx solid #ebebeb;">
+            <ui5-button design="Emphasized" bind:click="onCloseModal">Close</ui5-button>
+          </view>
+        </ui5-popover>
+      </view>
+    </ui5-card>
+
+    <!-- 方位展示 -->
+    <ui5-card title="Placements" subtitle="确保 Popover 文字不要太长以免推向屏幕另一侧">
+      <view class="fd-padding-md demo-container-placements">
+        <ui5-button id="btnTop" data-placement="Top" bindclick="onOpenPlacement">Top</ui5-button>
+        <view class="demo-row">
+          <ui5-button id="btnLeft" data-placement="Left" bindclick="onOpenPlacement">Left</ui5-button>
+          <ui5-button id="btnRight" data-placement="Right" bindclick="onOpenPlacement">Right</ui5-button>
+        </view>
+        <ui5-button id="btnBottom" data-placement="Bottom" bindclick="onOpenPlacement">Bottom</ui5-button>
+      </view>
+
+      <ui5-popover id="placementPopover" placement-type="{{currentPlacement}}" header-text="Placement">
+        <view style="padding: 20rpx;">
+          <ui5-text>At {{currentPlacement}}</ui5-text>
+        </view>
+      </ui5-popover>
+    </ui5-card>
+
+    <ui5-card title="占位 for Modal Popover">
+      <view class="fd-padding-md demo-container">
+        <ui5-text>占位 for Modal Popover.</ui5-text>
+      </view>
+    </ui5-card>
+
+    <ui5-card title="占位 for Modal Popover">
+      <view class="fd-padding-md demo-container">
+        <ui5-text>占位 for Modal Popover.</ui5-text>
+      </view>
+    </ui5-card>
+
+
+    <!-- 自动翻转方位演示 -->
+    <ui5-card title="Auto-Flip Placement" subtitle="方空间不足自动翻转方位">
+      <view class="fd-padding-md auto-flip-container">
+        <ui5-button id="btnFlipBottomRight" style="position: absolute; bottom: 0; right: 0;" data-placement="Bottom"
+          bind:click="onOpenPlacement" tooltip="I want to open Bottom, but will flip to Top">Bottom (Flip to
+          Top)</ui5-button>
+        <ui5-button id="btnFlipTopLeft" style="position: absolute; top: 0; left: 0;" data-placement="Top"
+          bind:click="onOpenPlacement" tooltip="I want to open Top, but will flip to Bottom">Top (Flip to
+          Bottom)</ui5-button>
+        <ui5-button id="btnFlipRight" style="position: absolute; top: 50%; right: 0; transform: translateY(-50%);"
+          data-placement="Right" bind:click="onOpenPlacement"
+          tooltip="I want to open Right, but will flip to Left">Right (Flip to Left)</ui5-button>
+        <ui5-button id="btnFlipLeft" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%);"
+          data-placement="Left" bind:click="onOpenPlacement" tooltip="I want to open Left, but will flip to Right">Left
+          (Flip to Right)</ui5-button>
+      </view>
+    </ui5-card>
+
+    <ui5-card title="占位 for Modal Popover">
+      <view class="fd-padding-md demo-container">
+        <ui5-text>占位 for Modal Popover.</ui5-text>
+      </view>
+    </ui5-card>
+
+    <ui5-card title="占位 for Modal Popover">
+      <view class="fd-padding-md demo-container">
+        <ui5-text>占位 for Modal Popover.</ui5-text>
+      </view>
+    </ui5-card>
+
+    <!-- 模态展示 -->
+    <ui5-card title="Modal Popover">
+      <view class="fd-padding-md demo-container">
+        <ui5-button id="btnModal" bindclick="onToggleModal">Open Modal Popover</ui5-button>
+
+        <ui5-popover open="{{isModalOpen}}" opener="btnModal" modal header-text="Modal Context"
+          bind:close="onCloseModal">
+          <view style="padding: 20rpx; width: 400rpx;">
+            <ui5-text>This popover is modal and uses declarative properties (open/opener) for control. Click the
+              backdrop to close.</ui5-text>
+          </view>
+        </ui5-popover>
+      </view>
+    </ui5-card>
+
+    <!-- 性能测试：长内容滚动 -->
+    <ui5-card title="Long Content Scroll" subtitle="Testing scroll performance with 50 items">
+      <view class="fd-padding-md demo-container">
+        <ui5-button id="btnLong" bindclick="onOpenLongContent">Open Scrollable List</ui5-button>
+
+        <ui5-popover id="longPopover" header-text="Select an Option">
+          <view style="width: 400rpx;">
+            <ui5-list>
+              <ui5-item wx:for="{{longList}}" wx:key="*this" title="{{item}}"
+                description="Sub-information for {{item}}" />
+            </ui5-list>
+          </view>
+        </ui5-popover>
+      </view>
+    </ui5-card>
+
+
+  </view>
+</ui5-page>

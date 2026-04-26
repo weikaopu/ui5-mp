@@ -24,7 +24,6 @@ Page({
       const tags = iconTags[name] ? iconTags[name].tags : []
       return {
         name,
-        src: `sap-icon://${name}`,
         tags,
         // 将搜索文本预合成，提高搜索效率
         searchTerms: (name + tags.join('')).toLowerCase()
@@ -62,7 +61,7 @@ Page({
 
   copyIconData(e) {
     const { name } = e.currentTarget.dataset
-    const text = `sap-icon://${name}`
+    const text = `${name}`
 
     wx.setClipboardData({
       data: text,

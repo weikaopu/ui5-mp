@@ -1,90 +1,123 @@
-:host {
+.ui5-button-wrapper {
   display: inline-block;
-  /* 或者 block，取决于你希望按钮默认是换行还是并排 */
+  position: relative;
   vertical-align: middle;
+  overflow: visible;
 }
 
-/**
- * ui5-mp: Button Component
- */
-
-.ui5-btn {
-  /* 基础重置 */
-  position: relative;
+.ui5-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  padding: 0 20rpx;
+  height: 72rpx;
+  min-width: 72rpx;
+  border-radius: 8rpx;
+  font-family: var(--sapFontFamily, "72", "72full", Arial, Helvetica, sans-serif);
+  font-size: var(--sapFontSize, 28rpx);
+  background-color: var(--sapButton_Background, #eff4f9);
+  color: var(--sapButton_TextColor, #0064d2);
+  border: 1rpx solid var(--sapButton_BorderColor, #0064d2);
   box-sizing: border-box;
-  margin: 0;
-  padding: 0 16px;
-  height: 36px;
-  /* Fiori 移动端标准高度 */
-  font-size: var(--sap-font-size);
-  font-weight: 500;
-  border-radius: var(--sap-border-radius);
-  border: 1px solid transparent;
-  transition: all 0.1s ease-in;
-  background-color: transparent;
   line-height: 1;
+  overflow: visible;
+  transition: opacity 0.1s;
 }
 
-/* 移除原生 button 的默认黑边框 */
-.ui5-btn::after {
+.ui5-button::after {
   border: none;
 }
 
-.ui5-btn__inner {
+.ui5-button-content {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
-/* --- 样式变体 (Types) --- */
-
-/* Default / Standard - 灰色描边 */
-.ui5-btn--default {
-  background-color: var(--sap-content-color);
-  border-color: var(--sap-field-border-color);
-  color: var(--sap-primary-color);
+.ui5-button-content--hidden {
+  visibility: hidden;
 }
 
-/* Emphasized - 蓝色高亮 */
-.ui5-btn--emphasized {
-  background-color: var(--sap-primary-color);
-  border-color: var(--sap-primary-color);
+.ui5-button-icon {
+  font-size: 32rpx;
+  flex-shrink: 0;
+}
+
+.ui5-button-icon--start {
+  margin-right: 12rpx;
+}
+
+.ui5-button-icon--end {
+  margin-left: 12rpx;
+}
+
+.ui5-button--Emphasized {
+  background-color: var(--sapButton_Emphasized_Background, #0064d2);
   color: #ffffff;
+  border-color: var(--sapButton_Emphasized_BorderColor, #0064d2);
 }
 
-/* Transparent / Ghost - 无边框 */
-.ui5-btn--transparent {
+.ui5-button--Transparent {
   background-color: transparent;
   border-color: transparent;
-  color: var(--sap-primary-color);
 }
 
-/* Negative - 红色告警 */
-.ui5-btn--negative {
-  background-color: transparent;
-  border-color: var(--sap-error-color);
-  color: var(--sap-error-color);
+.ui5-button--Positive {
+  background-color: var(--sapButton_Accept_Background, #f6fdf9);
+  color: #107e3e;
+  border-color: #107e3e;
 }
 
-/* --- 交互状态 --- */
+.ui5-button--Negative {
+  background-color: var(--sapButton_Reject_Background, #fff4f4);
+  color: #bb0000;
+  border-color: #bb0000;
+}
 
-/* 点击态 (Active) */
-.ui5-btn--active {
-  transform: scale(0.98);
+.ui5-button--Attention {
+  background-color: var(--sapButton_Attention_Background, #fff8f0);
+  color: #e9730c;
+  border-color: #e9730c;
+}
+
+.ui5-button:active:not(.ui5-button--disabled) {
   opacity: 0.7;
+  background-color: var(--sapButton_Active_Background, rgba(0, 100, 210, 0.1));
 }
 
-.ui5-btn--emphasized.ui5-btn--active {
-  background-color: #06407a;
-  /* 稍微加深的蓝色 */
+.ui5-button--disabled {
+  opacity: var(--sapContent_DisabledOpacity, 0.4);
 }
 
-/* 禁用态 (Disabled) */
-.is-disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-  filter: grayscale(1);
+.ui5-button-busy-indicator {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ui5-button-badge-slot {
+  position: absolute;
+  top: -12rpx;
+  right: -12rpx;
+  z-index: 2;
+  pointer-events: none;
+  transform: scale(0.85);
+}
+
+/* Tooltip 样式 */
+.ui5-button-tooltip {
+  position: fixed;
+  transform: translateX(-50%);
+  background-color: #32363a;
+  color: #ffffff;
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  z-index: 1000;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.2);
 }

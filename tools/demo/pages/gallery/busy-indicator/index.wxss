@@ -1,0 +1,27 @@
+.demo-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.demo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.demo-label {
+    font-size: 24rpx;
+    color: #6a6d70;
+    margin-top: 10rpx;
+}
+
+.demo-description {
+    font-size: 24rpx;
+    color: #666;
+    margin-bottom: 20rpx;
+}
+
+.fd-margin-top-sm {
+    margin-top: 20rpx;
+}

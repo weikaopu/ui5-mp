@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "Popover Gallery",
+  "usingComponents": {
+    "ui5-page": "../../../components/ui5-page/index",
+    "ui5-shellbar": "../../../components/ui5-shellbar/index",
+    "ui5-card": "../../../components/ui5-card/index",
+    "ui5-button": "../../../components/ui5-button/index",
+    "ui5-popover": "../../../components/ui5-popover/index",
+    "ui5-text": "../../../components/ui5-text/index",
+    "ui5-list": "../../../components/ui5-list/index",
+    "ui5-item": "../../../components/ui5-item/index"
+  }
+}

@@ -6,7 +6,7 @@ user-invocable: false
 
 # 创建一个新的 ui5-mp 组件
 
-你现在需要帮我开发一些 UI 组件，当这个 skill 激活时，你需要完成以下动作：
+你现在需要帮我开发一些 UI 组件，当这个 skill 激活时，把 src/ 和 tools/ 目录都加入你的上下文，然后你需要完成以下动作：
 
 ## 使用场景
 
@@ -15,9 +15,9 @@ user-invocable: false
 ## 生成代码规则
 
 - 你总是应该根据 .gitignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
-- 你需要读取 check-component-dependency 技能(`.agents/skills/check-component-dependency/SKILL.md`)的所有规则，得到结果。如果结果中存在“未实现”依赖组件，请立即终止技能，停止后续动作，告诉我哪些依赖组件未实现。如果结果为”零个依赖组件“或者所有依赖组件均”已实现“在 `src` 目录下，则进入下一步动作。
+- 你需要读取 check-component-dependency 技能(.agents/skills/check-component-dependency/SKILL.md)的所有规则，得到结果。如果结果中存在“未实现”依赖组件，请立即终止技能，停止后续动作，告诉我哪些依赖组件未实现。如果结果为”零个依赖组件“或者所有依赖组件均”已实现“在 src 目录下，则进入下一步动作。
 - 参考源：所有新组件的设计必须参考 UI5 Web Components 的官方规范。参考文档从这里找：https://ui5.github.io/webcomponents/components 。
-- 目录结构：组件必须存放在 `src/` 目录下，命名格式为 `ui5-xxx`，目录名称格式 `ui5-` 开头加上组件名称 `xxx`，比如：`ui5-toast`。
+- 目录结构：组件必须存放在 src/ 目录下，命名格式为 `ui5-xxx`，目录名称格式 `ui5-` 开头加上组件名称 `xxx`，比如：`ui5-toast`。
 - 在这个目录下新建 `index.{js,json,wxml,wxss}` 文件。如果文件已存在，则更新。
 
 ## 新建文件说明
@@ -35,8 +35,8 @@ user-invocable: false
      },
      ```
 
-  3. **必须强制引入** `../../behaviors/base-behavior` 以支持通用属性（design, status, disabled），确保 UI 一致性。
-  4. 内部私有变量必须以 \_ 开头（如 \_visible），并通过 observers 监听外部属性来更新内部状态。
+  3. **必须强制引入**：在 src/behaviors/ 目录提供了一些 Behavior，比如以支持通用属性（design, status, disabled），确保 UI 一致性的 base-behavior。你需要判断引入哪些 Behavior 才能是组件符合 UI5 设计规范和小程序规范的标准，并能磨平两个标准之间的差异。
+  4. 内部私有变量必须以 \_ 开头（如 \_visible），并通过 observers 监听外部属性来更新内部状态，**特别注意**：如果 Behavior 的 data 数据参与视图层渲染，则变量名不能以下划线开头，否则会被 pureDataPattern 拦截导致 WXML 无法获取。
   5. 示例：
 
      ```js
@@ -115,7 +115,7 @@ user-invocable: false
      ```
 
 - index.wxss
-  1. 需要以 `src/assets/sap-fundamental-styles.wxss` 为参考，这个文件是作为主题使用的（主题样式缺失的也请同时补充）。使用 SAP 风格变量（如 var(--sap-shadow-level-2)）和颜色方案。
+  1. 需要以 src/assets/sap-fundamental-styles.wxss 文件为参考，这个文件是作为主题使用的（主题样式缺失的也请同时补充）。使用 SAP 风格变量（如 var(--sap-shadow-level-2)）和颜色方案。
   2. 微信小程序像素单位请使用 `rpx`。
   3. 示例：
 
@@ -157,7 +157,7 @@ user-invocable: false
      }
      ```
 
-- 更新这个文件 `tools/config.js`
+- 更新这个文件 tools/config.js
   把新建的组件注册到编译入口 `entry: []` 数组里面，并确保数组按照字母顺序排列，如果已存在则不必更新。
 
 ## 交互和反馈

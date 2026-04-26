@@ -7,7 +7,7 @@
     <view class="gallery-section-title">Icon Tab Bar</view>
     <ui5-card title="Product Details">
       <ui5-tab-container currentKey="info" bind:change="onTabChange">
-        <ui5-tab key="info" text="Info" icon="sap-icon://home">
+        <ui5-tab key="info" text="Info" icon="home">
           <view class="fd-padding-md">
             <view class="ui5-text-secondary">General Information</view>
             <view style="margin-top: 10px;">This project is built using ui5-mp, an enterprise-grade UI library for
@@ -15,16 +15,16 @@
           </view>
         </ui5-tab>
 
-        <ui5-tab key="attachments" text="Files" icon="sap-icon://settings">
+        <ui5-tab key="attachments" text="Files" icon="settings">
           <view class="fd-padding-md">
             <ui5-list no-border>
-              <ui5-item title="specification.pdf" description="2.4 MB" icon="sap-icon://search" />
-              <ui5-item title="design_draft.png" description="1.1 MB" icon="sap-icon://search" />
+              <ui5-item title="specification.pdf" description="2.4 MB" icon="search" />
+              <ui5-item title="design_draft.png" description="1.1 MB" icon="search" />
             </ui5-list>
           </view>
         </ui5-tab>
 
-        <ui5-tab key="notes" text="Notes" icon="sap-icon://contacts">
+        <ui5-tab key="notes" text="Notes" icon="contacts">
           <view class="fd-padding-md">
             <ui5-textarea placeholder="Add a private note..." rows="4" growing />
           </view>

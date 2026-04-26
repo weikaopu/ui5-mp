@@ -1,34 +1,87 @@
-:host {
-  display: block;
-  width: 100%;
-}
-
 .ui5-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 48px;
-  padding: 0 16px;
-  background-color: var(--sap-content-color);
+  width: 100%;
   box-sizing: border-box;
-  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.05);
-  /* 底部栏向上的微弱阴影 */
+  padding: 0 16rpx;
+  position: relative;
+  background-color: var(--sapContent_HeaderBackground, #f7f7f7);
+  border-bottom: 1rpx solid var(--sapContent_HeaderBorderColor, #d9d9d9);
 }
 
-.ui5-bar--footer {
-  border-top: 1px solid var(--sap-border-color);
-}
-
-.ui5-bar__left,
-.ui5-bar__right {
+.ui5-bar-start,
+.ui5-bar-middle,
+.ui5-bar-end {
   display: flex;
   align-items: center;
-  min-width: 40px;
+  height: 100%;
 }
 
-.ui5-bar__content {
+.ui5-bar-start {
   flex: 1;
-  display: flex;
+  justify-content: flex-start;
+}
+
+.ui5-bar-middle {
   justify-content: center;
-  padding: 0 8px;
+  /* 确保中间内容居中，不受两侧长度非对称影响 */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ui5-bar-end {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* Design: Header */
+.ui5-bar--Header {
+  height: 88rpx;
+  background-color: var(--sapContent_HeaderBackground, #f7f7f7);
+}
+
+/* Design: Subheader */
+.ui5-bar--Subheader {
+  height: 80rpx;
+  background-color: var(--sapContent_HeaderBackground, #f7f7f7);
+  font-size: 24rpx;
+}
+
+/* Design: Footer */
+.ui5-bar--Footer {
+  height: 96rpx;
+  background-color: var(--sapContent_FooterBackground, #ffffff);
+  border-top: 1rpx solid var(--sapContent_FooterBorderColor, #d9d9d9);
+  border-bottom: none;
+}
+
+/* Design: FloatingFooter */
+.ui5-bar--FloatingFooter {
+  height: 96rpx;
+  margin: 16rpx;
+  width: calc(100% - 32rpx);
+  border-radius: 12rpx;
+  background-color: var(--sapContent_FooterBackground, #ffffff);
+  box-shadow: var(--sapContent_ShadowLevel2, 0 0 12rpx 0 rgba(0, 0, 0, 0.15));
+  border: none;
+  position: fixed;
+  bottom: env(safe-area-inset-bottom);
+  z-index: 100;
+}
+
+/* Tooltip 样式 */
+.ui5-bar-tooltip {
+  position: fixed;
+  transform: translateX(-50%);
+  background-color: #32363a;
+  color: #ffffff;
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  z-index: 1000;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.2);
 }

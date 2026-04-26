@@ -2,7 +2,7 @@
   <!-- 左侧区域：支持 slot 或直接传入 icon 属性 -->
   <view class="ui5-li__icon-vip">
     <slot name="icon" wx:if="{{hasIconSlot}}"></slot>
-    <ui5-icon wx:elif="{{icon}}" src="{{icon}}" size="20" color="{{iconColor || 'var(--sap-primary-color)'}}" />
+    <ui5-icon wx:elif="{{icon}}" name="{{icon}}" size="20" color="{{iconColor || 'var(--sap-primary-color)'}}" />
   </view>
 
   <!-- 中间内容区 -->
@@ -21,7 +21,7 @@
     </block>
     <block wx:else>
       <text class="ui5-li__status" wx:if="{{status}}">{{status}}</text>
-      <ui5-icon wx:if="{{type === 'Navigation'}}" src="sap-icon://navigation-right-arrow" size="14" color="#89919a" />
+      <ui5-icon wx:if="{{type === 'Navigation'}}" name="navigation-right-arrow" size="14" color="#89919a" />
     </block>
   </view>
 </view>

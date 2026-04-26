@@ -5,7 +5,7 @@
       <view class="ui5-process-flow__marker-row">
         <view class="ui5-process-flow__marker {{item.completed ? 'completed' : ''}} {{item.active ? 'active' : ''}}">
           <block wx:if="{{item.icon}}">
-            <ui5-icon src="{{item.icon}}" />
+            <ui5-icon name="{{item.icon}}" />
           </block>
           <block wx:else>
             <text>{{item.index}}</text>

@@ -1,11 +1,18 @@
-<view class="ui5-bar {{design === 'footer' ? 'ui5-bar--footer' : ''}}">
-  <view class="ui5-bar__left">
-    <slot name="start"></slot>
+<!-- 根元素需要有 .ui5-mp-root 类名，以便 Behavior 能通过 createSelectorQuery 找到位置。 -->
+<view class="ui5-mp-root ui5-bar ui5-bar--{{design}} ui5Class" bindlongpress="openTooltip">
+  <view class="ui5-bar-start">
+    <slot name="startContent"></slot>
   </view>
-  <view class="ui5-bar__content">
-    <slot></slot>
+  <view class="ui5-bar-middle">
+    <slot name="middleContent"></slot>
   </view>
-  <view class="ui5-bar__right">
-    <slot name="end"></slot>
+  <view class="ui5-bar-end">
+    <slot name="endContent"></slot>
+  </view>
+
+  <!-- Tooltip 浮层 (由 tooltip-behavior 驱动) -->
+  <view wx:if="{{tooltipVisible}}" class="ui5-bar-tooltip"
+    style="top: {{tooltipPosition.top}}px; left: {{tooltipPosition.left}}px;">
+    {{tooltip}}
   </view>
 </view>

@@ -26,12 +26,12 @@ Component({
   methods: {
     _updateIcon(type) {
       const iconMap = {
-        information: 'sap-icon://message-information',
-        success: 'sap-icon://message-success',
-        warning: 'sap-icon://message-warning',
-        error: 'sap-icon://message-error'
+        information: 'message-information',
+        success: 'message-success',
+        warning: 'message-warning',
+        error: 'message-error'
       }
-      this.setData({ typeIcon: iconMap[type] || 'sap-icon://message-information' })
+      this.setData({ typeIcon: iconMap[type] || 'message-information' })
     },
     onClose() {
       this.setData({ visible: false })

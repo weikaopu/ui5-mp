@@ -1,5 +1,5 @@
 <view
-  class="ui5-busy-container {{fullScreen ? 'is-full-screen' : ''}} {{active ? 'is-active' : ''}} {{size ? 'ui5-busy--' + size : ''}}">
+  class="ui5-busy-container {{fullScreen ? 'is-full-screen' : ''}} {{show ? 'is-active' : ''}} {{size ? 'ui5-busy--' + size : ''}}">
   <view class="ui5-busy-mask" wx:if="{{fullScreen}}"></view>
   <view class="ui5-busy-content">
     <view class="ui5-busy-wrapper">

@@ -10,7 +10,7 @@ Component({
   // 参考 ui5-text 风格，支持外部类名覆盖
   externalClasses: ['ui5-class'],
   properties: {
-    src: {
+    name: {
       type: String,
       value: '',
       observer(newVal) {
@@ -30,21 +30,16 @@ Component({
     // 私有数据使用下划线前缀，参考 ui5-text
     _path: '',
     _viewBox: '0 0 16 16',
-    _src: ''
+    _name: ''
   },
   lifetimes: {
     attached() {
-      this._parseIcon(this.properties.src)
+      this._parseIcon(this.properties.name)
     }
   },
   methods: {
-    _parseIcon(src) {
+    _parseIcon(name) {
       const iconsData = sapIcons.data || {}
-      let name = 'question-mark'
-
-      if (src && typeof src === 'string' && src.startsWith('sap-icon://')) {
-        name = src.replace('sap-icon://', '')
-      }
 
       const icon = iconsData[name] || iconsData['question-mark'] || { path: '', viewBox: '0 0 16 16' }
 
@@ -66,7 +61,7 @@ Component({
         this.setData({
           _path: icon.path,
           _viewBox: viewBox,
-          _src: `data:image/svg+xml,${encodedSvg}`
+          _name: `data:image/svg+xml,${encodedSvg}`
         })
       }
     }

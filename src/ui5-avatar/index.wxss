@@ -1,87 +1,136 @@
-:host {
+.ui5-avatar {
   display: inline-block;
+  position: relative;
+  box-sizing: border-box;
   vertical-align: middle;
+  background-color: var(--sapTile_Background, #ffffff);
+  color: var(--sapContent_NonInteractiveIconColor, #0064d2);
+  border: 1rpx solid var(--sapGroup_TitleBorderColor, #d9d9d9);
 }
 
-.ui5-avatar {
+.ui5-avatar-content {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #354a5f;
-  /* 默认深蓝背景 */
-  color: #ffffff;
-  box-sizing: border-box;
 }
 
-/* --- 形状 --- */
-.ui5-avatar--Circle {
+.ui5-avatar--Circle,
+.ui5-avatar--Circle .ui5-avatar-content {
   border-radius: 50%;
 }
 
-.ui5-avatar--Square {
-  border-radius: var(--sap-border-radius);
+.ui5-avatar--Square,
+.ui5-avatar--Square .ui5-avatar-content {
+  border-radius: 8rpx;
 }
 
-/* --- 尺寸 (Fiori 标准) --- */
+/* Sizes Map */
 .ui5-avatar--XS {
-  width: 20px;
-  height: 20px;
-  font-size: 8px;
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .ui5-avatar--S {
-  width: 32px;
-  height: 32px;
-  font-size: 12px;
+  width: 64rpx;
+  height: 64rpx;
 }
 
 .ui5-avatar--M {
-  width: 48px;
-  height: 48px;
-  font-size: 18px;
+  width: 96rpx;
+  height: 96rpx;
 }
 
 .ui5-avatar--L {
-  width: 72px;
-  height: 72px;
-  font-size: 28px;
+  width: 128rpx;
+  height: 128rpx;
 }
 
 .ui5-avatar--XL {
-  width: 112px;
-  height: 112px;
-  font-size: 44px;
+  width: 192rpx;
+  height: 192rpx;
 }
 
-.ui5-avatar__img {
+.ui5-avatar--XS .ui5-avatar-initials {
+  font-size: 16rpx;
+}
+
+.ui5-avatar--S .ui5-avatar-initials {
+  font-size: 24rpx;
+}
+
+.ui5-avatar--M .ui5-avatar-initials {
+  font-size: 36rpx;
+}
+
+.ui5-avatar--L .ui5-avatar-initials {
+  font-size: 48rpx;
+}
+
+.ui5-avatar--XL .ui5-avatar-initials {
+  font-size: 72rpx;
+}
+
+.ui5-avatar--XS .ui5-avatar-icon {
+  font-size: 20rpx;
+}
+
+.ui5-avatar--S .ui5-avatar-icon {
+  font-size: 32rpx;
+}
+
+.ui5-avatar--M .ui5-avatar-icon {
+  font-size: 48rpx;
+}
+
+.ui5-avatar--L .ui5-avatar-icon {
+  font-size: 64rpx;
+}
+
+.ui5-avatar--XL .ui5-avatar-icon {
+  font-size: 96rpx;
+}
+
+.ui5-avatar-img {
   width: 100%;
   height: 100%;
 }
 
-.ui5-avatar__initials {
+.ui5-avatar-initials {
+  font-family: var(--sapFontFamily, "72", "72full", Arial, Helvetica, sans-serif);
   font-weight: bold;
-  text-transform: uppercase;
 }
 
-/* --- 重音色 (Accents) --- */
-.ui5-avatar--accent1 {
-  background-color: #e38b16;
+/* Badge Slot Positioning */
+.ui5-avatar-badge-wrapper {
+  position: absolute;
+  bottom: -6rpx;
+  right: -6rpx;
+  z-index: 1;
+  transform: scale(0.8);
+  /* 小程序中通常需要略微缩小角标以适配头像 */
+  transform-origin: bottom right;
 }
 
-/* Orange */
-.ui5-avatar--accent2 {
-  background-color: #dc3912;
+.ui5-avatar--interactive:active {
+  background-color: var(--sapActiveColor, rgba(0, 100, 210, 0.1));
 }
 
-/* Red */
-.ui5-avatar--accent3 {
-  background-color: #107e3e;
+.ui5-avatar--disabled {
+  opacity: var(--sapContent_DisabledOpacity, 0.4);
+  pointer-events: none;
 }
 
-/* Green */
-.ui5-avatar--accent4 {
-  background-color: #0854a0;
+/* Tooltip */
+.ui5-avatar-tooltip {
+  position: fixed;
+  transform: translateX(-50%);
+  background-color: #32363a;
+  color: #ffffff;
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  z-index: 1000;
 }
-
-/* Blue */

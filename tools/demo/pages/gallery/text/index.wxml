@@ -1,35 +1,43 @@
 <ui5-page>
-  <ui5-shellbar slot="header" title="Text Component" />
+  <ui5-shellbar slot="header" title="Text Gallery" show-back-button></ui5-shellbar>
 
   <view class="fd-padding-md">
-    <ui5-card title="Text Level">
+    <!-- 1. 基础展示 -->
+    <ui5-card title="Basic Text" subtitle="Standard typography block">
       <view class="fd-padding-md">
-        <ui5-text level="H1" design="Emphasized">Headline 1</ui5-text>
-        <ui5-text level="H2" style="margin-top: 10px;">Headline 2</ui5-text>
-        <ui5-text level="H3" design="Subtle" style="margin-top: 10px;">Headline 3 Subtle</ui5-text>
-      </view>
-    </ui5-card>
-
-    <ui5-card title="正文与截断">
-      <view class="fd-padding-md">
-        <ui5-text maxLines="2">
-          这是一个 ui5-text 的多行文本示例。组件支持最大行数限制，超过后自动应用省略号。适合用作卡片摘要、说明文本等场景。
+        <ui5-text>
+          The ui5-text component is used for displaying multi-line text. By default, it wraps content to fit the
+          container width, maintaining the SAP Fiori typography standards.
         </ui5-text>
       </view>
     </ui5-card>
 
-    <ui5-card title="禁止换行">
+    <!-- 2. 换行与截断 -->
+    <ui5-card title="Wrapping & Truncation" subtitle="Handling long content">
       <view class="fd-padding-md">
-        <ui5-text wrapping="false" level="Body">
-          这是一个禁止换行的 ui5-text 示例。长文本会被截断并显示省略号，适用于单行标签和导航项。
-        </ui5-text>
+        <view style="margin-bottom: 24rpx;">
+          <view style="font-size: 24rpx; color: #6a6d70; margin-bottom: 8rpx;">No Wrapping (Truncated):</view>
+          <ui5-text wrapping="{{false}}">
+            This is a very long text string that will be truncated with an ellipsis instead of wrapping to the next
+            line.
+          </ui5-text>
+        </view>
+
+        <view>
+          <view style="font-size: 24rpx; color: #6a6d70; margin-bottom: 8rpx;">Max Lines (2 lines):</view>
+          <ui5-text maxLines="{{2}}">
+            This text is restricted to a maximum of two lines. If the content is longer, it will wrap until the second
+            line and then truncate with an ellipsis, ensuring the layout remains consistent even with dynamic data.
+          </ui5-text>
+        </view>
       </view>
     </ui5-card>
 
-    <ui5-card title="Small / Subtle 文本">
+    <!-- 3. 交互提示 -->
+    <ui5-card title="Interactive Help" subtitle="Tooltip on longpress">
       <view class="fd-padding-md">
-        <ui5-text level="Small" design="Subtle">
-          Small text with subtle design, commonly used for secondary labels or help text.
+        <ui5-text tooltip="Detailed explanation of the business term.">
+          Long-press this text to display more information about the context.
         </ui5-text>
       </view>
     </ui5-card>

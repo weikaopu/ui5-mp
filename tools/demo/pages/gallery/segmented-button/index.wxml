@@ -19,9 +19,9 @@
     <ui5-card title="Icons Only">
       <view class="fd-padding-md">
         <ui5-segmented-button selectedKey="left">
-          <ui5-segmented-button-item key="left" icon="sap-icon://home" />
-          <ui5-segmented-button-item key="center" icon="sap-icon://settings" />
-          <ui5-segmented-button-item key="right" icon="sap-icon://search" />
+          <ui5-segmented-button-item key="left" icon="home" />
+          <ui5-segmented-button-item key="center" icon="settings" />
+          <ui5-segmented-button-item key="right" icon="search" />
         </ui5-segmented-button>
       </view>
     </ui5-card>
@@ -30,8 +30,8 @@
     <ui5-card title="Mixed & Disabled States">
       <view class="fd-padding-md">
         <ui5-segmented-button selectedKey="edit">
-          <ui5-segmented-button-item key="view" text="View" icon="sap-icon://home" />
-          <ui5-segmented-button-item key="edit" text="Edit" icon="sap-icon://settings" />
+          <ui5-segmented-button-item key="view" text="View" icon="home" />
+          <ui5-segmented-button-item key="edit" text="Edit" icon="settings" />
           <ui5-segmented-button-item key="delete" text="Delete" disabled />
         </ui5-segmented-button>
         <view class="ui5-text-secondary fd-margin-top-sm">"Delete" option is currently restricted.</view>

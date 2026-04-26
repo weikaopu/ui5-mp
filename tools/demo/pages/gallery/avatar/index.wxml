@@ -1,0 +1,64 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Avatar Gallery" show-back-button></ui5-shellbar>
+
+  <view class="fd-padding-md">
+    <!-- 基础类型 -->
+    <ui5-card title="Content Types">
+      <view class="fd-padding-md demo-row">
+        <ui5-avatar src="../../../assets/Woman_avatar_01.png" tooltip="Image Avatar"></ui5-avatar>
+        <ui5-avatar initials="JD" tooltip="Initials Avatar"></ui5-avatar>
+        <ui5-avatar icon="employee" tooltip="Icon Avatar"></ui5-avatar>
+      </view>
+    </ui5-card>
+
+    <!-- 各种尺寸 -->
+    <ui5-card title="Sizes">
+      <view class="fd-padding-md demo-row demo-align-end">
+        <view class="demo-col"><ui5-avatar size="XS" initials="XS"></ui5-avatar></view>
+        <view class="demo-col"><ui5-avatar size="S" initials="S"></ui5-avatar></view>
+        <view class="demo-col"><ui5-avatar size="M" initials="M"></ui5-avatar></view>
+        <view class="demo-col"><ui5-avatar size="L" initials="L"></ui5-avatar></view>
+        <view class="demo-col"><ui5-avatar size="XL" initials="XL"></ui5-avatar></view>
+      </view>
+    </ui5-card>
+
+    <!-- 形状展示 -->
+    <ui5-card title="Shapes">
+      <view class="fd-padding-md demo-row">
+        <ui5-avatar shape="Circle" initials="C" size="M"></ui5-avatar>
+        <ui5-avatar shape="Square" initials="S" size="M"></ui5-avatar>
+      </view>
+    </ui5-card>
+
+    <!-- 交互性 -->
+    <ui5-card title="Interactive">
+      <view class="fd-padding-md demo-row">
+        <ui5-avatar interactive initials="IT" size="M" bind:click="onAvatarClick"
+          tooltip="Click me for Toast, Longpress for Tooltip">
+        </ui5-avatar>
+        <ui5-avatar disabled initials="DA" size="M" tooltip="Disabled Avatar"></ui5-avatar>
+      </view>
+    </ui5-card>
+
+    <!-- Badge 集成 -->
+    <ui5-card title="Avatar with Badge">
+      <view class="fd-padding-md demo-row">
+        <ui5-avatar size="M" initials="JD">
+          <ui5-badge slot="badge" color-scheme="1">
+            <ui5-icon name="error"></ui5-icon>
+          </ui5-badge>
+        </ui5-avatar>
+
+        <ui5-avatar size="L" src="../../../assets/Woman_avatar_01.png">
+          <ui5-badge slot="badge" color-scheme="4">
+            <ui5-icon name="accept"></ui5-icon>
+          </ui5-badge>
+        </ui5-avatar>
+
+        <ui5-avatar size="XL" icon="customer">
+          <ui5-badge slot="badge" color-scheme="2">12</ui5-badge>
+        </ui5-avatar>
+      </view>
+    </ui5-card>
+  </view>
+</ui5-page>

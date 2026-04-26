@@ -1,0 +1,12 @@
+<!-- 根元素需要有 .ui5-mp-root 类名，以便 Behavior 能通过 createSelectorQuery 找到位置。 -->
+<view
+  class="ui5-mp-root ui5-link ui5-link--{{design}} ui5-link--{{wrappingType}} {{disabled ? 'ui5-link--disabled' : ''}} ui5Class"
+  role="{{accessibleRole}}" aria-label="{{accessibleName || tooltip}}" bindtap="_handleTap" bindlongpress="openTooltip">
+  <slot></slot>
+
+  <!-- Tooltip 浮层 (由 tooltip-behavior 驱动) -->
+  <view wx:if="{{tooltipVisible}}" class="ui5-link-tooltip"
+    style="top: {{tooltipPosition.top}}px; left: {{tooltipPosition.left}}px;">
+    {{tooltip || href}}
+  </view>
+</view>

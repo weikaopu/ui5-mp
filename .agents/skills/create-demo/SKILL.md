@@ -1,12 +1,12 @@
 ---
 name: create-demo
-description: 创建一个新的 demo 演示。针对 `src` 目录下的一个 ui5 微信小程序 UI 组件，在 `tools/demo/pages/gallery` 目录下创建一个演示，并将其添加到首页 `tools/demo/pages/index/index.wxml` 里面。
+description: 创建一个新的 demo 演示。针对 src 目录下的一个 ui5 微信小程序 UI 组件，在 tools/demo/pages/gallery 目录下创建一个演示，并将其添加到首页 tools/demo/pages/index/index.wxml 里面。
 user-invocable: false
 ---
 
 # 创建一个新的 demo 演示
 
-你现在需要帮我开发一些 UI 组件，当这个 skill 激活时，你需要完成以下动作：
+你现在需要帮我开发一些 UI 组件，当这个 skill 激活时，把 src/ 和 tools/ 目录都加入你的上下文，然后你需要完成以下动作：
 
 ## 使用场景
 
@@ -15,10 +15,11 @@ user-invocable: false
 ## 生成代码规则
 
 - 你总是应该根据 .gitignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
-- given：当我告诉你创建一个组件的演示的时候，你需要去 `src` 目录下找到对应的 UI 组件，一般这个组件会有不同的 `property` 和一下 `method`，针对这些 features 做出一些 mock 数据。
-- then：在 `tools/demo/pages/gallery` 目录下创建一个演示目录，目录名称和组件名称一致即可，比如：`ui5-toast` UI 组件的 demo 目录叫作 `toast`。
+- given：当我告诉你创建一个组件的演示的时候，你需要去 src 目录下找到对应的 UI 组件，一般这个组件会有不同的 `property` 和一下 `method`，针对这些 features 做出一些 mock 数据。
+- then：在 tools/demo/pages/gallery 目录下创建一个演示目录，目录名称和组件名称一致即可，比如：`ui5-toast` UI 组件的 demo 目录叫作 `toast`。
 - 在这个目录下新建 `index.{js,json,wxml,wxss}` 文件。
-- 更新这个文件 `tools/demo/app.json`，把新增的 demo 的路径添加进去。比如：`"pages/gallery/toast/index"`。
+- 更新这个文件 tools/demo/app.json，把新增的 demo 的路径添加进去。比如：`"pages/gallery/toast/index"`。
+- tools/demo/assets 目录下有图片资源供你使用。比如：`"../../../assets/Woman_avatar_01.png"`。
 
 ## 新建文件说明
 
@@ -38,7 +39,7 @@ user-invocable: false
      ```
 
 - index.json
-  1. 声明该 demo 依赖的其他组件，引用路径格式固定 `../../../components` (这个路径是编译后的路径，无须担心不存在问题)加上 `src` 目录下组件的目录，比如：`"../../../components/ui5-page"`。
+  1. 声明该 demo 依赖的其他组件，引用路径格式固定 `../../../components` (这个路径是编译后的路径，无须担心不存在问题)加上 src 目录下组件的目录，比如：`"../../../components/ui5-page"`。
   2. `ui5-page`，`ui5-shellbar`，`ui5-card` 这是三个都会用到，用于统一固定 demo 页面布局，实现 ui5-mp UI 组件库自举。
   3. 示例：
      ```json

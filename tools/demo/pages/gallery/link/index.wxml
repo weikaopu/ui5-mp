@@ -1,0 +1,78 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Link Gallery" show-back-button></ui5-shellbar>
+
+  <view class="fd-padding-md">
+    <!-- 基础展示 -->
+    <ui5-card title="Link Designs">
+      <view class="fd-padding-md demo-container">
+        <view class="demo-item">
+          <ui5-link href="/pages/index/index">Default Link, goto index page</ui5-link>
+        </view>
+        <view class="demo-item">
+          <ui5-link design="Emphasized">Emphasized Link</ui5-link>
+        </view>
+        <view class="demo-item">
+          <ui5-link design="Subtle">Subtle Link</ui5-link>
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- 状态展示 -->
+    <ui5-card title="States & Interaction">
+      <view class="fd-padding-md demo-container">
+        <view class="demo-item">
+          <ui5-link disabled>Disabled Link</ui5-link>
+        </view>
+        <view class="demo-item">
+          <ui5-link tooltip="This is a longpress tooltip help text">
+            Link with Tooltip (Longpress)
+          </ui5-link>
+        </view>
+        <view class="demo-item">
+          <ui5-link bindclick="onLinkClick">
+            Link with Click Event
+          </ui5-link>
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- 换行展示 -->
+    <ui5-card title="Wrapping Type">
+      <view class="fd-padding-md demo-container">
+        <view class="demo-item">
+          <view class="demo-description">Normal (Default):</view>
+          <ui5-link wrapping-type="Normal">This is a very long link text that will wrap to multiple lines when it
+            reaches the edge of the container.</ui5-link>
+        </view>
+        <view class="demo-item" style="width: 400rpx;">
+          <view class="demo-description">None (Truncated with ellipsis):</view>
+          <ui5-link wrapping-type="None">This is a very long link text that will be truncated.</ui5-link>
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- 辅助功能展示 -->
+    <ui5-card title="Accessibility">
+      <view class="fd-padding-md demo-container">
+        <view class="demo-item">
+          <ui5-link accessible-name="Go to SAP Global Site" accessible-role="link">
+            Link with Accessible Name
+          </ui5-link>
+          <view class="demo-description">Screen readers will read the accessible-name instead of the text
+            content.(小程序可能不支持)
+          </view>
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- 外部链接示例 -->
+    <ui5-card title="External URL (WebView)">
+      <view class="fd-padding-md demo-container">
+        <view class="demo-item">
+          <ui5-link href="/pages/gallery/webview/index?url=https://m.baidu.com">Open m.baidu.com</ui5-link>
+          <view class="demo-description">个人类型的小程序暂不支持使用 web-view</view>
+        </view>
+      </view>
+    </ui5-card>
+  </view>
+</ui5-page>
