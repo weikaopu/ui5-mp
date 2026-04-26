@@ -1,0 +1,38 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Icon Explorer" />
+
+  <view class="fd-padding-md">
+
+    <view class="explorer-container">
+      <view class="header">
+        <view class="search-bar">
+          <ui5-icon name="search" size="16" color="#0854a0" />
+          <input class="search-input" placeholder="搜索名称或标签 (如: speed, save...)" placeholder-class="placeholder"
+            bindinput="onSearch" />
+        </view>
+        <view class="stats">共 {{totalCount}} 个图标</view>
+      </view>
+
+      <scroll-view scroll-y class="content-area">
+        <view class="icon-grid">
+          <view class="icon-card" wx:for="{{displayIcons}}" wx:key="name" bindtap="copyIconData"
+            data-name="{{item.name}}">
+            <view class="icon-wrapper">
+              <ui5-icon name="{{item.name}}" size="32" color="#0854a0" />
+            </view>
+            <text class="icon-name">{{item.name}}</text>
+            <view class="tag-labels">
+              <text class="tag" wx:if="{{item.tags.length > 0}}">tags: {{item.tags[0]}}</text>
+              <text class="tag-more" wx:if="{{item.tags.length > 1}}">+{{item.tags.length - 1}}</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="empty-state" wx:if="{{displayIcons.length === 0}}">
+          <ui5-icon name="high-priority" size="28" color="#ccc" />
+          <text>未找到匹配的图标</text>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</ui5-page>

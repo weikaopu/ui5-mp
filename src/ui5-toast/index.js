@@ -1,6 +1,19 @@
+// https://ui5.github.io/webcomponents/components/Toast/
+
 Component({
-  options: { addGlobalClass: true },
+  externalClasses: ['ui5Class'],
+  options: {
+    addGlobalClass: true
+  },
   properties: {
+    text: {
+      type: String,
+      value: ''
+    },
+    visible: {
+      type: Boolean,
+      value: false
+    },
     // 显示时长（毫秒）
     duration: {
       type: Number,
@@ -8,19 +21,26 @@ Component({
     }
   },
   data: {
-    visible: false
+    _visible: false
+  },
+  observers: {
+    visible(visible) {
+      this.setData({
+        _visible: visible
+      })
+    }
   },
   methods: {
-    // 供外部调用的显示方法
-    show() {
-      if (this._timer) clearTimeout(this._timer)
-
-      this.setData({ visible: true })
-
-      this._timer = setTimeout(() => {
-        this.setData({ visible: false })
-        this.triggerEvent('close')
-      }, this.data.duration)
+    show(text = '', duration = this.data.duration) {
+      this.setData({
+        text,
+        _visible: true
+      })
+      setTimeout(() => {
+        this.setData({
+          _visible: false
+        })
+      }, duration)
     }
   }
 })

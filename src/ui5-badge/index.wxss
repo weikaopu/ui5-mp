@@ -1,60 +1,101 @@
-:host {
-  display: inline-block;
-  vertical-align: middle;
-}
-
 .ui5-badge {
   display: inline-flex;
   align-items: center;
-  height: 20px;
-  padding: 0 8px;
-  border-radius: 10px;
-  /* 胶囊形状 */
-  font-size: 11px;
+  justify-content: center;
+  padding: 2rpx 12rpx;
+  height: 40rpx;
+  min-width: 40rpx;
+  border-radius: 20rpx;
+  font-family: var(--sapFontFamily, "72", "72full", Arial, Helvetica, sans-serif);
+  font-size: var(--sapFontSize, 20rpx);
   font-weight: bold;
   box-sizing: border-box;
-  border: 1px solid transparent;
+  border-width: 1rpx;
+  border-style: solid;
+  vertical-align: middle;
 }
 
-.ui5-badge__icon {
-  margin-right: 4px;
-  display: flex;
-  align-items: center;
+.ui5-badge-icon {
+  font-size: 24rpx;
+  margin-right: 4rpx;
 }
 
-/* --- 颜色方案 (SAP 语义化配色) --- */
-
-/* Scheme 1: 默认/中性 (Grey) */
-.ui5-badge--1 {
-  background-color: #f2f2f2;
-  color: #6a6d70;
-  border-color: #e5e5e5;
+.ui5-badge-icon:only-child {
+  margin-right: 0;
 }
 
-/* Scheme 2: 警告 (Orange) */
-.ui5-badge--2 {
-  background-color: #fff8f0;
-  color: #e9730c;
-  border-color: #f5dcc1;
-}
-
-/* Scheme 3: 错误 (Red) */
-.ui5-badge--3 {
-  background-color: #fff4f4;
+/* Color Schemes (Indications) */
+.ui5-badge--scheme-1 {
+  background: #fff4f4;
   color: #bb0000;
-  border-color: #f9d6d6;
+  border-color: #ff9a9a;
 }
 
-/* Scheme 4: 成功 (Green) */
-.ui5-badge--4 {
-  background-color: #f6fff6;
+.ui5-badge--scheme-2 {
+  background: #fef7f1;
+  color: #e9730c;
+  border-color: #f9cb9c;
+}
+
+.ui5-badge--scheme-3 {
+  background: #fdf3da;
+  color: #e9730c;
+  border-color: #f9cb9c;
+}
+
+.ui5-badge--scheme-4 {
+  background: #f6fdf9;
   color: #107e3e;
-  border-color: #d5ebd5;
+  border-color: #b1e0c5;
 }
 
-/* Scheme 5: 信息 (Blue) */
-.ui5-badge--5 {
-  background-color: #f0f7ff;
+.ui5-badge--scheme-5 {
+  background: #f5fafd;
   color: #0a6ed1;
-  border-color: #d0e7ff;
+  border-color: #b4d2ed;
+}
+
+.ui5-badge--scheme-6 {
+  background: #f4f5f6;
+  color: #6a6d70;
+  border-color: #c2c5c7;
+}
+
+.ui5-badge--scheme-7 {
+  background: #f0f1f2;
+  color: #32363a;
+  border-color: #757a7f;
+}
+
+.ui5-badge--scheme-8 {
+  background: #f7f1f7;
+  color: #925692;
+  border-color: #d1b4d1;
+}
+
+.ui5-badge--scheme-9 {
+  background: #f1f3f9;
+  color: #586a7c;
+  border-color: #b9c2d1;
+}
+
+.ui5-badge--scheme-10 {
+  background: #eaf1fb;
+  color: #0a6ed1;
+  border-color: #b4d2ed;
+}
+
+/* 针对作为角标(Overlay)时的微调，可以通过外部样式类控制 */
+.ui5-badge-tooltip {
+  position: fixed;
+  transform: translateX(-50%);
+  background-color: #32363a;
+  color: #ffffff;
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  z-index: 1000;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.2);
 }

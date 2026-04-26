@@ -24,7 +24,7 @@
           </view>
         </ui5-tab>
 
-        <ui5-tab key="notes" text="Notes" icon="contact">
+        <ui5-tab key="notes" text="Notes" icon="contacts">
           <view class="fd-padding-md">
             <ui5-textarea placeholder="Add a private note..." rows="4" growing />
           </view>

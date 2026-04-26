@@ -1,21 +1,27 @@
 <view class="ui5-card {{interactive ? 'ui5-card--interactive' : ''}}" bindtap="onCardClick">
-  <!-- 卡片头部 -->
-  <view class="ui5-card__header">
-    <view class="ui5-card__header-main">
-      <view wx:if="{{icon}}" class="ui5-card__header-icon">
-        <ui5-icon name="{{icon}}" size="20" color="var(--sap-primary-color)" />
+  <block wx:if="{{title || subtitle}}">
+    <view class="ui5-card__header">
+      <!-- 卡片头部 -->
+      <view class="ui5-card__header-main">
+        <view wx:if="{{icon}}" class="ui5-card__header-icon">
+          <ui5-icon name="{{icon}}" size="20" color="var(--sap-primary-color)" />
+        </view>
+        <view class="ui5-card__header-text">
+          <view class="ui5-card__title">{{title}}</view>
+          <view wx:if="{{subtitle}}" class="ui5-card__subtitle">{{subtitle}}</view>
+        </view>
       </view>
-      <view class="ui5-card__header-text">
-        <view class="ui5-card__title">{{title}}</view>
-        <view wx:if="{{subtitle}}" class="ui5-card__subtitle">{{subtitle}}</view>
+      <!-- 右侧状态/数值 -->
+      <view wx:if="{{status}}" class="ui5-card__status">{{status}}</view>
+    </view>
+  </block>
+
+  <!-- 卡片内容区，支持左右滑动 -->
+  <view class="ui5-card__content">
+    <view class="ui5-card__scroll">
+      <view class="ui5-card__scroll-inner">
+        <slot />
       </view>
     </view>
-    <!-- 右侧状态/数值 -->
-    <view wx:if="{{status}}" class="ui5-card__status">{{status}}</view>
-  </view>
-
-  <!-- 卡片内容区 -->
-  <view class="ui5-card__content">
-    <slot></slot>
   </view>
 </view>

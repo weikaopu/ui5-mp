@@ -3,7 +3,8 @@
 
   <view class="ui5-rating__stars">
     <view wx:for="{{max}}" wx:key="*this" class="ui5-rating__star-container" bindtap="onTap" data-index="{{index + 1}}">
-      <view class="ui5-star {{ (value >= index + 1) ? 'is-selected' : '' }}"></view>
+      <ui5-icon name="{{ (value >= index + 1) ? 'favorite' : 'unfavorite' }}"
+        color="{{ (value >= index + 1) ? '#e38b16' : '#d3d3d3' }}" />
     </view>
   </view>
 </view>

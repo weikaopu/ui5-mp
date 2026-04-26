@@ -1,13 +1,24 @@
+// https://ui5.github.io/webcomponents/components/Bar/
+const baseBehavior = require('../behaviors/base-behavior')
+const tooltipBehavior = require('../behaviors/tooltip-behavior')
+
 Component({
+  externalClasses: ['ui5Class'],
   options: {
-    multipleSlots: true,
-    addGlobalClass: true
+    addGlobalClass: true,
+    pureDataPattern: /^_/,
+    multipleSlots: true
   },
+  behaviors: [baseBehavior, tooltipBehavior],
   properties: {
-    // design: header, footer (默认为 footer)
+    /**
+     * 定义 Bar 的设计模式。
+     * 可选值：Header, Subheader, Footer, FloatingFooter.
+     * 默认值：Header
+     */
     design: {
       type: String,
-      value: 'footer'
+      value: 'Header',
     }
   }
 })

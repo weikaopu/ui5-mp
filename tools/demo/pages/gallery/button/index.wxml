@@ -1,0 +1,66 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Button Gallery" show-back-button></ui5-shellbar>
+
+  <view class="fd-padding-md">
+    <!-- 基础设计展示 -->
+    <ui5-card title="Standard Designs">
+      <view class="fd-padding-md demo-container">
+        <ui5-button bindclick="onButtonClick">Default</ui5-button>
+        <ui5-button design="Emphasized">Emphasized</ui5-button>
+        <ui5-button design="Transparent">Transparent</ui5-button>
+        <ui5-button design="Positive">Positive</ui5-button>
+        <ui5-button design="Negative">Negative</ui5-button>
+        <ui5-button design="Attention">Attention</ui5-button>
+      </view>
+    </ui5-card>
+
+    <!-- 图标支持 -->
+    <ui5-card title="Icons">
+      <view class="fd-padding-md demo-container">
+        <ui5-button icon="employee">With Icon</ui5-button>
+        <ui5-button icon="add" icon-end>Icon at End</ui5-button>
+        <ui5-button icon="action-settings" design="Transparent" tooltip="Settings"></ui5-button>
+      </view>
+    </ui5-card>
+
+    <!-- 状态与交互 -->
+    <ui5-card title="States & Interaction">
+      <view class="fd-padding-md demo-container">
+        <ui5-button disabled>Disabled</ui5-button>
+        <ui5-button loading="{{loading}}" bindclick="onLoadingToggle">
+          {{loading ? 'Loading...' : 'Click for Loading (2s)'}}
+        </ui5-button>
+        <ui5-button tooltip="Longpress to see me">Longpress for Tooltip</ui5-button>
+      </view>
+    </ui5-card>
+
+    <!-- 角标集成 -->
+    <ui5-card title="Button with Badge">
+      <view class="fd-padding-md demo-container">
+        <ui5-button icon="cart">
+          Shopping Cart
+          <ui5-badge slot="badge" color-scheme="1">5</ui5-badge>
+        </ui5-button>
+
+        <ui5-button design="Emphasized" icon="bell">
+          Notifications
+          <ui5-badge slot="badge" color-scheme="2">
+            <ui5-icon name="warning"></ui5-icon>
+          </ui5-badge>
+        </ui5-button>
+
+        <ui5-button design="Transparent" icon="email">
+          <ui5-badge slot="badge" color-scheme="4">New</ui5-badge>
+        </ui5-button>
+      </view>
+    </ui5-card>
+
+    <!-- 小程序原生能力 -->
+    <ui5-card title="Native Capabilities">
+      <view class="fd-padding-md demo-container">
+        <ui5-button icon="share" open-type="share" design="Emphasized">Share This Gallery</ui5-button>
+        <ui5-button icon="customer" open-type="contact">Contact Support</ui5-button>
+      </view>
+    </ui5-card>
+  </view>
+</ui5-page>

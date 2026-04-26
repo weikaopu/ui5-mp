@@ -1,0 +1,59 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Busy Indicator Gallery" show-back-button></ui5-shellbar>
+
+  <view class="fd-padding-md">
+    <!-- 尺寸展示 -->
+    <ui5-card title="Standard Sizes">
+      <view class="fd-padding-md demo-container">
+        <view class="demo-item">
+          <ui5-busy-indicator active size="S"></ui5-busy-indicator>
+          <text class="demo-label">Small (S)</text>
+        </view>
+        <view class="demo-item">
+          <ui5-busy-indicator active size="M"></ui5-busy-indicator>
+          <text class="demo-label">Medium (M)</text>
+        </view>
+        <view class="demo-item">
+          <ui5-busy-indicator active size="L"></ui5-busy-indicator>
+          <text class="demo-label">Large (L)</text>
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- 自定义文本 -->
+    <ui5-card title="With Custom Text">
+      <view class="fd-padding-md">
+        <ui5-busy-indicator active text="正在保存数据..."></ui5-busy-indicator>
+      </view>
+    </ui5-card>
+
+    <!-- 交互切换 -->
+    <ui5-card title="Interactive State Toggle">
+      <view class="fd-padding-md">
+        <ui5-busy-indicator active="{{isBusy}}" text="操作进行中"></ui5-busy-indicator>
+        <view class="fd-margin-top-sm">
+          <ui5-button bindclick="toggleBusy">{{isBusy ? '停止' : '开启'}} 忙碌状态</ui5-button>
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- 延迟显示 -->
+    <ui5-card title="Delay (1500ms)">
+      <view class="fd-padding-md">
+        <view class="demo-description">启用延迟显示后，只有当 active 状态持续超过 1.5 秒时才会显示指示器。</view>
+        <ui5-busy-indicator active="{{delayBusy}}" delay="{{1500}}" text="延迟显示的指示器"></ui5-busy-indicator>
+        <view class="fd-margin-top-sm">
+          <ui5-button bindclick="toggleDelayBusy">{{delayBusy ? '重置' : '开启 1.5s 延迟显示'}}</ui5-button>
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- 全屏遮罩 -->
+    <ui5-card title="Full Screen Overlay">
+      <view class="fd-padding-md">
+        <ui5-button bindclick="showFullScreen">触发全屏遮罩 (3s)</ui5-button>
+        <ui5-busy-indicator active="{{isFullScreenBusy}}" full-screen text="全屏加载中..."></ui5-busy-indicator>
+      </view>
+    </ui5-card>
+  </view>
+</ui5-page>

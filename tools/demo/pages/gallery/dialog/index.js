@@ -55,7 +55,7 @@ Page({
 
       setTimeout(() => {
         this.setData({ isGlobalLoading: false })
-        this.selectComponent('#successToast').show()
+        this.selectComponent('#successToast').show('Product created successfully!')
       }, 1500)
     }, 2000)
   }

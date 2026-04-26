@@ -1,0 +1,29 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Title Component" />
+
+  <view class="fd-padding-md">
+    <ui5-card title="Title Levels">
+      <view class="fd-padding-md">
+        <ui5-title level="H1" design="Emphasized">Headline 1</ui5-title>
+        <ui5-title level="H2" style="margin-top: 10px;">Headline 2</ui5-title>
+        <ui5-title level="H3" design="Subtle" style="margin-top: 10px;">Headline 3 Subtle</ui5-title>
+      </view>
+    </ui5-card>
+
+    <ui5-card title="Text Alignment">
+      <view class="fd-padding-md">
+        <ui5-title textAlign="Left" level="H4">Left Aligned Title</ui5-title>
+        <ui5-title textAlign="Center" level="H4" style="margin-top: 10px;">Center Aligned Title</ui5-title>
+        <ui5-title textAlign="Right" level="H4" style="margin-top: 10px;">Right Aligned Title</ui5-title>
+      </view>
+    </ui5-card>
+
+    <ui5-card title="Wrapping Control">
+      <view class="fd-padding-md">
+        <ui5-title wrapping="false" level="H5">
+          This is a long title that should not wrap and will be truncated with ellipsis.
+        </ui5-title>
+      </view>
+    </ui5-card>
+  </view>
+</ui5-page>

@@ -21,7 +21,7 @@
     </block>
     <block wx:else>
       <text class="ui5-li__status" wx:if="{{status}}">{{status}}</text>
-      <ui5-icon wx:if="{{type === 'Navigation'}}" name="arrow-right" size="14" color="#89919a" />
+      <ui5-icon wx:if="{{type === 'Navigation'}}" name="navigation-right-arrow" size="14" color="#89919a" />
     </block>
   </view>
 </view>

@@ -1,0 +1,14 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Process Flow" />
+
+  <view class="fd-padding-md">
+    <ui5-card title="Process Flow 示例">
+      <view class="fd-padding-md">
+        <ui5-process-flow nodes="{{steps}}" selectedKey="{{selectedStep}}" bindnodeclick="onNodeClick" />
+      </view>
+    </ui5-card>
+  </view>
+
+  <!-- 全局组件定义 -->
+  <ui5-toast id="demoToast"></ui5-toast>
+</ui5-page>

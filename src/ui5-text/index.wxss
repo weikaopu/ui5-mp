@@ -1,0 +1,37 @@
+.ui5-text {
+  display: block;
+  font-family: var(--sapFontFamily, "72", "72full", Arial, Helvetica, sans-serif);
+  font-size: var(--sapFontSize, 28rpx);
+  color: var(--sapTextColor, #32363a);
+  line-height: normal;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+.ui5-text--no-wrapping {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ui5-text--max-lines {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Tooltip 样式 (保持与全库一致) */
+.ui5-text-tooltip {
+  position: fixed;
+  transform: translateX(-50%);
+  background-color: #32363a;
+  color: #ffffff;
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  z-index: 1000;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.2);
+}

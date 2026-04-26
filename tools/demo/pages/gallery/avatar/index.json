@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "Avatar Gallery",
+  "usingComponents": {
+    "ui5-page": "../../../components/ui5-page/index",
+    "ui5-shellbar": "../../../components/ui5-shellbar/index",
+    "ui5-card": "../../../components/ui5-card/index",
+    "ui5-avatar": "../../../components/ui5-avatar/index",
+    "ui5-badge": "../../../components/ui5-badge/index",
+    "ui5-icon": "../../../components/ui5-icon/index"
+  }
+}

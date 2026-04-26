@@ -1,0 +1,6 @@
+.demo-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24rpx;
+    align-items: center;
+}

@@ -41,5 +41,5 @@
   </ui5-dialog>
 
   <!-- 成功提示 -->
-  <ui5-toast id="successToast">Product created successfully!</ui5-toast>
+  <ui5-toast id="successToast"></ui5-toast>
 </ui5-page>

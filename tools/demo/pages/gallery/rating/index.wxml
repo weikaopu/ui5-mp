@@ -37,4 +37,6 @@
     </ui5-list>
 
   </view>
+
+  <ui5-toast id="demoToast"></ui5-toast>
 </ui5-page>

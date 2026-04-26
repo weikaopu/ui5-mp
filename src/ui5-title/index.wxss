@@ -1,0 +1,51 @@
+.ui5-title {
+  display: block;
+  line-height: 1.2;
+  word-break: break-word;
+  color: var(--sap-text-color, #22313f);
+  margin: 0;
+}
+
+.ui5-title--h1 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.ui5-title--h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.ui5-title--h3 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.ui5-title--h4 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.ui5-title--h5 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.ui5-title--h6 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.ui5-title--subtle {
+  color: var(--sap-text-subtle-color, #6f7d8c);
+}
+
+.ui5-title--emphasized {
+  font-weight: 700;
+}
+
+.ui5-title--no-wrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

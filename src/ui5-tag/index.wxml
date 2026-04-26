@@ -1,0 +1,15 @@
+<!-- 根元素需要有 .ui5-mp-root 类名，以便 Behavior 能通过 createSelectorQuery 找到位置。 -->
+<view
+  class="ui5-mp-root ui5-tag ui5-tag--{{design}} ui5-tag--{{wrappingType}} {{colorScheme ? 'ui5-tag--scheme-' + colorScheme : ''}} {{disabled ? 'ui5-tag--disabled' : ''}} {{interactive ? 'ui5-tag--interactive' : ''}} ui5Class"
+  bindtap="_handleTap" bindlongpress="openTooltip">
+  <ui5-icon wx:if="{{icon}}" name="{{icon}}" class="ui5-tag-icon"></ui5-icon>
+  <view class="ui5-tag-text">
+    <slot></slot>
+  </view>
+
+  <!-- Tooltip 浮层 (由 tooltip-behavior 驱动) -->
+  <view wx:if="{{tooltipVisible}}" class="ui5-tag-tooltip"
+    style="top: {{tooltipPosition.top}}px; left: {{tooltipPosition.left}}px;">
+    {{tooltip}}
+  </view>
+</view>

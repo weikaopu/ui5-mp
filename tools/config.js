@@ -27,9 +27,12 @@ module.exports = {
     'ui5-icon/index',
     'ui5-input/index',
     'ui5-item/index',
+    'ui5-link/index',
     'ui5-list/index',
     'ui5-message-strip/index',
     'ui5-page/index',
+    'ui5-popover/index',
+    'ui5-process-flow/index',
     'ui5-range-slider/index',
     'ui5-rating-indicator/index',
     'ui5-segmented-button/index',
@@ -43,7 +46,10 @@ module.exports = {
     'ui5-tab-container/index',
     'ui5-table/index',
     'ui5-table-row/index',
+    'ui5-tag/index',
+    'ui5-text/index',
     'ui5-textarea/index',
+    'ui5-title/index',
     'ui5-toast/index',
     'ui5-viz-column/index',
     'ui5-viz-donut/index',
@@ -140,5 +146,5 @@ module.exports = {
     },
   },
 
-  copy: ['./assets'], // 将会复制到目标目录
+  copy: ['./assets', './utils'], // 将会复制到目标目录
 }

@@ -1,11 +1,25 @@
-<button 
-  class="ui5-btn ui5-btn--{{type}} {{disabled ? 'is-disabled' : ''}}" 
-  hover-class="ui5-btn--active"
-  disabled="{{disabled}}"
-  loading="{{loading}}"
-  bindtap="onTap"
->
-  <view class="ui5-btn__inner">
-    <slot></slot>
+<view class="ui5-button-wrapper ui5Class">
+  <button class="ui5-mp-root ui5-button ui5-button--{{design}} {{disabled || loading ? 'ui5-button--disabled' : ''}}"
+    role="{{accessibleRole}}" aria-label="{{accessibleName || tooltip}}" disabled="{{disabled || loading}}"
+    open-type="{{openType}}" form-type="{{formType}}" bindtap="_handleTap" bindlongpress="openTooltip"
+    bindgetuserinfo="_handleGetUserInfo" bindcontact="_handleContact" bindgetphonenumber="_handleGetPhoneNumber"
+    binderror="_handleError" bindopensetting="_handleOpenSetting" bindlaunchapp="_handleLaunchApp">
+    <view class="ui5-button-content {{loading ? 'ui5-button-content--hidden' : ''}}">
+      <ui5-icon wx:if="{{icon && !iconEnd}}" name="{{icon}}" class="ui5-button-icon ui5-button-icon--start"></ui5-icon>
+      <slot></slot>
+      <ui5-icon wx:if="{{icon && iconEnd}}" name="{{icon}}" class="ui5-button-icon ui5-button-icon--end"></ui5-icon>
+    </view>
+
+    <ui5-busy-indicator wx:if="{{loading}}" active size="S" class="ui5-button-busy-indicator"></ui5-busy-indicator>
+
+    <!-- Tooltip 浮层 (由 tooltip-behavior 驱动) -->
+    <view wx:if="{{tooltipVisible}}" class="ui5-button-tooltip"
+      style="top: {{tooltipPosition.top}}px; left: {{tooltipPosition.left}}px;">
+      {{tooltip}}
+    </view>
+  </button>
+
+  <view class="ui5-button-badge-slot">
+    <slot name="badge"></slot>
   </view>
-</button>
+</view>

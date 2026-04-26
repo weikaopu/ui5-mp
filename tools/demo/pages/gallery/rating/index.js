@@ -16,10 +16,10 @@ Page({
 
     // 如果是 5 分，给用户一个 Toast 反馈
     if (val === 5 && index === '1') {
-      wx.showToast({
-        title: 'Thank you for the 5-star!',
-        icon: 'success'
-      })
+      const toast = this.selectComponent('#demoToast')
+      if (toast) {
+        toast.show('Thank you for the 5-star!')
+      }
     }
   }
 })
