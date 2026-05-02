@@ -1,4 +1,7 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "ui5-icon": "../ui5-icon/index",
+    "ui5-label": "../ui5-label/index"
+  }
 }

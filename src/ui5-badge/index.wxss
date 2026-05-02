@@ -1,3 +1,8 @@
+:host {
+  /* 确保组件作为 Flex 项目时不会被挤压 */
+  flex-shrink: 0;
+}
+
 .ui5-badge {
   display: inline-flex;
   align-items: center;
@@ -22,6 +27,13 @@
 
 .ui5-badge-icon:only-child {
   margin-right: 0;
+}
+
+.ui5-badge-text {
+  /* 强制文本不换行，符合 Fiori 状态徽标的设计规范 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Color Schemes (Indications) */

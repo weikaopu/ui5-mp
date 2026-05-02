@@ -1,0 +1,110 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Timeline" show-back-button />
+
+  <view class="fd-padding-md">
+    <!-- 场景 1: 基础垂直时间轴 -->
+    <ui5-card title="Basic Vertical Timeline" subtitle="Order Tracking Example">
+      <view class="fd-padding-md">
+        <ui5-timeline accessible-name="Order History">
+          <ui5-timeline-item wx:for="{{basicTimelineItems}}" wx:key="titleText" title-text="{{item.titleText}}"
+            subtitle-text="{{item.subtitleText}}" timestamp="{{item.timestamp}}" icon="{{item.icon}}"
+            state="{{item.state}}" last-item="{{item.lastItem}}" binditem-click="onItemClick" />
+        </ui5-timeline>
+      </view>
+    </ui5-card>
+
+    <view class="spacer"></view>
+
+    <!-- 场景 2: 带有不同状态和可点击名称的时间轴 -->
+    <ui5-card title="Timeline with States & Clickable Names" subtitle="Task Flow Example">
+      <view class="fd-padding-md">
+        <ui5-timeline accessible-name="Task Workflow">
+          <ui5-timeline-item wx:for="{{statusTimelineItems}}" wx:key="titleText" name="{{item.name}}"
+            name-clickable="{{item.nameClickable}}" title-text="{{item.titleText}}"
+            subtitle-text="{{item.subtitleText}}" timestamp="{{item.timestamp}}" state="{{item.state}}"
+            last-item="{{item.lastItem}}" bindname-click="onNameClick" binditem-click="onItemClick" />
+        </ui5-timeline>
+      </view>
+    </ui5-card>
+
+    <view class="spacer"></view>
+
+    <!-- 场景 3: 水平时间轴 -->
+    <ui5-card title="Horizontal Timeline" subtitle="Project Milestones">
+      <view class="fd-padding-md">
+        <ui5-timeline layout="Horizontal" accessible-name="Project Milestones">
+          <ui5-timeline-item layout="Horizontal" title-text="Phase 1 Start" timestamp="2023-09-01" icon="begin"
+            state="Information" />
+          <ui5-timeline-item layout="Horizontal" title-text="Design Review" timestamp="2023-09-15" icon="document"
+            state="None" />
+          <ui5-timeline-item layout="Horizontal" title-text="Development Complete" timestamp="2023-10-01" icon="code"
+            state="Positive" />
+          <ui5-timeline-item layout="Horizontal" title-text="UAT Started" timestamp="2023-10-10" icon="sys-find"
+            state="Critical" />
+          <ui5-timeline-item layout="Horizontal" title-text="Go-Live" timestamp="2023-10-25" icon="sys-enter-2"
+            state="Positive" last-item />
+        </ui5-timeline>
+      </view>
+    </ui5-card>
+
+    <view class="spacer"></view>
+
+    <!-- 场景 4: 加载更多 (Growing) -->
+    <ui5-card title="Growing Timeline" subtitle="Load More Items">
+      <view class="fd-padding-md">
+        <ui5-timeline growing="Button" growing-button-text="{{isLoadingMore ? 'Loading...' : 'Load More'}}"
+          loading="{{isLoadingMore}}" loading-delay="0" bind:load-more="onLoadMore" accessible-name="Growing List">
+          <ui5-timeline-item wx:for="{{growingTimelineItems}}" wx:key="titleText" title-text="{{item.titleText}}"
+            subtitle-text="{{item.subtitleText}}" timestamp="{{item.timestamp}}" icon="{{item.icon}}"
+            state="{{item.state}}" last-item="{{item.lastItem}}" />
+        </ui5-timeline>
+      </view>
+    </ui5-card>
+
+    <view class="spacer"></view>
+
+    <!-- 场景 5: 全局加载状态 -->
+    <ui5-card title="Timeline Loading State" subtitle="Busy Indicator Example">
+      <view class="fd-padding-md">
+        <ui5-button bindclick="onToggleLoading">{{isTimelineLoading ? 'Hide Loading' : 'Show Loading'}}</ui5-button>
+        <view class="fd-margin-top-sm">
+          <ui5-timeline loading="{{isTimelineLoading}}" loading-delay="500" accessible-name="Loading Timeline">
+            <ui5-timeline-item title-text="This item is always visible" timestamp="2023-01-01" state="Information"
+              last-item />
+          </ui5-timeline>
+        </view>
+      </view>
+    </ui5-card>
+
+    <view class="spacer"></view>
+
+    <!-- 场景 6: 带有 Avatar 的时间轴 -->
+    <ui5-card title="Timeline with Avatars" subtitle="User Activity Feed">
+      <view class="fd-padding-md">
+        <ui5-timeline accessible-name="User Activity">
+          <ui5-timeline-item wx:for="{{avatarTimelineItems}}" wx:key="titleText" name="{{item.name}}"
+            title-text="{{item.titleText}}" timestamp="{{item.timestamp}}" state="{{item.state}}"
+            last-item="{{item.lastItem}}" binditem-click="onItemClick">
+            <ui5-avatar slot="avatar" src="{{item.avatarSrc}}" size="S" shape="Circle" />
+          </ui5-timeline-item>
+        </ui5-timeline>
+      </view>
+    </ui5-card>
+
+    <view class="spacer"></view>
+
+    <!-- 场景 7: 使用 Initials Avatar -->
+    <ui5-card title="Timeline with Initials" subtitle="Team Collaboration">
+      <view class="fd-padding-md">
+        <ui5-timeline accessible-name="Team Activities">
+          <ui5-timeline-item wx:for="{{avatarInitialsItems}}" wx:key="titleText" name="{{item.name}}"
+            title-text="{{item.titleText}}" timestamp="{{item.timestamp}}" state="{{item.state}}"
+            last-item="{{item.lastItem}}">
+            <ui5-avatar slot="avatar" initials="{{item.initials}}" size="S" shape="Square" />
+          </ui5-timeline-item>
+        </ui5-timeline>
+      </view>
+    </ui5-card>
+
+  </view>
+</ui5-page>

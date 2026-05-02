@@ -1,8 +1,11 @@
+const textBehavior = require('../behaviors/text-behavior')
+
 Component({
   externalClasses: ['ui5Class'],
   options: {
     addGlobalClass: true
   },
+  behaviors: [textBehavior],
   properties: {
     text: {
       type: String,
@@ -12,17 +15,9 @@ Component({
       type: String,
       value: 'H1'
     },
-    wrapping: {
-      type: Boolean,
-      value: true
-    },
     design: {
       type: String,
       value: 'Standard'
-    },
-    textAlign: {
-      type: String,
-      value: 'Left'
     },
     width: {
       type: String,
@@ -30,7 +25,7 @@ Component({
     }
   },
   observers: {
-    'level, wrapping, design, textAlign, width': function (level, wrapping, design, textAlign, width) {
+    'level, wrappingType, design, textAlign, width': function (level, wrappingType, design, textAlign, width) {
       const levelMap = {
         H1: 'ui5-title--h1',
         H2: 'ui5-title--h2',
@@ -53,7 +48,7 @@ Component({
       const classes = [
         'ui5-title',
         levelMap[level] || levelMap.H1,
-        wrapping ? '' : 'ui5-title--no-wrap',
+        wrappingType === 'Normal' ? '' : 'ui5-title--no-wrap',
         designMap[design] || ''
       ].filter(Boolean).join(' ')
 

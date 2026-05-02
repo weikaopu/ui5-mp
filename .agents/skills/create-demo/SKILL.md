@@ -4,22 +4,28 @@ description: 创建一个新的 demo 演示。针对 src 目录下的一个 ui5 
 user-invocable: false
 ---
 
-# 创建一个新的 demo 演示
+# 任务描述
 
-你现在需要帮我开发一些 UI 组件，当这个 skill 激活时，把 src/ 和 tools/ 目录都加入你的上下文，然后你需要完成以下动作：
+你现在需要帮我开发一个 UI 组件的 demo 演示，这个演示的代码必须同时遵循 SAP UI5 的设计规范和微信小程序 UI 规范。不兼容和冲突的地方优先尊循小程序 UI 规范。
 
-## 使用场景
+当这个 skill 激活时，
 
-- 创建一个新演示，这个 UI 组件的代码必须同时遵循 SAP UI5 的设计规范和微信小程序 UI 规范。不兼容和冲突的地方优先尊循小程序 UI 规范。
+- 把 @src/ 目录下的所有名为 index.js 的文件都加入你的上下文。
+- 把 @src/behaviors 目录下的所有 js 的文件都加入你的上下文。
+- 把 @src/assets/sap-fundamental-styles.wxss 文件加入你的上下文。
+- 把 @tools/config.js 文件加入你的上下文。
+- 把 @tools/demo/app.json 文件加入你的上下文。
+- 把 @tools/demo/pages 目录下的所有名为 index.js 的文件都加入你的上下文。
 
-## 生成代码规则
+然后你需要完成以下动作：
 
-- 你总是应该根据 .gitignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
-- given：当我告诉你创建一个组件的演示的时候，你需要去 src 目录下找到对应的 UI 组件，一般这个组件会有不同的 `property` 和一下 `method`，针对这些 features 做出一些 mock 数据。
-- then：在 tools/demo/pages/gallery 目录下创建一个演示目录，目录名称和组件名称一致即可，比如：`ui5-toast` UI 组件的 demo 目录叫作 `toast`。
-- 在这个目录下新建 `index.{js,json,wxml,wxss}` 文件。
-- 更新这个文件 tools/demo/app.json，把新增的 demo 的路径添加进去。比如：`"pages/gallery/toast/index"`。
-- tools/demo/assets 目录下有图片资源供你使用。比如：`"../../../assets/Woman_avatar_01.png"`。
+## 实现规则
+
+- 你总是应该根据 .aignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
+- 你需要去 src 目录下找到对应的 UI 组件，一般这个组件会有不同的 `property` 和一下 `method`，针对这些 features 做出一些 mock 数据。
+- 在 tools/demo/pages/gallery 目录下新建一个演示目录，目录名称和组件名称一致即可，比如：`ui5-toast` UI 组件的 demo 目录叫作 `toast`。
+- 在这个新建演示目录下新建 `index.{js,json,wxml,wxss}` 文件。比如：tools/demo/pages/gallery/toast/index.{js,json,wxml,wxss}。
+- tools/demo/assets 目录下有图片资源供你使用。比如：`"/assets/Woman_avatar_01.png"`，这里的 demo 的 assets 资源路径必须 "/" 开头。
 
 ## 新建文件说明
 
@@ -89,6 +95,11 @@ user-invocable: false
 - index.wxss
   尽可能不要写太多 css，要实现 ui5-mp 组件的自举能力。要加的话也是展示一些定制的 css，比如：ui5-class。
 
+### 完成后需要更新配置
+
+- 更新这个文件 tools/demo/app.json，把新增的 demo 的路径添加进去。比如：`"pages/gallery/toast/index"`。
+- 更新这个文件 tools/demo/pages/index/index.wxml，把新增的 demo 添加到首页列表合适的分组位置上。
+
 ## 交互和反馈
 
 - 如果你在实现的过程中遇到任何不清楚的地方请终止活动，询问我或者和我确认，之后方可继续或者结束。
@@ -97,5 +108,5 @@ user-invocable: false
 ## 使用方法
 
 ```md
-创建一个 ui5-tag 组件的 demo 演示。
+请遵循 `create-demo` 技能的规则，为 `ui5-tag` 组件创建一个 demo 演示。
 ```

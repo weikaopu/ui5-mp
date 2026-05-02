@@ -1,10 +1,14 @@
 {
   "usingComponents": {
-    "ui5-badge": "../../../components/ui5-badge",
-    "ui5-card": "../../../components/ui5-card",
-    "ui5-item": "../../../components/ui5-item",
-    "ui5-list": "../../../components/ui5-list",
-    "ui5-page": "../../../components/ui5-page",
-    "ui5-shellbar": "../../../components/ui5-shellbar"
+    "ui5-page": "../../../components/ui5-page/index",
+    "ui5-shellbar": "../../../components/ui5-shellbar/index",
+    "ui5-card": "../../../components/ui5-card/index",
+    "ui5-card-header": "../../../components/ui5-card-header/index",
+    "ui5-icon": "../../../components/ui5-icon/index",
+    "ui5-button": "../../../components/ui5-button/index",
+    "ui5-badge": "../../../components/ui5-badge/index",
+    "ui5-list": "../../../components/ui5-list/index",
+    "ui5-title": "../../../components/ui5-title/index",
+    "ui5-li": "../../../components/ui5-li/index"
   }
 }

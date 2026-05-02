@@ -3,6 +3,10 @@
   display: block;
 }
 
+.ui5-busy-indicator-root {
+  position: relative;
+}
+
 .ui5-busy-container {
   display: none;
   flex-direction: column;
@@ -16,6 +20,12 @@
 
 /* 利用变量控制局部组件的可见性 */
 .ui5-busy-container:not(.is-full-screen) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
   /* 如果全局 busy 开启，则局部 busy 的透明度降为 0 且不可交互 */
   opacity: calc(1 - var(--ui5-global-busy, 0));
   pointer-events: calc(1 - var(--ui5-global-busy, 0));
@@ -29,7 +39,8 @@
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 9999 !important;
+  z-index: 90 !important;
+  /* 确保低于 Shellbar (100) 和 Footer 的层级 */
   background-color: rgba(255, 255, 255, 0.8);
   display: none;
   /* 默认隐藏 */
@@ -46,13 +57,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6px;
+  gap: 12rpx;
   /* 圆点间距 */
 }
 
 .ui5-busy-dot {
-  width: 8px;
-  height: 8px;
+  width: 16rpx;
+  height: 16rpx;
   background-color: var(--sap-primary-color);
   border-radius: 50%;
   animation: ui5-busy-bounce 1.2s infinite ease-in-out;
@@ -84,19 +95,19 @@
 
 /* --- 尺寸 --- */
 .ui5-busy--S .ui5-busy-dot {
-  width: 4px;
-  height: 4px;
+  width: 8rpx;
+  height: 8rpx;
 }
 
 .ui5-busy--L .ui5-busy-dot {
-  width: 12px;
-  height: 12px;
-  gap: 10px;
+  width: 24rpx;
+  height: 24rpx;
+  gap: 20rpx;
 }
 
 .ui5-busy-text {
-  margin-top: 12px;
-  font-size: 14px;
+  margin-top: 24rpx;
+  font-size: 28rpx;
   color: var(--sap-primary-color);
 }
 

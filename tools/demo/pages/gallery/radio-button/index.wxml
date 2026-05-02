@@ -1,0 +1,79 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="RadioButton Gallery" show-back-button></ui5-shellbar>
+
+  <view class="fd-padding-md">
+    <!-- 1. 分组互斥演示 -->
+    <ui5-card title="RadioButton Group" subtitle="Mutual exclusion handling">
+      <view class="fd-padding-md">
+        <ui5-radio-button-group label="Fruits Selection" name="fruits" value="{{selectedFruit}}"
+          bind:change="handleFruitChange">
+          <ui5-radio-button text="Apple" value="Apple"></ui5-radio-button>
+          <ui5-radio-button text="Banana" value="Banana"></ui5-radio-button>
+          <ui5-radio-button text="Cherry" value="Cherry"></ui5-radio-button>
+        </ui5-radio-button-group>
+        <view class="ui5-text-secondary fd-margin-top-sm">Selected: {{selectedFruit}}</view>
+      </view>
+    </ui5-card>
+
+    <!-- 1.1 横向排列演示 -->
+    <ui5-card title="Horizontal Layout" class="fd-margin-top-sm">
+      <view class="fd-padding-md">
+        <ui5-radio-button-group label="Confirmation" layout="Row">
+          <ui5-radio-button text="Yes" value="Yes"></ui5-radio-button>
+          <ui5-radio-button text="No" value="No"></ui5-radio-button>
+        </ui5-radio-button-group>
+      </view>
+    </ui5-card>
+
+    <!-- 组状态继承展示 -->
+    <ui5-card title="Group Level Status" subtitle="Inherited Value State" class="fd-margin-top-sm">
+      <view class="fd-padding-md">
+        <ui5-radio-button-group label="Global Warning State" value-state="Warning">
+          <ui5-radio-button text="Option High" value="high"></ui5-radio-button>
+          <ui5-radio-button text="Option Medium" value="medium" checked></ui5-radio-button>
+          <ui5-radio-button text="Option Low" value="low"></ui5-radio-button>
+        </ui5-radio-button-group>
+      </view>
+    </ui5-card>
+
+    <!-- 2. 值状态演示 -->
+    <ui5-card title="Value States" class="fd-margin-top-sm">
+      <view class="fd-padding-md flex-column">
+        <ui5-radio-button text="Error State" value-state="Error"></ui5-radio-button>
+        <ui5-radio-button text="Warning State" value-state="Warning"></ui5-radio-button>
+        <ui5-radio-button text="Success State" value-state="Success" checked></ui5-radio-button>
+        <ui5-radio-button text="Information State" value-state="Information"></ui5-radio-button>
+      </view>
+    </ui5-card>
+
+    <!-- 3. 各种交互状态 -->
+    <ui5-card title="States & Interaction" class="fd-margin-top-sm">
+      <view class="fd-padding-md flex-column">
+        <ui5-radio-button text="Disabled Checked" disabled checked></ui5-radio-button>
+        <ui5-radio-button text="Readonly" readonly checked></ui5-radio-button>
+        <ui5-radio-button text="Required" required></ui5-radio-button>
+        <ui5-radio-button text="Standalone" bind:change="handleStandaloneChange"></ui5-radio-button>
+      </view>
+    </ui5-card>
+
+    <!-- 4. 文本换行逻辑 -->
+    <ui5-card title="Long Text Wrapping" class="fd-margin-top-sm">
+      <view class="fd-padding-md flex-column">
+        <view class="ui5-text-secondary fd-margin-bottom-sm">Truncated (Default):</view>
+        <view style="width: 300rpx;" class="fd-margin-bottom-md">
+          <ui5-radio-button text="This is a very long text that will be truncated by default"></ui5-radio-button>
+        </view>
+
+        <view class="ui5-text-secondary fd-margin-bottom-sm">Wrapping (Normal):</view>
+        <view style="width: 300rpx;">
+          <ui5-radio-button wrappingType="Normal"
+            text="This is a very long text that will wrap to multiple lines to show all content"></ui5-radio-button>
+        </view>
+      </view>
+    </ui5-card>
+
+    <view class="ui5-text-secondary fd-margin-top-md" style="text-align: center;">
+      Event log: {{lastEvent}}
+    </view>
+  </view>
+</ui5-page>

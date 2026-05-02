@@ -4,8 +4,11 @@
   <view class="fd-padding-md">
 
     <!-- 场景 1: 基础文本卡片 -->
-    <view class="gallery-section-title">Standard Card</view>
-    <ui5-card title="Contact Information" subtitle="Primary Contact Details" icon="home">
+    <ui5-title level="H4">Standard Card</ui5-title>
+    <ui5-card class="fd-margin-bottom-md">
+      <ui5-card-header slot="header" title-text="Contact Information" subtitle-text="Primary Contact Details">
+        <ui5-icon name="home" slot="avatar" />
+      </ui5-card-header>
       <view class="fd-padding-md">
         <view class="ui5-text-secondary">Email: support@sap.com</view>
         <view style="margin-top: 8px;">Address: 123 Science Avenue, Shanghai, China</view>
@@ -13,26 +16,59 @@
     </ui5-card>
 
     <!-- 场景 2: 列表卡片 (最经典的 Fiori 组合) -->
-    <view class="gallery-section-title">List Card</view>
-    <ui5-card title="Recent Orders" subtitle="Last 3 transactions" status="3 Total">
+    <ui5-title level="H4">List Card</ui5-title>
+    <ui5-card class="fd-margin-bottom-md">
+      <ui5-card-header slot="header" title-text="Recent Orders" subtitle-text="Last 3 transactions" status="3 Total" />
       <ui5-list no-border>
-        <ui5-item title="MacBook Pro 16" description="Delivered on Oct 24" status="$2,499" />
-        <ui5-item title="iPhone 15 Pro" description="In Transit" status="$999" />
-        <ui5-item title="Magic Mouse" description="Pending Approval" status="$79" />
+        <ui5-li text="MacBook Pro 16" description="Delivered on Oct 24" status="$2,499" />
+        <ui5-li text="iPhone 15 Pro" description="In Transit" status="$999" />
+        <ui5-li text="Magic Mouse" description="Pending Approval" status="$79" />
       </ui5-list>
     </ui5-card>
 
     <!-- 场景 3: 交互式卡片 + 状态展示 -->
-    <view class="gallery-section-title">Interactive Analytical Card</view>
-    <ui5-card title="Project Alpha" subtitle="Development Phase" status="75%" icon="settings" interactive="{{true}}"
-      bind:click="onCardPress">
+    <ui5-title level="H4">Interactive Header Card</ui5-title>
+    <ui5-card class="fd-margin-bottom-md">
+      <ui5-card-header slot="header" title-text="Project Alpha" subtitle-text="Development Phase" status="75%"
+        interactive bindclick="onHeaderPress">
+        <ui5-icon name="settings" slot="avatar" />
+      </ui5-card-header>
       <view class="fd-padding-md">
         <view style="display: flex; justify-content: space-between; align-items: center;">
           <view>
             <view class="ui5-text-success">Phase 1: Completed</view>
-            <view class="ui5-text-secondary">Next milestone: UAT</view>
+            <view class="ui5-text-secondary">Next milestone: UAT (User Acceptance Testing)</view>
           </view>
           <ui5-badge colorScheme="4" icon="accept">On Track</ui5-badge>
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- 场景 4: 带有 Action 槽位的卡片 -->
+    <ui5-title level="H4">Card with Actions</ui5-title>
+    <ui5-card class="fd-margin-bottom-md">
+      <ui5-card-header slot="header" title-text="System Health" subtitle-text="Cloud Platform Stats">
+        <ui5-button slot="action" design="Transparent" icon="refresh"></ui5-button>
+        <ui5-button slot="action" design="Transparent" icon="overflow"></ui5-button>
+      </ui5-card-header>
+      <view class="fd-padding-md">
+        <view class="ui5-text-secondary">All systems are operational.</view>
+      </view>
+    </ui5-card>
+
+    <!-- 场景 5: 加载状态演示 -->
+    <ui5-title level="H4">Card with Loading State</ui5-title>
+    <ui5-card loading="{{isCardLoading}}" loading-delay="500">
+      <ui5-card-header slot="header" title-text="Data Synchronization" subtitle-text="Real-time Updates">
+        <ui5-button slot="action" design="Emphasized" bindclick="onToggleLoading">
+          {{isCardLoading ? 'Stop' : 'Start'}} Loading
+        </ui5-button>
+      </ui5-card-header>
+      <view class="fd-padding-md">
+        <view class="ui5-text-secondary">Click the button above to test the Busy Indicator overlay.</view>
+        <view style="margin-top: 16rpx;">
+          Current Status: <text class="{{isCardLoading ? 'ui5-text-warning' : 'ui5-text-success'}}">{{isCardLoading ?
+            'Syncing...' : 'Idle'}}</text>
         </view>
       </view>
     </ui5-card>

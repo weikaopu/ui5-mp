@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "ui5-icon": "../ui5-icon/index"
+    "ui5-busy-indicator": "../ui5-busy-indicator/index"
   }
 }

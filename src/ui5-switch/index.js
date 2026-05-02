@@ -1,20 +1,55 @@
+const baseBehavior = require('../behaviors/base-behavior')
+
 Component({
-  options: { addGlobalClass: true },
+  externalClasses: ['ui5Class'],
+  options: {
+    addGlobalClass: true,
+    pureDataPattern: /^_/
+  },
+  behaviors: [baseBehavior],
   properties: {
-    checked: Boolean,
-    disabled: Boolean,
-    // 是否使用图标代替文本 (Accept/Decline)
+    /**
+     * 定义组件是否选中。
+     */
+    checked: {
+      type: Boolean,
+      value: false
+    },
+    /**
+     * 定义组件是否禁用。
+     */
+    disabled: {
+      type: Boolean,
+      value: false
+    },
+    /**
+     * 定义组件是否为图形化模式（显示勾选/关闭图标）。
+     */
     graphical: {
       type: Boolean,
       value: false
+    },
+    /**
+     * 开启状态显示的文本。
+     */
+    textOn: {
+      type: String,
+      value: ''
+    },
+    /**
+     * 关闭状态显示的文本。
+     */
+    textOff: {
+      type: String,
+      value: ''
     }
   },
   methods: {
-    onToggle() {
-      if (this.data.disabled) return
-      const newState = !this.data.checked
-      this.setData({ checked: newState })
-      this.triggerEvent('change', { value: newState })
+    _onTap() {
+      if (this.properties.disabled) return
+      const newValue = !this.properties.checked
+      this.setData({ checked: newValue })
+      this.triggerEvent('change', { checked: newValue })
     }
   }
 })

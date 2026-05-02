@@ -22,22 +22,32 @@ Component({
       value: 'currentColor'
     },
     size: {
-      type: Number,
-      value: 16
+      type: String,
+      value: '32rpx',
+      observer(newVal) {
+        this._updateSizeStyle(newVal)
+      }
     }
   },
   data: {
     // 私有数据使用下划线前缀，参考 ui5-text
     _path: '',
     _viewBox: '0 0 16 16',
-    _name: ''
+    _name: '',
+    _sizeStyle: '32rpx'
   },
   lifetimes: {
     attached() {
+      this._updateSizeStyle(this.properties.size)
       this._parseIcon(this.properties.name)
     }
   },
   methods: {
+    _updateSizeStyle(size) {
+      // 如果是纯数字，补 rpx；否则保持原样（如 32rpx）
+      const style = /^\d+$/.test(size) ? `${size}rpx` : size
+      this.setData({ _sizeStyle: style })
+    },
     _parseIcon(name) {
       const iconsData = sapIcons.data || {}
 
@@ -45,7 +55,9 @@ Component({
 
       if (this.data._path !== icon.path) {
         const viewBox = icon.viewBox || '0 0 16 16'
-        // 使用双引号构建 SVG 字符串
+
+        // 对于 mask-image 方案，SVG 内部的 fill 必须是实色（通常为黑色）
+        // 最终图标颜色由 WXML 中的 background-color 决定
         const svgString = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}"><path d="${icon.path}" fill="black"/></svg>`
 
         /**

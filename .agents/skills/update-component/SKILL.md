@@ -4,20 +4,32 @@ description: 更新一个已有的 ui5-mp 组件。制定生成符合 UI5 设计
 user-invocable: false
 ---
 
-# 更新一个已有的 ui5-mp 组件
+# 任务描述
 
-你现在需要帮我更新一些 UI 组件，当这个 skill 激活时，把 src/ 和 tools/ 目录都加入你的上下文，然后你需要完成以下动作：
+你现在需要帮我更新一些 UI 组件，这个 UI 组件的代码必须同时遵循 SAP UI5 的设计规范和微信小程序 UI 规范。参考文档从这里找：https://ui5.github.io/webcomponents/components 。
 
-## 使用场景
+当这个 skill 激活时，
 
-- 更新一个已有的组件，这个 UI 组件的代码必须同时遵循 SAP UI5 的设计规范和微信小程序 UI 规范。参考文档从这里找：https://ui5.github.io/webcomponents/components 。不兼容和冲突的地方优先尊循小程序 UI 规范。
+- 把 @src/ 目录下的所有名为 index.js 的文件都加入你的上下文。
+- 把 @src/behaviors 目录下的所有 js 的文件都加入你的上下文。
+- 把 @src/assets/sap-fundamental-styles.wxss 文件加入你的上下文。
+- 把 @tools/config.js 文件加入你的上下文。
+- 把 @tools/demo/app.json 文件加入你的上下文。
+- 把 @tools/demo/pages 目录下的所有名为 index.js 的文件都加入你的上下文。
 
-## 规则
+然后你需要完成以下动作：
 
-- 你总是应该根据 .gitignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
-- 你需要读取 create-component 技能(.agents/skills/create-component/SKILL.md)的所有规则，但不必新建文件，因为文件都已经存在了。
+## 实现规则
+
+- 你总是应该根据 .aignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
+- 你需要读取 create-component 技能(`.agents/skills/create-component/SKILL.md`)的所有规则，但不必新建文件，因为文件都已经存在了。
 - 检查组件是否已引入 ../../behaviors/ 目录下的 Behavior，如果没有，请重构以支持通用属性。
 - 检查和对比该组件的实现和 UI5 设计规范，检查 observers 是否完整覆盖了 properties。如果 UI5 原生组件有而小程序组件没有的属性（Property），且该属性影响视觉渲染，则必须标记为待实现。我来确认是否需要实现，以及实现哪一些。
+- **可访问性 (Accessibility/A11y) 专项检查**:
+  1. 参照 SAP UI5 的设计规范，确保组件具有正确的 ARIA 角色 (role) 和状态属性 (aria-checked, aria-disabled 等)。
+  2. 检查 `index.wxml`，确保交互元素有清晰的标签说明，必要时增加 `aria-label` 或 `aria-labelledby`。
+  3. 检查键盘导航支持：确保在小程序模拟环境下，核心交互逻辑能响应相应的事件。
+  4. 检查对比度：检查 `index.wxss` 中的颜色变量是否符合 SAP Fundamental Styles 的高对比度标准。
 - 检查和对比该组件的实现和小程序 UI 规范之间有哪些不兼容和冲突，尝试以优先尊循小程序 UI 规范修复问题。我来测试是否通过。
 
 ## 交互和反馈
@@ -28,7 +40,9 @@ user-invocable: false
 ## 使用方法
 
 ```md
-更新 ui5-tag 组件。
+请遵循 `update-component` 技能的规则，更新 `ui5-tag` 组件。
 
-参考 UI5 的 Tag 规范更新 ui5-tag 组件。
+更新 `ui5-tag` 组件。
+
+参考 UI5 的 Tag 规范更新 `ui5-tag` 组件。
 ```

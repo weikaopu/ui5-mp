@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "ui5-page": "../../../components/ui5-page/index",
+    "ui5-shellbar": "../../../components/ui5-shellbar/index",
+    "ui5-card": "../../../components/ui5-card/index",
+    "ui5-switch": "../../../components/ui5-switch/index",
+    "ui5-form": "../../../components/ui5-form/index",
+    "ui5-form-group": "../../../components/ui5-form-group/index",
+    "ui5-label": "../../../components/ui5-label/index"
+  },
+  "navigationBarTitleText": "Notification Settings"
+}

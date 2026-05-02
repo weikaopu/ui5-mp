@@ -18,8 +18,8 @@
         <ui5-tab key="attachments" text="Files" icon="settings">
           <view class="fd-padding-md">
             <ui5-list no-border>
-              <ui5-item title="specification.pdf" description="2.4 MB" icon="search" />
-              <ui5-item title="design_draft.png" description="1.1 MB" icon="search" />
+              <ui5-li text="specification.pdf" description="2.4 MB" icon="search" />
+              <ui5-li text="design_draft.png" description="1.1 MB" icon="search" />
             </ui5-list>
           </view>
         </ui5-tab>

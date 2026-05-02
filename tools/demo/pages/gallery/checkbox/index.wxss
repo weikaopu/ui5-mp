@@ -1,0 +1,9 @@
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.fd-margin-top-sm {
+  margin-top: var(--sap-spacing-small, 16rpx);
+}

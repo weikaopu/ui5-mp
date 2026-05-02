@@ -1,74 +1,16 @@
 <ui5-page>
-  <ui5-shellbar slot="header" title="UI5-MP 组件库" logo="../assets/sap-logo.svg" />
+  <ui5-shellbar slot="header" title="UI5-MP 官方组件库" logo="../assets/sap-logo.svg" />
 
   <view class="fd-padding-md">
     <ui5-message-strip type="information" hideCloseButton>
       欢迎！这里展示了为微信小程序定制的 SAP Fiori 风格组件。
     </ui5-message-strip>
 
-    <ui5-list header-text="基础与内容 (Foundation)">
-      <ui5-item icon="document-text" title="Text" description="文本排版、行数截断与格式化。" type="Navigation" bind:click="navTo"
-        data-url="text" />
-      <ui5-item icon="header" title="Title" description="各种级别的标题样式与对齐。" type="Navigation" bind:click="navTo"
-        data-url="title" />
-      <ui5-item icon="chain-link" title="Link" description="支持内链跳转与 WebView 外链。" type="Navigation" bind:click="navTo"
-        data-url="link" />
-      <ui5-item icon="tag" title="Tag" description="用于展示状态、元数据或简短信息。" type="Navigation" bind:click="navTo"
-        data-url="tag" />
-      <ui5-item icon="customer" title="Avatar" description="各种尺寸、形状与内容类型的头像显示。" type="Navigation" bind:click="navTo"
-        data-url="avatar" />
-      <ui5-item icon="action" title="Button" description="多种样式与加载状态的交互按钮。" type="Navigation" bind:click="navTo"
-        data-url="button" />
-      <ui5-item icon="attachment-html" title="Icon" description="SAP 图标库浏览器与使用示例。" type="Navigation" bind:click="navTo"
-        data-url="icon" />
-    </ui5-list>
-
-    <ui5-list header-text="表单与录入 (Data Entry)">
-      <ui5-item icon="edit" title="Input" description="单行输入框及其状态变体。" type="Navigation" bind:click="navTo"
-        data-url="input" />
-      <ui5-item icon="notes" title="Textarea" description="多行文本输入与高度自适应。" type="Navigation" bind:click="navTo"
-        data-url="textarea" />
-      <ui5-item icon="multi-select" title="Selection" description="复选框、开关与选择器。" type="Navigation" bind:click="navTo"
-        data-url="selection" />
-      <ui5-item icon="number-sign" title="Step Input" description="步进式数值输入控制。" type="Navigation" bind:click="navTo"
-        data-url="step-input" />
-      <ui5-item icon="horizontal-grip" title="Slider" description="滑动条数值范围选择。" type="Navigation" bind:click="navTo"
-        data-url="slider" />
-      <ui5-item icon="favorite" title="Rating" description="星级评分与展示组件。" type="Navigation" bind:click="navTo"
-        data-url="rating" />
-      <ui5-item icon="dimension" title="Segmented Button" description="多选项切换分段按钮。" type="Navigation" bind:click="navTo"
-        data-url="segmented-button" />
-    </ui5-list>
-
-    <ui5-list header-text="容器与布局 (Layout & Data)">
-      <ui5-item icon="card" title="Card" description="支持多种布局的通用容器卡片。" type="Navigation" bind:click="navTo"
-        data-url="card" />
-      <ui5-item icon="tab" title="Tab Container" description="选项卡内容组织与联动。" type="Navigation" bind:click="navTo"
-        data-url="tab" />
-      <ui5-item icon="table-view" title="Table" description="响应式数据表格，支持列折叠。" type="Navigation" bind:click="navTo"
-        data-url="table" />
-    </ui5-list>
-
-    <ui5-list header-text="弹窗与反馈 (Popups & Feedback)">
-      <ui5-item icon="popup-window" title="Dialog" description="对话框及复杂流程录入。" type="Navigation" bind:click="navTo"
-        data-url="dialog" />
-      <ui5-item icon="lateness" title="Busy Indicator" description="正在处理任务的视觉指示器。" type="Navigation" bind:click="navTo"
-        data-url="busy-indicator" />
-      <ui5-item icon="message-information" title="Feedback" description="Toast、忙碌指示器等交互反馈。" type="Navigation"
-        bind:click="navTo" data-url="feedback" />
-      <ui5-item icon="popup-window" title="Popover" description="浮动弹出框，用于展示附加内容或操作。" type="Navigation"
-        bind:click="navTo" data-url="popover" />
-    </ui5-list>
-
-    <ui5-list header-text="业务可视化 (Analytics & Flow)">
-      <ui5-item icon="vertical-bar-chart" title="Column 柱形图" description="适用于物料月度库存等场景分析。" type="Navigation"
-        bind:click="navTo" data-url="viz-column" />
-      <ui5-item icon="donut-chart" title="Donut 环形图" description="集成图例与吸附式 Tooltip 演示。" type="Navigation"
-        bind:click="navTo" data-url="viz-donut" />
-      <ui5-item icon="line-chart" title="Line 多线图" description="趋势分析多线图表展示。" type="Navigation" bind:click="navTo"
-        data-url="viz-line" />
-      <ui5-item icon="process" title="Process Flow" description="业务流程节点状态与进度展示。" type="Navigation" bind:click="navTo"
-        data-url="process-flow" />
-    </ui5-list>
+    <block wx:for="{{componentGroups}}" wx:for-item="group" wx:key="headerText">
+      <ui5-list header-text="{{group.headerText}}">
+        <ui5-li wx:for="{{group.items}}" wx:for-item="item" wx:key="url" icon="{{item.icon}}" text="{{item.text}}"
+          description="{{item.description}}" type="Navigation" bindtap="navTo" data-url="{{item.url}}" />
+      </ui5-list>
+    </block>
   </view>
 </ui5-page>

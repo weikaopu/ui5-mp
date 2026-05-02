@@ -1,0 +1,79 @@
+:host {
+  display: block;
+}
+
+.ui5-card-header {
+  padding: 1rem 1rem 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+  background-color: transparent;
+  transition: background-color 0.1s;
+}
+
+.ui5-card-header--interactive {
+  cursor: pointer;
+}
+
+.ui5-card-header--interactive:active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.ui5-card-header-main {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 0;
+}
+
+.ui5-card-header-avatar {
+  margin-right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 当没有头像时隐藏外层容器 */
+.ui5-card-header-avatar:empty {
+  display: none;
+}
+
+.ui5-card-header-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ui5-card-header-title {
+  font-size: var(--sap-font-size-large, 32rpx);
+  color: var(--sap-text-color, #32363a);
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.ui5-card-header-subtitle {
+  font-size: var(--sap-font-size-small, 24rpx);
+  color: var(--sap-text-secondary-color, #6a6d70);
+  margin-top: 0.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ui5-card-header-status-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 0.5rem;
+}
+
+.ui5-card-header-status {
+  font-size: var(--sap-font-size-small, 24rpx);
+  color: var(--sap-text-secondary-color, #6a6d70);
+  white-space: nowrap;
+}

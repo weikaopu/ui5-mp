@@ -6,6 +6,8 @@
   background-color: var(--sapTile_Background, #ffffff);
   color: var(--sapContent_NonInteractiveIconColor, #0064d2);
   border: 1rpx solid var(--sapGroup_TitleBorderColor, #d9d9d9);
+  /* 确保角标可以溢出显示在圆圈边缘 */
+  overflow: visible;
 }
 
 .ui5-avatar-content {
@@ -106,12 +108,30 @@
 /* Badge Slot Positioning */
 .ui5-avatar-badge-wrapper {
   position: absolute;
-  bottom: -6rpx;
-  right: -6rpx;
+  bottom: 0;
+  right: 0;
   z-index: 1;
-  transform: scale(0.8);
-  /* 小程序中通常需要略微缩小角标以适配头像 */
-  transform-origin: bottom right;
+  /* 将角标中心对准头像边缘 */
+  transform: translate(25%, 25%);
+}
+
+.ui5-avatar--Circle .ui5-avatar-badge-wrapper {
+  /* 对于圆形头像，角标中心需落在圆周边缘 */
+  /* 计算公式: (1 - cos(45°)) / 2 ≈ 14.64% */
+  bottom: 14.64%;
+  right: 14.64%;
+  /* 使用 50% 位移确保角标的中心点正好对准计算出的圆周位置 */
+  transform: translate(50%, 50%);
+}
+
+/* 当 ui5-badge 作为角标使用时，强制变为圆形 */
+.ui5-avatar-badge-wrapper ui5-badge {
+  border-radius: 50% !important;
+  padding: 0 !important;
+  width: 40rpx !important;
+  height: 40rpx !important;
+  min-width: 40rpx !important;
+  display: flex !important;
 }
 
 .ui5-avatar--interactive:active {

@@ -1,5 +1,5 @@
-<view class="ui5-mp-root ui5-badge ui5-badge--scheme-{{colorScheme}} {{_statusClass}} ui5Class" bindtap="_handleTap"
-  bindlongpress="openTooltip">
+<view class="ui5-mp-root ui5-badge ui5-badge--scheme-{{colorScheme}} {{_statusClass}} ui5Class" role="status"
+  aria-label="Badge" bindtap="_handleTap" bindlongpress="openTooltip">
   <ui5-icon wx:if="{{icon}}" name="{{icon}}" class="ui5-badge-icon"></ui5-icon>
   <view class="ui5-badge-text">
     <slot></slot>

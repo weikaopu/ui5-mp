@@ -1,0 +1,50 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Settings" show-back-button />
+
+  <view class="settings-container fd-padding-md">
+    <ui5-card title="Communication Preferences" subtitle="Manage how we contact you">
+      <view class="fd-padding-md">
+        <ui5-form editable>
+          <ui5-form-group title="General">
+            <view class="form-item">
+              <ui5-label text="Email Notifications" />
+              <ui5-switch checked="{{settings.email}}" data-field="email" bindchange="onSwitchChange" />
+            </view>
+            <view class="form-item">
+              <ui5-label text="SMS Alerts" />
+              <ui5-switch checked="{{settings.sms}}" data-field="sms" bindchange="onSwitchChange" />
+            </view>
+            <view class="form-item">
+              <ui5-label text="Marketing Emails" />
+              <ui5-switch checked="{{settings.marketing}}" data-field="marketing" disabled />
+            </view>
+          </ui5-form-group>
+
+          <ui5-form-group title="Security & Privacy">
+            <view class="form-item">
+              <view class="label-cluster">
+                <ui5-label text="Two-Factor Authentication" />
+                <text class="description">Stronger protection with icons</text>
+              </view>
+              <ui5-switch design="Graphical" checked="{{settings.twoFactor}}" data-field="twoFactor"
+                bindchange="onSwitchChange" />
+            </view>
+            <view class="form-item">
+              <ui5-label text="Public Profile" />
+              <ui5-switch text-on="Public" text-off="Private" checked="{{settings.visibility}}" data-field="visibility"
+                bindchange="onSwitchChange" />
+            </view>
+          </ui5-form-group>
+
+          <ui5-form-group title="Presence">
+            <view class="form-item">
+              <ui5-label text="Active Status" />
+              <ui5-switch design="Textual" text-on="Online" text-off="Offline" checked="{{settings.status}}"
+                data-field="status" bindchange="onSwitchChange" />
+            </view>
+          </ui5-form-group>
+        </ui5-form>
+      </view>
+    </ui5-card>
+  </view>
+</ui5-page>

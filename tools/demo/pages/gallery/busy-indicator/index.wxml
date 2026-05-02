@@ -55,5 +55,18 @@
         <ui5-busy-indicator active="{{isFullScreenBusy}}" full-screen text="全屏加载中..."></ui5-busy-indicator>
       </view>
     </ui5-card>
+
+    <!-- Busy Indicator: 局部与全屏加载 -->
+    <ui5-card title="Busy Indicator, Loading States">
+      <view class="fd-padding-md" style="text-align: center;">
+        <view class="ui5-text-secondary">Local Loading (Small):</view>
+        <ui5-busy-indicator active size="S" />
+
+        <view class="ui5-text-secondary" style="margin-top: 20px;">Global Loading Trigger:</view>
+        <ui5-button bind:click="triggerGlobalLoading" style="margin-top: 10px;">
+          Show Full Screen Busy
+        </ui5-button>
+      </view>
+    </ui5-card>
   </view>
 </ui5-page>

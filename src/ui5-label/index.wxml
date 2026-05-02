@@ -1,0 +1,7 @@
+<view class="ui5-label-root ui5-label-wrapping-{{wrappingType}} ui5Class">
+  <view class="ui5-label-text">
+    <slot></slot>
+  </view>
+  <text wx:if="{{required}}" class="ui5-label-required">*</text>
+  <text wx:if="{{showColon}}" class="ui5-label-colon">:</text>
+</view>

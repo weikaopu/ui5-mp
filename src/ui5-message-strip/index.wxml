@@ -1,11 +1,11 @@
 <view wx:if="{{visible}}" class="ui5-ms ui5-ms--{{type}}">
   <view class="ui5-ms__icon">
-    <ui5-icon name="{{typeIcon}}" size="16" />
+    <ui5-icon name="{{typeIcon}}" size="32" />
   </view>
   <view class="ui5-ms__text">
     <slot></slot>
   </view>
   <view wx:if="{{hideCloseButton === false}}" class="ui5-ms__close" bindtap="onClose">
-    <ui5-icon name="decline" size="12" />
+    <ui5-icon name="decline" size="24" />
   </view>
 </view>

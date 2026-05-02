@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "ui5-page": "../../../components/ui5-page/index",
+    "ui5-shellbar": "../../../components/ui5-shellbar/index",
+    "ui5-card": "../../../components/ui5-card/index",
+    "ui5-timeline": "../../../components/ui5-timeline/index",
+    "ui5-timeline-item": "../../../components/ui5-timeline-item/index",
+    "ui5-avatar": "../../../components/ui5-avatar/index",
+    "ui5-button": "../../../components/ui5-button/index"
+  },
+  "navigationBarTitleText": "Timeline"
+}

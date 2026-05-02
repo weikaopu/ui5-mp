@@ -1,6 +1,4 @@
 .ui5-icon-root {
-  display: inline-block;
-  vertical-align: middle;
   background-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;

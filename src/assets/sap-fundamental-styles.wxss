@@ -18,6 +18,15 @@ page {
   --sap-information-color: #0a6ed1;
   --sap-neutral-color: #6a6d70;
 
+  /* Interaction Colors */
+  --sap-content-focus-color: #0854a0;
+  --sap-active-color: #0854a0;
+  --sap-selected-color: #0854a0;
+
+  /* Focus Ring Settings */
+  --sap-content-focus-width: 2rpx;
+  --sap-content-focus-style: solid;
+
   /* Text Colors */
   --sap-text-color: #32363a;
   --sap-text-secondary-color: #6a6d70;
@@ -28,15 +37,21 @@ page {
   --sap-field-background-color: #ffffff;
   --sap-group-title-color: #6a6d70;
 
+  /* Value State Colors (for text and icons) */
+  --sap-value-state-error-color: #bb0000;
+  --sap-value-state-warning-color: #e9730c;
+  --sap-value-state-success-color: #107e3e;
+  --sap-value-state-info-color: #0a6ed1;
+
   /* --- Layout & Spacing --- */
-  --sap-spacing-tiny: 8rpx;
   /* 4px */
-  --sap-spacing-small: 16rpx;
+  --sap-spacing-tiny: 8rpx;
   /* 8px */
-  --sap-spacing-medium: 32rpx;
+  --sap-spacing-small: 16rpx;
   /* 16px */
-  --sap-spacing-large: 64rpx;
+  --sap-spacing-medium: 32rpx;
   /* 32px */
+  --sap-spacing-large: 64rpx;
 
   /* --- Borders & Shadows --- */
   --sap-border-radius: 16rpx;
@@ -49,6 +64,7 @@ page {
   --sap-font-size-small: 24rpx;
   --sap-font-size-large: 32rpx;
   --sap-font-size-header: 40rpx;
+  --sap-font-weight-bold: 700;
 
   /* Base Styles */
   background-color: var(--sap-background-color);
@@ -78,12 +94,62 @@ page {
   margin: var(--sap-spacing-medium);
 }
 
+.fd-margin-top-md {
+  margin-top: var(--sap-spacing-medium);
+}
+
+.fd-margin-bottom-md {
+  margin-bottom: var(--sap-spacing-medium);
+}
+
 .fd-margin-top-sm {
   margin-top: var(--sap-spacing-small);
 }
 
+.fd-margin-bottom-sm {
+  margin-bottom: var(--sap-spacing-small);
+}
+
 .fd-padding-md {
   padding: var(--sap-spacing-medium);
+}
+
+/* 几何对齐辅助类：消除基线干扰，实现完美的中心对齐 */
+.ui5-mp-flex-center {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Flex 方向辅助类 */
+.ui5-mp-flex-column {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.ui5-mp-flex-row {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+}
+
+.ui5-mp-flex-wrap {
+  flex-wrap: wrap !important;
+}
+
+/* 填充剩余空间 */
+.ui5-mp-flex-fill {
+  flex: 1 !important;
+  min-width: 0;
+}
+
+/* 逻辑方向边距：对齐 SAP Fiori 规范 (Begin = Left in LTR) */
+.fd-margin-begin-md {
+  margin-left: var(--sap-spacing-medium) !important;
+}
+
+.fd-margin-begin-sm {
+  margin-left: var(--sap-spacing-small) !important;
 }
 
 /* 容器类：模拟 Fiori Page 布局 */

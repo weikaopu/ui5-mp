@@ -1,7 +1,14 @@
-<view class="ui5-checkbox {{disabled ? 'is-disabled' : ''}} {{checked ? 'is-checked' : ''}} ui5-checkbox--{{valueState}}" bindtap="onTap">
-  <view class="ui5-checkbox__box">
-    <!-- 勾选标记：使用之前的 CSS 绘图技巧 -->
-    <view wx:if="{{checked}}" class="ui5-checkbox__checkmark"></view>
+<view
+  class="ui5-checkbox-root ui5-checkbox-state-{{valueState}} {{disabled ? 'ui5-checkbox-disabled' : ''}} {{readonly ? 'ui5-checkbox-readonly' : ''}} ui5Class"
+  bind:tap="onTap" role="checkbox" aria-checked="{{_ariaChecked}}" aria-readonly="{{readonly}}"
+  aria-disabled="{{disabled}}" aria-required="{{required}}" aria-label="{{accessibleName || text}}">
+  <view class="ui5-checkbox-inner {{checked || indeterminate ? 'ui5-checkbox-active' : ''}}">
+    <ui5-icon wx:if="{{indeterminate}}" name="less" class="ui5-checkbox-icon"></ui5-icon>
+    <ui5-icon wx:elif="{{checked}}" name="accept" class="ui5-checkbox-icon"></ui5-icon>
   </view>
-  <view wx:if="{{label}}" class="ui5-checkbox__label">{{label}}</view>
+  <ui5-label class="ui5-checkbox-label" wx:if="{{text}}" required="{{required}}" wrappingType="{{wrappingType}}"
+    ui5Class="ui5-checkbox-label-inner">{{text}}</ui5-label>
+  <view class="ui5-checkbox-label" wx:else>
+    <slot></slot>
+  </view>
 </view>

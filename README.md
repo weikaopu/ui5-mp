@@ -50,7 +50,7 @@
 ### 3. 数据展示与反馈 (Display & Feedback)
 
 - `ui5-table` / `ui5-table-row`: 响应式表格，支持 `demandPopin` 配置。
-- `ui5-list` / `ui5-item`: 高度可定制列表，支持左侧 `icon` 和右侧 `actions` 插槽。
+- `ui5-list` / `ui5-li`: 高度可定制列表，支持左侧 `icon` 和右侧 `actions` 插槽。
 - `ui5-avatar`: 身份头像，支持图片、姓名缩写 (Initials) 或图标回退。
 - `ui5-badge`: 语义化状态标签 (Status Colors 1-5)。
 - `ui5-toast`: 非侵入式底部轻提示。
@@ -167,10 +167,8 @@ page {
 </ui5-page>
 ```
 
-### 5. 温馨提示
+### 5. Live Demo
 
-有些 AI 助手可能没有能力创建文件或者目录，但是有能力更新他们，所以务必了解自己正在使用的 AI。
+打开微信小程序体验
 
-### 6. Live Demo
-
-打开微信小程序体验 ![二维码](./tools/demo/assets/ui5-mp-qrcode.jpeg)
+![二维码](./tools/demo/assets/ui5-mp-qrcode.png)

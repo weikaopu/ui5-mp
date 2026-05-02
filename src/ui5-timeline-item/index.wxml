@@ -1,0 +1,38 @@
+<view class="ui5-timeline-item ui5-timeline-item--{{layout}} {{lastItem ? 'ui5-timeline-item--last' : ''}}">
+  <!-- 左侧指示器区域 -->
+  <view class="ui5-timeline-item-indicator">
+    <view class="ui5-timeline-item-icon-container">
+      <!-- 1. 默认指示器层 (Icon 或 Dot) -->
+      <ui5-icon wx:if="{{icon}}" name="{{icon}}" size="32" color="{{iconColor}}"
+        class="ui5-timeline-item-icon ui5-timeline-item-icon--{{state}}" />
+      <view wx:else class="ui5-timeline-item-dot ui5-timeline-item-dot--{{state}}"></view>
+
+      <!-- 2. 头像插槽层 (更高层级) -->
+      <view class="ui5-timeline-item-avatar-slot">
+        <slot name="avatar" />
+      </view>
+    </view>
+    <view class="ui5-timeline-item-line" wx:if="{{!lastItem}}" />
+  </view>
+
+  <!-- 右侧内容区域 -->
+  <view class="ui5-timeline-item-content" bindtap="_onItemClick">
+    <view class="ui5-timeline-item-header">
+      <view class="ui5-timeline-item-title-row">
+        <text wx:if="{{name}}"
+          class="ui5-timeline-item-name {{nameClickable ? 'ui5-timeline-item-name--clickable' : ''}}"
+          catchtap="_onNameClick">{{name}}</text>
+        <text class="ui5-timeline-item-title">{{titleText}}</text>
+      </view>
+      <view class="ui5-timeline-item-timestamp" wx:if="{{timestamp}}">{{timestamp}}</view>
+    </view>
+
+    <view class="ui5-timeline-item-subtitle" wx:if="{{subtitleText}}">
+      {{subtitleText}}
+    </view>
+
+    <view class="ui5-timeline-item-body">
+      <slot />
+    </view>
+  </view>
+</view>

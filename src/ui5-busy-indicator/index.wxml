@@ -1,12 +1,15 @@
-<view
-  class="ui5-busy-container {{fullScreen ? 'is-full-screen' : ''}} {{show ? 'is-active' : ''}} {{size ? 'ui5-busy--' + size : ''}}">
-  <view class="ui5-busy-mask" wx:if="{{fullScreen}}"></view>
-  <view class="ui5-busy-content">
-    <view class="ui5-busy-wrapper">
-      <view class="ui5-busy-dot"></view>
-      <view class="ui5-busy-dot"></view>
-      <view class="ui5-busy-dot"></view>
+<view class="ui5-busy-indicator-root">
+  <slot></slot>
+  <view
+    class="ui5-busy-container {{fullScreen ? 'is-full-screen' : ''}} {{show ? 'is-active' : ''}} {{size ? 'ui5-busy--' + size : ''}}">
+    <view class="ui5-busy-mask"></view>
+    <view class="ui5-busy-content">
+      <view class="ui5-busy-wrapper">
+        <view class="ui5-busy-dot"></view>
+        <view class="ui5-busy-dot"></view>
+        <view class="ui5-busy-dot"></view>
+      </view>
+      <view wx:if="{{text}}" class="ui5-busy-text">{{text}}</view>
     </view>
-    <view wx:if="{{text}}" class="ui5-busy-text">{{text}}</view>
   </view>
 </view>

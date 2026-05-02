@@ -28,12 +28,12 @@
     <!-- 列表集成场景 (常见于评论列表) -->
     <view class="gallery-section-title">Integrated in List</view>
     <ui5-list header-text="User Reviews">
-      <ui5-item title="John Doe" description="Excellent UI library, very professional." hasActions>
+      <ui5-li text="John Doe" description="Excellent UI library, very professional." hasActions>
         <ui5-rating-indicator slot="actions" value="5" readonly />
-      </ui5-item>
-      <ui5-item title="Jane Smith" description="Good, but needs more icons." hasActions>
+      </ui5-li>
+      <ui5-li text="Jane Smith" description="Good, but needs more icons." hasActions>
         <ui5-rating-indicator slot="actions" value="4" readonly />
-      </ui5-item>
+      </ui5-li>
     </ui5-list>
 
   </view>

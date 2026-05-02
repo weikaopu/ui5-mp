@@ -1,0 +1,7 @@
+.fd-margin-bottom-sm {
+  margin-bottom: var(--sap-spacing-small, 16rpx);
+}
+
+.fd-margin-top-sm {
+  margin-top: var(--sap-spacing-small, 16rpx);
+}

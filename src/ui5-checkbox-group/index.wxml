@@ -1,5 +1,7 @@
-<view class="ui5-checkbox-group">
-  <view wx:if="{{label}}" class="ui5-group-label">{{label}}</view>
+<view class="ui5-checkbox-group-root ui5-checkbox-group--{{layout}} ui5Class" role="group"
+  aria-labelledby="ui5-group-label" aria-label="{{accessibleName}}">
+  <ui5-label wx:if="{{label}}" id="ui5-group-label" class="ui5-group-label"
+    required="{{required}}">{{label}}</ui5-label>
   <view class="ui5-group-content">
     <slot></slot>
   </view>

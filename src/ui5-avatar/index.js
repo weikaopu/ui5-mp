@@ -10,6 +10,20 @@ Component({
     multipleSlots: true
   },
   behaviors: [baseBehavior, tooltipBehavior],
+  observers: {
+    size(size) {
+      const sizeMap = {
+        XS: '20rpx',
+        S: '32rpx',
+        M: '48rpx',
+        L: '64rpx',
+        XL: '96rpx'
+      }
+      this.setData({
+        _iconSize: sizeMap[size] || sizeMap.S
+      })
+    }
+  },
   properties: {
     /**
      * 图像的源 URL。
@@ -35,6 +49,9 @@ Component({
      * 定义头像是否可交互。
      */
     interactive: { type: Boolean, value: false }
+  },
+  data: {
+    _iconSize: '32rpx'
   },
   methods: {
     _handleTap() {

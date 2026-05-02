@@ -1,0 +1,21 @@
+<view class="ui5-card-header {{interactive ? 'ui5-card-header--interactive' : ''}}" bindtap="_onHeaderClick"
+  role="{{interactive ? 'button' : ''}}">
+  <view class="ui5-card-header-main">
+    <!-- 头像/图标槽位 -->
+    <view class="ui5-card-header-avatar">
+      <slot name="avatar" />
+    </view>
+
+    <view class="ui5-card-header-text">
+      <view class="ui5-card-header-title">{{titleText}}</view>
+      <view wx:if="{{subtitleText}}" class="ui5-card-header-subtitle">{{subtitleText}}</view>
+    </view>
+  </view>
+
+  <view class="ui5-card-header-status-action">
+    <!-- 状态展示 -->
+    <view wx:if="{{status}}" class="ui5-card-header-status">{{status}}</view>
+    <!-- 操作按钮槽位 -->
+    <slot name="action" />
+  </view>
+</view>

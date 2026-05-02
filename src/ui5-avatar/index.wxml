@@ -4,7 +4,7 @@
   <view class="ui5-avatar-content">
     <image wx:if="{{src}}" src="{{src}}" mode="aspectFill" class="ui5-avatar-img"></image>
     <view wx:elif="{{initials}}" class="ui5-avatar-initials">{{initials}}</view>
-    <ui5-icon wx:elif="{{icon}}" name="{{icon}}" class="ui5-avatar-icon"></ui5-icon>
+    <ui5-icon wx:elif="{{icon}}" name="{{icon}}" size="{{_iconSize}}" class="ui5-avatar-icon"></ui5-icon>
   </view>
 
   <view class="ui5-avatar-badge-wrapper">

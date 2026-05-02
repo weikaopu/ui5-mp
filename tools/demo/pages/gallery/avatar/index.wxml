@@ -5,9 +5,9 @@
     <!-- 基础类型 -->
     <ui5-card title="Content Types">
       <view class="fd-padding-md demo-row">
-        <ui5-avatar src="../../../assets/Woman_avatar_01.png" tooltip="Image Avatar"></ui5-avatar>
+        <ui5-avatar src="/assets/Woman_avatar_01.png" tooltip="Image Avatar"></ui5-avatar>
         <ui5-avatar initials="JD" tooltip="Initials Avatar"></ui5-avatar>
-        <ui5-avatar icon="employee" tooltip="Icon Avatar"></ui5-avatar>
+        <ui5-avatar icon="add-employee" tooltip="Icon Avatar"></ui5-avatar>
       </view>
     </ui5-card>
 
@@ -49,13 +49,13 @@
           </ui5-badge>
         </ui5-avatar>
 
-        <ui5-avatar size="L" src="../../../assets/Woman_avatar_01.png">
+        <ui5-avatar size="L" src="/assets/Woman_avatar_01.png">
           <ui5-badge slot="badge" color-scheme="4">
             <ui5-icon name="accept"></ui5-icon>
           </ui5-badge>
         </ui5-avatar>
 
-        <ui5-avatar size="XL" icon="customer">
+        <ui5-avatar size="XL" icon="add-contact">
           <ui5-badge slot="badge" color-scheme="2">12</ui5-badge>
         </ui5-avatar>
       </view>

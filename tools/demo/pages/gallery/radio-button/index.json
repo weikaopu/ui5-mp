@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "ui5-page": "../../../components/ui5-page",
+    "ui5-shellbar": "../../../components/ui5-shellbar",
+    "ui5-card": "../../../components/ui5-card",
+    "ui5-label": "../../../components/ui5-label",
+    "ui5-radio-button": "../../../components/ui5-radio-button",
+    "ui5-radio-button-group": "../../../components/ui5-radio-button-group"
+  }
+}

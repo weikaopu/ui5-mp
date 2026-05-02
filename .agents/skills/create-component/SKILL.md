@@ -4,21 +4,31 @@ description: 创建一个新的 ui5-mp 组件。制定生成符合 UI5 设计规
 user-invocable: false
 ---
 
-# 创建一个新的 ui5-mp 组件
+# 任务描述
 
-你现在需要帮我开发一些 UI 组件，当这个 skill 激活时，把 src/ 和 tools/ 目录都加入你的上下文，然后你需要完成以下动作：
+你现在需要帮我创建一个新的 ui5-mp 组件。
 
-## 使用场景
+当这个 skill 激活时，
 
-- 创建一个新组件，这个 UI 组件的代码必须同时遵循 SAP UI5 的设计规范和微信小程序 UI 规范。不兼容和冲突的地方优先尊循小程序 UI 规范。
+- 把 @src/ 目录下的所有名为 index.js 的文件都加入你的上下文。
+- 把 @src/behaviors 目录下的所有 js 的文件都加入你的上下文。
+- 把 @src/assets/sap-fundamental-styles.wxss 文件加入你的上下文。
+- 把 @tools/config.js 文件加入你的上下文。
+- 把 @tools/demo/app.json 文件加入你的上下文。
+- 把 @tools/demo/pages 目录下的所有名为 index.js 的文件都加入你的上下文。
 
-## 生成代码规则
+然后你需要完成以下动作：
 
-- 你总是应该根据 .gitignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
-- 你需要读取 check-component-dependency 技能(.agents/skills/check-component-dependency/SKILL.md)的所有规则，得到结果。如果结果中存在“未实现”依赖组件，请立即终止技能，停止后续动作，告诉我哪些依赖组件未实现。如果结果为”零个依赖组件“或者所有依赖组件均”已实现“在 src 目录下，则进入下一步动作。
-- 参考源：所有新组件的设计必须参考 UI5 Web Components 的官方规范。参考文档从这里找：https://ui5.github.io/webcomponents/components 。
-- 目录结构：组件必须存放在 src/ 目录下，命名格式为 `ui5-xxx`，目录名称格式 `ui5-` 开头加上组件名称 `xxx`，比如：`ui5-toast`。
-- 在这个目录下新建 `index.{js,json,wxml,wxss}` 文件。如果文件已存在，则更新。
+## 实现规则
+
+- 你总是应该根据 .aignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
+- 这个新 UI 组件的代码必须同时遵循 SAP UI5 的设计规范和微信小程序 UI 规范。**不兼容和冲突的地方优先尊循小程序 UI 规范**。
+- 你需要读取 check-component-dependency 技能(.agents/skills/check-component-dependency/SKILL.md)的所有规则，得到它的报告结果。
+  - 如果结果中存在“未实现”依赖组件，请立即终止技能，停止后续动作，告诉我哪些依赖组件未实现。
+  - 如果结果为”零个依赖组件“或者所有依赖组件均”已实现“在 src 目录下，在 tools/config.js 文件的编译入口 `entry:[]` 数组里面，则进入下一步动作。
+- 新组件的设计必须参考 UI5 Web Components 的官方规范（包括 Properties, Slots, Events, Samples）。参考文档从这里找：https://ui5.github.io/webcomponents/components 。
+- 在 src/ 目录下创建一个子目录，子目录的命名格式为 `ui5-xxx`，`ui5-` 为前缀加上组件名称 `xxx`，比如：`ui5-toast`。这个新组件必须存放这个新建的子目录下。
+- 在这个新建的子目录下新建 `index.{js,json,wxml,wxss}` 文件。如果文件已存在，则更新。
 
 ## 新建文件说明
 
@@ -36,7 +46,7 @@ user-invocable: false
      ```
 
   3. **必须强制引入**：在 src/behaviors/ 目录提供了一些 Behavior，比如以支持通用属性（design, status, disabled），确保 UI 一致性的 base-behavior。你需要判断引入哪些 Behavior 才能是组件符合 UI5 设计规范和小程序规范的标准，并能磨平两个标准之间的差异。
-  4. 内部私有变量必须以 \_ 开头（如 \_visible），并通过 observers 监听外部属性来更新内部状态，**特别注意**：如果 Behavior 的 data 数据参与视图层渲染，则变量名不能以下划线开头，否则会被 pureDataPattern 拦截导致 WXML 无法获取。
+  4. 内部私有变量必须以 \_ 开头（如 \_visible），并通过 observers 监听外部属性来更新内部状态，**特别注意**：如果 Behavior 的 data:{} 里面有的数据参与视图层渲染，则变量名不能以下划线开头，否则会被 pureDataPattern 拦截导致 WXML 无法获取。
   5. 示例：
 
      ```js
@@ -168,7 +178,9 @@ user-invocable: false
 ## 使用方法
 
 ```md
-创建一个 ui5-tag 组件。
+请遵循 `create-component` 技能的规则，创建一个 `ui5-tag` 组件。
 
-参考 UI5 的 Tag 规范创建一个组件。
+创建一个 `ui5-tag` 组件。
+
+参考 UI5 的 Tag 规范创建一个 `ui5-tag` 组件。
 ```

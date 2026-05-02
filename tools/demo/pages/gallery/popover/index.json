@@ -8,6 +8,6 @@
     "ui5-popover": "../../../components/ui5-popover/index",
     "ui5-text": "../../../components/ui5-text/index",
     "ui5-list": "../../../components/ui5-list/index",
-    "ui5-item": "../../../components/ui5-item/index"
+    "ui5-li": "../../../components/ui5-li/index"
   }
 }
