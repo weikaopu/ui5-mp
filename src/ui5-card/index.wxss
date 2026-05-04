@@ -1,41 +1,24 @@
 :host {
   display: block;
+  width: 100%;
 }
 
 .ui5-card {
-  background-color: var(--sap-content-color, #ffffff);
-  border: 1rpx solid var(--sap-field-border-color, #89919a);
-  border-radius: var(--sap-border-radius, 16rpx);
-  box-shadow: var(--sap-shadow-level-1);
+  background-color: var(--sap-background-color, #ffffff);
+  border: 1rpx solid var(--sap-list-border-color, #ebebeb);
+  border-radius: var(--sap-border-radius, 8rpx);
+  box-shadow: 0 0 0.125rem 0 rgba(0, 0, 0, 0.05), 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  transition: transform 0.1s, box-shadow 0.1s;
 }
 
-.ui5-card--interactive {
-  cursor: pointer;
+.ui5-card-busy {
+  display: block;
+  width: 100%;
 }
 
-.ui5-card--interactive:active {
-  box-shadow: var(--sap-shadow-level-2);
-  transform: scale(0.995);
-}
-
-.ui5-card__content {
-  display: flex;
-  flex-direction: column;
+.ui5-card-content {
   flex: 1;
-  min-height: 0;
-}
-
-.ui5-card__scroll {
-  width: 100%;
-  overflow-x: auto;
-  align-items: center;
-}
-
-.ui5-card__scroll-inner {
-  width: 100%;
 }

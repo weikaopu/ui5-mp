@@ -35,6 +35,7 @@ module.exports = {
     'ui5-page/index',
     'ui5-popover/index',
     'ui5-process-flow/index',
+    'ui5-process-flow-node/index',
     'ui5-radio-button-group/index',
     'ui5-radio-button/index',
     'ui5-range-slider/index',

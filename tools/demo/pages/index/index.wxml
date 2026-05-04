@@ -1,5 +1,5 @@
 <ui5-page>
-  <ui5-shellbar slot="header" title="UI5-MP 官方组件库" logo="../assets/sap-logo.svg" />
+  <ui5-shellbar slot="header" title="UI5 风格 UI 组件库" logo="../assets/sap-logo.svg" />
 
   <view class="fd-padding-md">
     <ui5-message-strip type="information" hideCloseButton>

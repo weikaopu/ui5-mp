@@ -1,0 +1,13 @@
+<view
+  class="ui5-process-flow-lane-header ui5-process-flow-lane-header--{{state}} {{focused ? 'ui5-process-flow-lane-header--focused' : ''}} ui5Class"
+  bindtap="_onHeaderTap">
+  <!-- Donut Chart Container -->
+  <view class="ui5-process-flow-lane-header-donut" style="background: {{donutGradient}}">
+    <view class="ui5-process-flow-lane-header-donut-inner">
+      <ui5-icon wx:if="{{displayIcon}}" name="{{displayIcon}}" class="ui5-process-flow-lane-header-icon" />
+    </view>
+  </view>
+  <view class="ui5-process-flow-lane-header-text">
+    <ui5-text maxLines="{{2}}">{{title}}</ui5-text>
+  </view>
+</view>

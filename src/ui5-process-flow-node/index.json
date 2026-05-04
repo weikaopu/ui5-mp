@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "ui5-text": "../ui5-text/index"
+  }
+}

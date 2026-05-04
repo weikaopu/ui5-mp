@@ -1,14 +1,25 @@
 <ui5-page>
-  <ui5-shellbar slot="header" title="Process Flow" />
+  <ui5-shellbar slot="header" title="Process Flow" show-back-button />
 
   <view class="fd-padding-md">
-    <ui5-card title="Process Flow 示例">
+    <ui5-card title="Standard Process Flow" subtitle="Linear Supply Chain Example">
+      <view class="fd-padding-md fd-padding-bottom-none" style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <ui5-button design="Emphasized" data-type="default" bindtap="switchTestData">Default</ui5-button>
+        <ui5-button data-type="cross" bindtap="switchTestData">Cross-Lane</ui5-button>
+        <ui5-button data-type="circular" bindtap="switchTestData">Circular</ui5-button>
+        <ui5-button data-type="complex" bindtap="switchTestData">Intra-Lane</ui5-button>
+      </view>
+
       <view class="fd-padding-md">
-        <ui5-process-flow nodes="{{steps}}" selectedKey="{{selectedStep}}" bindnodeclick="onNodeClick" />
+        <ui5-process-flow lanes="{{lanes}}" nodes="{{nodes}}" bindnode-click="onNodeClick">
+          <!-- 插槽现在仅用于展示每个节点特有的额外信息 -->
+          <view wx:for="{{nodes}}" wx:key="id" slot="node-{{item.id}}">
+            <view class="fd-margin-top-xs">
+              <ui5-badge color-scheme="6">v1.0</ui5-badge>
+            </view>
+          </view>
+        </ui5-process-flow>
       </view>
     </ui5-card>
   </view>
-
-  <!-- 全局组件定义 -->
-  <ui5-toast id="demoToast"></ui5-toast>
 </ui5-page>

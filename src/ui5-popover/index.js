@@ -75,16 +75,17 @@ Component({
     /**
      * 打开弹出框
      * @param {string} openerId 目标元素的 ID (不带 #)
+     * @param {object} scope 可选，调用者的组件实例
      */
-    show(openerId) {
+    show(openerId, scope) {
       const id = openerId || this.data.opener
       if (!id) {
         console.error('ui5-popover: openerId is required to calculate position.')
         return
       }
 
-      // 使用全局查询查找页面或父容器中的 Opener 节点
-      wx.createSelectorQuery().select(`#${id}`).boundingClientRect((anchor) => {
+      const query = scope ? wx.createSelectorQuery().in(scope) : wx.createSelectorQuery()
+      query.select(`#${id}`).boundingClientRect((anchor) => {
         if (!anchor) return
 
         this.setData({
