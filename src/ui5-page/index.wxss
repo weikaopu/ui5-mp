@@ -5,9 +5,8 @@
 }
 
 /* SAP Fiori 设计准则建议：当全局加载开启时，应自动隐藏或抑制局部的加载状态。 */
-/* 当 ui5-page 处于 busy 状态时，隐藏所有局部的 busy-indicator (非全屏的那些) */
-/* FIXME Some selectors are not allowed in component wxss, including tag name selectors, ID selectors, and attribute selectors. */
-.ui5-page-wrapper[data-busy="true"] ui5-busy-indicator:not(.is-full-screen) {
+/* 修复：微信小程序组件内不支持属性选择器和标签名选择器，改为通过类名控制 */
+.ui5-page-wrapper.is-busy .ui5-page-busy-indicator-local:not(.is-full-screen) {
   display: none;
 }
 
@@ -18,6 +17,7 @@
   width: 100%;
   z-index: 100;
   background-color: var(--sap-shell-color);
+  height: var(--ui5-page-header-height, 64px);
   overflow: hidden;
   /* 防止内容溢出导致高度错觉 */
 }

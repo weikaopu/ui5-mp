@@ -26,6 +26,7 @@
     "pages/gallery/label/index",
     "pages/gallery/popover/index",
     "pages/gallery/title/index",
+    "pages/gallery/toast/index",
     "pages/gallery/link/index",
     "pages/gallery/list/index",
     "pages/gallery/webview/index",

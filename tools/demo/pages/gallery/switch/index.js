@@ -13,7 +13,7 @@ Page({
 
   onSwitchChange(e) {
     const { field } = e.currentTarget.dataset
-    const value = e.detail.value
+    const value = e.detail.checked
 
     this.setData({
       [`settings.${field}`]: value

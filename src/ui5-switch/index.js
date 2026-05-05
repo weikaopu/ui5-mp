@@ -23,11 +23,15 @@ Component({
       value: false
     },
     /**
-     * 定义组件是否为图形化模式（显示勾选/关闭图标）。
+     * 定义组件设计模式：'Textual' (默认) 或 'Graphical'。
      */
-    graphical: {
-      type: Boolean,
-      value: false
+    design: {
+      type: String,
+      value: 'Textual'
+    },
+    accessibleName: {
+      type: String,
+      value: ''
     },
     /**
      * 开启状态显示的文本。

@@ -60,7 +60,6 @@ Page({
     this.setData({ isLoadingMore: true })
 
     // 模拟从后端 API 获取下一页物流数据 (Simulate API request)
-    // eslint-disable-next-line promise/catch-or-return
     this._fetchMockLogisticsData().then((newItems) => {
       const currentList = this.data.growingTimelineItems
 

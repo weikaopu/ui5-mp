@@ -17,46 +17,49 @@
 
 ## ✨ 特性
 
-- **Fiori 视觉还原**：严格遵循 SAP Fundamental Styles 规范，适配移动端。
+- **Fiori 视觉还原**：深度还原 SAP Fiori (Horizon/Quartz) 设计语言，适配移动端交互。
+- **现代工具链**：基于 **Gulp 4 + Webpack 5 + TypeScript 5.7** 构建，支持极致的开发性能与类型安全。
 - **自定义导航适配**：内置 `ui5-page` 自动处理状态栏、胶囊按钮及悬浮 Footer。
-- **响应式表格**：支持通用的 **Popin 模式**，在窄屏下自动折叠次要列。
+- **原子化驱动**：基于 CSS Variables 设计，支持主题色彩平滑切换。
 - **原子化驱动**：基于 CSS Variables 设计，支持全局主题色一键切换。
 
 ---
 
-## 📦 组件清单 (Total: 22+)
+## 📦 组件状态矩阵 (Component Status Matrix)
 
-### 1. 容器与导航 (Containers & Navigation)
+| 分类           | 组件名                        | 状态 | 说明                               |
+| :------------- | :---------------------------- | :--: | :--------------------------------- |
+| **布局与容器** | `ui5-page`                    |  🟡  | 支持全局 Busy 状态与 SafeArea 适配 |
+|                | `ui5-shellbar`                |  🟡  | 深度还原 Fiori 顶部导航            |
+|                | `ui5-card` / `header`         |  🟢  | 包含交互态与状态映射               |
+|                | `ui5-bar`                     |  🟡  | 常用作 Page Footer                 |
+|                | `ui5-tab-container` / `tab`   |  🟢  | 支持图标、计数及溢出处理           |
+|                | `ui5-dialog` / `popover`      |  🟢  | 模态与浮层交互                     |
+|                | `ui5-form` / `form-group`     |  ⚪️  | 基于响应式列布局                   |
+| **数据输入**   | `ui5-button`                  |  🟢  | 包含 6+ 种语义化变体               |
+|                | `ui5-input` / `textarea`      |  🟡  | 支持 ValueState 与建议列表         |
+|                | `ui5-step-input`              |  🟢  | 步进器，支持长按连发               |
+|                | `ui5-select`                  |  🟡  | 适配移动端原生拾取器               |
+|                | `ui5-switch`                  |  🟢  | 符合 Horizon 图形标准              |
+|                | `ui5-checkbox` / `group`      |  🟢  | 语义化多选                         |
+|                | `ui5-radio-button` / `group`  |  🟢  | 语义化单选                         |
+|                | `ui5-slider` / `range-slider` |  🟢  | 带刻度与提示的滑动条               |
+|                | `ui5-segmented-button`        |  🟢  | 互斥分段控制器                     |
+|                | `ui5-rating-indicator`        |  🟢  | 五星评分                           |
+| **数据展示**   | `ui5-list` / `ui5-li`         |  🟡  | 高度可定制的列表项                 |
+|                | `ui5-table` / `row`           |  🟡  | 响应式表格 (DemandPopin)           |
+|                | `ui5-timeline` / `item`       |  🟢  | 支持纵向/横向时间轴                |
+|                | `ui5-avatar` / `badge`        |  🟢  | 用户身份与状态标签                 |
+|                | `ui5-icon`                    |  🟢  | 完整支持 700+ SAP Icons            |
+|                | `ui5-tag` / `text` / `link`   |  🟢  | 基础展示组件                       |
+| **反馈与图表** | `ui5-toast`                   |  🟢  | 非侵入式提示                       |
+|                | `ui5-message-strip`           |  🟢  | 内嵌警告通知                       |
+|                | `ui5-busy-indicator`          |  🟢  | 三种尺寸的“花瓣”加载动画           |
+|                | `ui5-viz-column` / `line`     |  🟡  | 简单的可视化图表组件               |
+| **高级组件**   | `ui5-process-flow`            |  🟡  | 拓扑布局与连线算法开发中           |
+|                | `ui5-table-cell`              |  ⚪️  | 精细化表格单元格控制 (Planned)     |
 
-- `ui5-page`: 核心容器，支持全局 `busy` 遮罩、`floatingFooter` 适配。
-- `ui5-shellbar`: 顶部导航栏，支持 Logo 与 Action 区域。
-- `ui5-card`: 业务卡片，支持 `header`、`status` 及交互态。
-- `ui5-tab-container` / `ui5-tab`: 联动切换的页签容器，支持图标与下划线动画。
-- `ui5-bar`: 工具栏组件，常用于页面底部 (Footer) 动作排版。
-
-### 2. 数据输入 (Data Input)
-
-- `ui5-input`: 支持 Focus 状态联动、ValueState (Error/Warning) 校验。
-- `ui5-textarea`: 支持 `growing` 自动增长、`growingMaxLines` 及字数统计。
-- `ui5-step-input`: 数值步进器，支持 TouchStart 长按连发与边界禁用。
-- `ui5-select`: 基于原生 ActionSheet 封装的移动端选择器。
-- `ui5-slider`: 具有 Fiori 焦点圆环反馈的数值滑动条。
-- `ui5-segmented-button`: 互斥选项切换器，支持图标与文字混合。
-- `ui5-checkbox` / `ui5-checkbox-group`: 语义化复选框及其数据管理。
-- `ui5-switch`: 符合 Horizon 标准的开关，支持图形化状态。
-- `ui5-button`: 包含 Emphasized, Standard, Transparent, Negative 等变体。
-- `ui5-rating-indicator`: 纯 CSS 绘制的五星评分组件，支持只读模式。
-
-### 3. 数据展示与反馈 (Display & Feedback)
-
-- `ui5-table` / `ui5-table-row`: 响应式表格，支持 `demandPopin` 配置。
-- `ui5-list` / `ui5-li`: 高度可定制列表，支持左侧 `icon` 和右侧 `actions` 插槽。
-- `ui5-avatar`: 身份头像，支持图片、姓名缩写 (Initials) 或图标回退。
-- `ui5-badge`: 语义化状态标签 (Status Colors 1-5)。
-- `ui5-toast`: 非侵入式底部轻提示。
-- `ui5-message-strip`: 页面内嵌的警告/通知条。
-- `ui5-busy-indicator`: 局部或全屏的“花瓣”加载动画，支持全局抑制逻辑。
-- `ui5-dialog`: 深度还原 `sap.m.Dialog` 质感，支持模态遮罩与底部 Toolbar。
+> 状态说明：🟢 已实现 | 🟡 孵化中 | ⚪️ 待开发
 
 ---
 
@@ -87,20 +90,9 @@ page {
 
 ### 1. 环境准备
 
-- **Node.js**: 建议版本 v24.14.0+
+- **Node.js**: 建议版本 v20.0.0+ 或 v24.14.0+
   ```bash
   npm i
-  npm run dev
-  npm run watch
-  ```
-- **构建注意**: 若使用旧版 Webpack 运行构建遇到 OpenSSL 相关的 `crypto` 错误，请在终端执行：
-
-  ```bash
-  # macOS/Linux
-  export NODE_OPTIONS=--openssl-legacy-provider
-
-  # Windows (PowerShell)
-  $env:NODE_OPTIONS = "--openssl-legacy-provider"
   ```
 
 ### 2. 配置自定义导航

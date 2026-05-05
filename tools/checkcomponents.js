@@ -1,10 +1,10 @@
-const path = require('path')
+const path = require('node:path')
 
 const _ = require('./utils')
 const config = require('./config')
 
 const srcPath = config.srcPath
-let hasCheckCompoenntMap = {}
+let hasCheckComponentMap = {}
 
 /**
  * 获取 json 路径相关信息
@@ -28,16 +28,16 @@ async function checkIncludedComponents(jsonPath, componentListMap) {
   const json = _.readJson(jsonPath)
   if (!json) throw new Error(`json is not valid: "${jsonPath}"`)
 
-  const {dirPath, fileName, fileBase} = getJsonPathInfo(jsonPath)
-  if (hasCheckCompoenntMap[fileBase]) return
-  hasCheckCompoenntMap[fileBase] = true
+  const { dirPath, fileName, fileBase } = getJsonPathInfo(jsonPath)
+  if (hasCheckComponentMap[fileBase]) return
+  hasCheckComponentMap[fileBase] = true
 
   for (let i = 0, len = checkProps.length; i < len; i++) {
     const checkProp = checkProps[i]
     const checkPropValue = json[checkProp] || {}
     const keys = Object.keys(checkPropValue)
 
-    for (let j = 0, jlen = keys.length; j < jlen; j++) {
+    for (let j = 0, jLen = keys.length; j < jLen; j++) {
       const key = keys[j]
       let value = typeof checkPropValue[key] === 'object' ? checkPropValue[key].default : checkPropValue[key]
       if (!value || typeof value === 'boolean') continue
@@ -69,7 +69,7 @@ async function checkIncludedComponents(jsonPath, componentListMap) {
   componentListMap.jsFileMap[fileBase] = `${wholeFileBase}${jsExt}`
 }
 
-module.exports = async function (entry) {
+module.exports = async function checkComponents(entry) {
   const componentListMap = {
     wxmlFileList: [],
     wxssFileList: [],
@@ -81,7 +81,7 @@ module.exports = async function (entry) {
 
   const isExists = await _.checkFileExists(entry)
   if (!isExists) {
-    const {dirPath, fileName, fileBase} = getJsonPathInfo(entry)
+    const { dirPath, fileName, fileBase } = getJsonPathInfo(entry)
 
     const wholeFileBase = path.join(dirPath, fileName)
     let jsExt = '.js'
@@ -95,7 +95,7 @@ module.exports = async function (entry) {
     return componentListMap
   }
 
-  hasCheckCompoenntMap = {}
+  hasCheckComponentMap = {}
   await checkIncludedComponents(entry, componentListMap)
 
   return componentListMap

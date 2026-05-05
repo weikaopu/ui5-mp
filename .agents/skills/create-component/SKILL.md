@@ -13,7 +13,6 @@ user-invocable: false
 - 把 @src/ 目录下的所有名为 index.js 的文件都加入你的上下文。
 - 把 @src/behaviors 目录下的所有 js 的文件都加入你的上下文。
 - 把 @src/assets/sap-fundamental-styles.wxss 文件加入你的上下文。
-- 把 @tools/config.js 文件加入你的上下文。
 - 把 @tools/demo/app.json 文件加入你的上下文。
 - 把 @tools/demo/pages 目录下的所有名为 index.js 的文件都加入你的上下文。
 
@@ -25,7 +24,7 @@ user-invocable: false
 - 这个新 UI 组件的代码必须同时遵循 SAP UI5 的设计规范和微信小程序 UI 规范。**不兼容和冲突的地方优先尊循小程序 UI 规范**。
 - 你需要读取 check-component-dependency 技能(.agents/skills/check-component-dependency/SKILL.md)的所有规则，得到它的报告结果。
   - 如果结果中存在“未实现”依赖组件，请立即终止技能，停止后续动作，告诉我哪些依赖组件未实现。
-  - 如果结果为”零个依赖组件“或者所有依赖组件均”已实现“在 src 目录下，在 tools/config.js 文件的编译入口 `entry:[]` 数组里面，则进入下一步动作。
+  - 如果结果为”零个依赖组件“或者所有依赖组件均”已实现“在 @src 目录下，则进入下一步动作。
 - 新组件的设计必须参考 UI5 Web Components 的官方规范（包括 Properties, Slots, Events, Samples）。参考文档从这里找：https://ui5.github.io/webcomponents/components 。
 - 在 src/ 目录下创建一个子目录，子目录的命名格式为 `ui5-xxx`，`ui5-` 为前缀加上组件名称 `xxx`，比如：`ui5-toast`。这个新组件必须存放这个新建的子目录下。
 - 在这个新建的子目录下新建 `index.{js,json,wxml,wxss}` 文件。如果文件已存在，则更新。
@@ -166,9 +165,6 @@ user-invocable: false
        word-break: break-all;
      }
      ```
-
-- 更新这个文件 tools/config.js
-  把新建的组件注册到编译入口 `entry: []` 数组里面，并确保数组按照字母顺序排列，如果已存在则不必更新。
 
 ## 交互和反馈
 

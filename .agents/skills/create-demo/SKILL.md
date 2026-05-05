@@ -13,7 +13,6 @@ user-invocable: false
 - 把 @src/ 目录下的所有名为 index.js 的文件都加入你的上下文。
 - 把 @src/behaviors 目录下的所有 js 的文件都加入你的上下文。
 - 把 @src/assets/sap-fundamental-styles.wxss 文件加入你的上下文。
-- 把 @tools/config.js 文件加入你的上下文。
 - 把 @tools/demo/app.json 文件加入你的上下文。
 - 把 @tools/demo/pages 目录下的所有名为 index.js 的文件都加入你的上下文。
 
@@ -98,7 +97,7 @@ user-invocable: false
 ### 完成后需要更新配置
 
 - 更新这个文件 tools/demo/app.json，把新增的 demo 的路径添加进去。比如：`"pages/gallery/toast/index"`。
-- 更新这个文件 tools/demo/pages/index/index.wxml，把新增的 demo 添加到首页列表合适的分组位置上。
+- 更新这个文件 tools/demo/pages/index/index.js 的 data.allComponentGroups 数组中，把新增的 demo 添加到首页列表合适的分组位置上。
 
 ## 交互和反馈
 

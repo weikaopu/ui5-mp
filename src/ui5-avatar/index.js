@@ -20,7 +20,7 @@ Component({
         XL: '96rpx'
       }
       this.setData({
-        _iconSize: sizeMap[size] || sizeMap.S
+        iconSize: sizeMap[size] || sizeMap.S
       })
     }
   },
@@ -51,7 +51,7 @@ Component({
     interactive: { type: Boolean, value: false }
   },
   data: {
-    _iconSize: '32rpx'
+    iconSize: '32rpx'
   },
   methods: {
     _handleTap() {

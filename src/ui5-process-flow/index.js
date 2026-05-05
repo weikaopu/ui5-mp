@@ -1,8 +1,3 @@
-/* eslint-disable complexity */
-/* eslint-disable arrow-body-style */
-/* eslint-disable prefer-spread */
-/* eslint-disable brace-style */
-/* eslint-disable max-len */
 const baseBehavior = require('../behaviors/base-behavior')
 
 Component({
@@ -181,7 +176,7 @@ Component({
           query.exec((res) => {
             const container = res[0]
             const nodeRects = res[1]
-            const canvasObj = res[2] && res[2].node
+            const canvasObj = res[2]?.node
 
             if (!container || !nodeRects || !canvasObj) return
 

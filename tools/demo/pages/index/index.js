@@ -28,15 +28,14 @@ Page({
         items: [
           { icon: 'checklist-item', text: 'Checkbox', description: '复选框及其分组管理。', url: 'checkbox' },
           { icon: 'multi-select', text: 'RadioButton', description: '单选按钮分组与状态展示。', url: 'radio-button' },
-          { icon: 'switch-on', text: 'Switch', description: '开关切换控件。', url: 'switch' },
+          { icon: 'expand', text: 'Switch', description: '开关切换控件。', url: 'switch' },
           { icon: 'dimension', text: 'Segmented Button', description: '多选项切换分段按钮。', url: 'segmented-button' },
         ]
       },
       {
         headerText: '展示与展示 (Data Display)',
         items: [
-          { icon: 'customer', text: 'Avatar', description: '各种尺寸、形状与角标的头像显示。', url: 'avatar' },
-          { icon: 'badge', text: 'Badge', description: '用于展示计数或短标记。', url: 'badge' },
+          { icon: 'customer', text: 'Avatar, Badge', description: '各种尺寸、形状与角标的头像显示，计数或短标记。', url: 'avatar' },
           { icon: 'tag', text: 'Tag', description: '用于展示状态、元数据或简短信息。', url: 'tag' },
           { icon: 'list', text: 'List', description: '标准列表容器与列表项交互。', url: 'list' },
           { icon: 'table-view', text: 'Table', description: '响应式数据表格，支持列折叠。', url: 'table' },
@@ -46,7 +45,7 @@ Page({
         headerText: '布局与容器 (Layout)',
         items: [
           { icon: 'card', text: 'Card', description: '支持多种布局的通用容器卡片。', url: 'card' },
-          { icon: 'tab', text: 'Tab Container', description: '选项卡内容组织与联动。', url: 'tab' },
+          { icon: 'paging', text: 'Tab Container', description: '选项卡内容组织与联动。', url: 'tab' },
           { icon: 'form', text: 'Form', description: '自适应列布局的表单容器。', url: 'form' },
         ]
       },

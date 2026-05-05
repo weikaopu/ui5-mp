@@ -124,14 +124,20 @@
   transform: translate(50%, 50%);
 }
 
-/* 当 ui5-badge 作为角标使用时，强制变为圆形 */
+/* 当 ui5-badge 作为角标使用时，支持其根据内容自动撑开为椭圆（胶囊形） */
 .ui5-avatar-badge-wrapper ui5-badge {
-  border-radius: 50% !important;
-  padding: 0 !important;
-  width: 40rpx !important;
-  height: 40rpx !important;
-  min-width: 40rpx !important;
-  display: flex !important;
+  display: flex;
+  height: 40rpx;
+  min-width: 40rpx;
+  max-width: 100rpx;
+  /* 保证只有图标或单字符时是正圆 */
+  width: auto;
+  border-radius: 50%;
+  padding: 0;
+  /* 高度的一半，确保两端始终为半圆 */
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
 
 .ui5-avatar--interactive:active {

@@ -1,6 +1,6 @@
 <view class="ui5-page-wrapper" style="--ui5-global-busy: {{busy ? 1 : 0}};">
   <!-- 顶层 Header -->
-  <view class="ui5-page__header" style="height: {{totalHeaderHeight}}px;">
+  <view class="ui5-page__header" style="--ui5-page-header-height: {{totalHeaderHeight}}px;">
     <!-- 将高度下传给 shellbar -->
     <slot name="header"></slot>
   </view>

@@ -56,7 +56,11 @@
         </ui5-avatar>
 
         <ui5-avatar size="XL" icon="add-contact">
-          <ui5-badge slot="badge" color-scheme="2">12</ui5-badge>
+          <ui5-badge slot="badge" color-scheme="2">999+</ui5-badge>
+        </ui5-avatar>
+
+        <ui5-avatar size="XL" initials="WW">
+          <ui5-badge slot="badge" color-scheme="3">OFFLINE</ui5-badge>
         </ui5-avatar>
       </view>
     </ui5-card>

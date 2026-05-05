@@ -1,106 +1,90 @@
 :host {
   display: inline-block;
   vertical-align: middle;
+  outline: none;
 }
 
 .ui5-switch {
+  position: relative;
   display: inline-block;
+  width: 88rpx;
+  height: 44rpx;
+  background-color: var(--sap-button-track-color, #ebebeb);
+  border: 2rpx solid var(--sap-button-track-border-color, #89919a);
+  border-radius: 44rpx;
   cursor: pointer;
-  outline: none;
-  user-select: none;
+  transition: background-color 0.1s ease-in, border-color 0.1s ease-in;
+  box-sizing: border-box;
+  overflow: hidden;
   -webkit-tap-highlight-color: transparent;
 }
 
-.ui5-switch-slider {
-  position: relative;
-  min-width: 88rpx;
-  height: 44rpx;
-  background-color: var(--sap-neutral-color);
-  border-radius: 22rpx;
-  transition: background-color 0.2s;
-  box-sizing: border-box;
-  border: 2rpx solid transparent;
-  overflow: hidden;
+.ui5-switch--checked {
+  background-color: var(--sap-button-selected-background, #0854a0);
+  border-color: var(--sap-button-selected-border-color, #0854a0);
+}
+
+.ui5-switch-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   align-items: center;
-}
-
-.ui5-switch-checked .ui5-switch-slider {
-  background-color: var(--sap-selected-color);
-}
-
-.ui5-switch-disabled {
-  opacity: 0.4;
-  pointer-events: none;
 }
 
 .ui5-switch-handle {
   position: absolute;
-  top: 2rpx;
-  left: 2rpx;
-  min-width: 36rpx;
-  width: auto;
-  height: 36rpx;
-  background-color: #fff;
-  border-radius: 18rpx;
-  transition: left 0.2s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
-  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.2);
+  top: 4rpx;
+  left: 4rpx;
+  width: 50rpx;
+  height: 32rpx;
+  background-color: var(--sap-button-handle-color, #ffffff);
+  border-radius: 20rpx;
+  transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
   z-index: 2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  box-sizing: border-box;
-  padding: 0 12rpx;
-  transform: translateX(0);
 }
 
-.ui5-switch-checked .ui5-switch-handle {
-  left: calc(100% - 2rpx);
-  transform: translateX(-100%);
+.ui5-switch--checked .ui5-switch-handle {
+  transform: translateX(28rpx);
 }
 
-.ui5-switch-label-text {
-  font-size: 20rpx;
+.ui5-switch-text {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18rpx;
   font-weight: bold;
-  color: var(--sap-selected-color);
-  white-space: nowrap;
+  color: var(--sap-button-selected-background, #0070b1);
   text-transform: uppercase;
+  box-sizing: border-box;
+}
+
+.ui5-switch--checked .ui5-switch-text {
+  color: var(--sap-button-selected-background, #0070b1);
+}
+
+.ui5-switch-text--graphical {
+  padding: 0 !important;
+}
+
+.ui5-switch--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Active state simulation */
+.ui5-switch:active:not(.ui5-switch--disabled) .ui5-switch-handle {
+  transform: scale(0.95);
 }
 
 .ui5-switch-icon {
   font-size: 20rpx !important;
-  color: var(--sap-neutral-color) !important;
-  display: block;
-}
-
-/* 状态切换逻辑：确保这部分放在 base styles 之后 */
-
-/* 默认隐藏 On 状态的元素 */
-.ui5-switch-label-on,
-.ui5-switch-icon-on {
-  display: none !important;
-}
-
-/* 选中时显示 On 状态，隐藏 Off 状态 */
-.ui5-switch-checked .ui5-switch-label-on,
-.ui5-switch-checked .ui5-switch-icon-on {
-  display: block !important;
-  opacity: 1;
-}
-
-.ui5-switch-checked .ui5-switch-label-off,
-.ui5-switch-checked .ui5-switch-icon-off {
-  display: none !important;
-}
-
-/* 未选中时显示 Off 状态 */
-.ui5-switch-label-off,
-.ui5-switch-icon-off {
-  display: block !important;
-  opacity: 1;
-}
-
-.ui5-switch-checked .ui5-switch-icon {
-  color: var(--sap-selected-color) !important;
+  color: inherit !important;
 }

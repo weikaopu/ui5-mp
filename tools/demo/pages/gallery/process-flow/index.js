@@ -1,6 +1,3 @@
-/* eslint-disable object-property-newline */
-/* eslint-disable quotes */
-/* eslint-disable quote-props */
 
 const SCENARIOS = {
   "cross": {

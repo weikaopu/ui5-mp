@@ -5,10 +5,11 @@ const gulp = require('gulp')
 const clean = require('gulp-clean')
 const less = require('gulp-less')
 const rename = require('gulp-rename')
-const gulpif = require('gulp-if')
+const gulpIf = require('gulp-if')
 const sourcemaps = require('gulp-sourcemaps')
 const webpack = require('webpack')
 const gulpInstall = require('gulp-install')
+const through2 = require('through2')
 
 const config = require('./config')
 const checkComponents = require('./checkcomponents')
@@ -28,11 +29,11 @@ function wxss(wxssFileList) {
 
   return gulp.src(wxssFileList, { cwd: srcPath, base: srcPath })
     .pipe(checkWxss.start()) // 开始处理 import
-    .pipe(gulpif(wxssConfig.less && wxssConfig.sourcemap, sourcemaps.init()))
-    .pipe(gulpif(wxssConfig.less, less({ paths: [srcPath] })))
+    .pipe(gulpIf(wxssConfig.less && wxssConfig.sourcemap, sourcemaps.init()))
+    .pipe(gulpIf(wxssConfig.less, less({ paths: [srcPath] })))
     .pipe(checkWxss.end()) // 结束处理 import
     .pipe(rename({ extname: '.wxss' }))
-    .pipe(gulpif(wxssConfig.less && wxssConfig.sourcemap, sourcemaps.write('./')))
+    .pipe(gulpIf(wxssConfig.less && wxssConfig.sourcemap, sourcemaps.write('./')))
     .pipe(_.logger(wxssConfig.less ? 'generate' : undefined))
     .pipe(gulp.dest(distPath))
 }
@@ -40,11 +41,12 @@ function wxss(wxssFileList) {
 /**
  * 获取 js 流
  */
-function js(jsFileMap, scope) {
-  const webpackConfig = config.webpack
+function js(jsFileMap, scope, cb) {
+  const webpackConfig = { ...config.webpack }
   const webpackCallback = (err, stats) => {
-    if (!err) {
-      // eslint-disable-next-line no-console
+    if (err) {
+      console.log(err)
+    } else {
       console.log(stats.toString({
         assets: true,
         cached: false,
@@ -56,26 +58,39 @@ function js(jsFileMap, scope) {
         modules: false,
         publicPath: true,
       }))
-    } else {
-      // eslint-disable-next-line no-console
-      console.log(err)
     }
   }
 
   webpackConfig.entry = jsFileMap
   webpackConfig.output.path = distPath
 
-  if (scope.webpackWatcher) {
-    scope.webpackWatcher.close()
-    scope.webpackWatcher = null
+  const runCompiler = () => {
+    const compiler = webpack(webpackConfig)
+    if (config.isWatch) {
+      scope.webpackWatcher = compiler.watch({
+        ignored: /node_modules/,
+      }, webpackCallback)
+      if (cb) cb()
+    } else {
+      compiler.run((err, stats) => {
+        webpackCallback(err, stats)
+        // Webpack 5 必须显式关闭以持久化存储缓存
+        compiler.close((closeErr) => {
+          if (closeErr) console.error(closeErr)
+          if (cb) cb(err || closeErr)
+        })
+      })
+    }
   }
 
-  if (config.isWatch) {
-    scope.webpackWatcher = webpack(webpackConfig).watch({
-      ignored: /node_modules/,
-    }, webpackCallback)
+  if (scope.webpackWatcher) {
+    // Webpack 5 Watcher 关闭是异步的
+    scope.webpackWatcher.close(() => {
+      scope.webpackWatcher = null
+      runCompiler()
+    })
   } else {
-    webpack(webpackConfig).run(webpackCallback)
+    runCompiler()
   }
 }
 
@@ -180,7 +195,7 @@ class BuildTask {
     gulp.task(`${id}-component-json`, done => {
       const jsonFileList = this.componentListMap.jsonFileList
 
-      if (jsonFileList && jsonFileList.length) return copy(jsonFileList)
+      if (jsonFileList?.length) return copy(jsonFileList)
 
       return done()
     })
@@ -191,8 +206,7 @@ class BuildTask {
     gulp.task(`${id}-component-wxml`, done => {
       const wxmlFileList = this.componentListMap.wxmlFileList
 
-      if (wxmlFileList &&
-        wxmlFileList.length &&
+      if (wxmlFileList?.length &&
         !_.compareArray(this.cachedComponentListMap.wxmlFileList, wxmlFileList)) {
         return copy(wxmlFileList)
       }
@@ -206,10 +220,9 @@ class BuildTask {
     gulp.task(`${id}-component-wxss`, done => {
       const wxssFileList = this.componentListMap.wxssFileList
 
-      if (wxssFileList &&
-        wxssFileList.length &&
+      if (wxssFileList?.length &&
         !_.compareArray(this.cachedComponentListMap.wxssFileList, wxssFileList)) {
-        return wxss(wxssFileList, srcPath, distPath)
+        return wxss(wxssFileList)
       }
 
       return done()
@@ -221,17 +234,16 @@ class BuildTask {
     gulp.task(`${id}-component-js`, done => {
       const jsFileList = this.componentListMap.jsFileList
 
-      if (jsFileList &&
-        jsFileList.length &&
+      if (jsFileList?.length &&
         !_.compareArray(this.cachedComponentListMap.jsFileList, jsFileList)) {
         if (jsConfig.webpack) {
-          js(this.componentListMap.jsFileMap, this)
+          js(this.componentListMap.jsFileMap, this, done)
         } else {
           return copy(jsFileList)
         }
+      } else {
+        return done()
       }
-
-      return done()
     })
 
     /**
@@ -247,7 +259,6 @@ class BuildTask {
             return copyFilePath
           }
         } catch (err) {
-          // eslint-disable-next-line no-console
           console.error(err)
           return null
         }
@@ -262,19 +273,18 @@ class BuildTask {
         try {
           if (fs.statSync(path.join(srcPath, copyFilePath)).isDirectory()) {
             return path.join(copyFilePath, '**/*.wxss')
-          } else if (copyFilePath.slice(-5) === '.wxss') {
+          } else if (copyFilePath.endsWith('.wxss')) {
             return copyFilePath
           } else {
             return null
           }
         } catch (err) {
-          // eslint-disable-next-line no-console
           console.error(err)
           return null
         }
       }).filter(copyFilePath => !!copyFilePath)
 
-      if (copyFileList.length) return wxss(copyFileList, srcPath, distPath)
+      if (copyFileList.length) return wxss(copyFileList)
 
       return done()
     }))
@@ -324,7 +334,6 @@ class BuildTask {
             return copyFilePath
           }
         } catch (err) {
-          // eslint-disable-next-line no-console
           console.error(err)
           return null
         }

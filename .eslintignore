@@ -1,1 +1,16 @@
-src/assets/u-charts-v2.5.0.min.js
+# 依赖与构建目录
+node_modules/
+miniprogram_dist/
+miniprogram_dev/
+miniprogram_npm/
+
+# 测试与覆盖率
+coverage/
+test/__snapshots__/
+
+# 系统与缓存
+.DS_Store
+*.log
+
+**/vendor/*.wxss
+**/*.min.wxss

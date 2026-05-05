@@ -21,7 +21,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12rpx 0;
-  min-height: 80rpx;
-  border-bottom: 1rpx solid #eeeeee;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid var(--sap-list-border-color, #eeeeee);
+}
+
+.label-cluster {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.description {
+  font-size: 24rpx;
+  color: var(--sap-content-label-color, #6a6d70);
+  margin-top: 4rpx;
 }

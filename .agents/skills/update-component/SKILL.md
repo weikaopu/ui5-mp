@@ -13,7 +13,6 @@ user-invocable: false
 - 把 @src/ 目录下的所有名为 index.js 的文件都加入你的上下文。
 - 把 @src/behaviors 目录下的所有 js 的文件都加入你的上下文。
 - 把 @src/assets/sap-fundamental-styles.wxss 文件加入你的上下文。
-- 把 @tools/config.js 文件加入你的上下文。
 - 把 @tools/demo/app.json 文件加入你的上下文。
 - 把 @tools/demo/pages 目录下的所有名为 index.js 的文件都加入你的上下文。
 

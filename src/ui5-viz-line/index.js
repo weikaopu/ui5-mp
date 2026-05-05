@@ -125,7 +125,6 @@ Component({
         // 寻找 X 轴上最近的索引
         const firstSeries = this.allSeriesPoints[0]
         const closestIndex = firstSeries.reduce(
-          // eslint-disable-next-line no-confusing-arrow, no-multi-spaces, max-len
           (prevIdx, curr, currIdx) => Math.abs(curr.x - touchX) < Math.abs(firstSeries[prevIdx].x - touchX) ? currIdx : prevIdx, 0
         )
 

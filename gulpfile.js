@@ -6,13 +6,12 @@ const BuildTask = require('./tools/build')
 const id = require('./package.json').name || 'miniprogram-custom-component'
 
 // 构建任务实例
-// eslint-disable-next-line no-new
 new BuildTask(id, config.entry)
 
 // 清空生成目录和文件
-gulp.task('clean', gulp.series(() => gulp.src(config.distPath, {read: false, allowEmpty: true}).pipe(clean()), done => {
+gulp.task('clean', gulp.series(() => gulp.src(config.distPath, { read: false, allowEmpty: true }).pipe(clean()), done => {
   if (config.isDev) {
-    return gulp.src(config.demoDist, {read: false, allowEmpty: true})
+    return gulp.src(config.demoDist, { read: false, allowEmpty: true })
       .pipe(clean())
   }
 
