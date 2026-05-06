@@ -1,0 +1,93 @@
+:host {
+  display: block;
+}
+
+.ui5-process-flow-node {
+  display: flex;
+  background-color: var(--sap-background-color, #ffffff);
+  border: 1rpx solid var(--sap-list-border-color, #ebebeb);
+  border-radius: 8rpx;
+  width: 240rpx;
+  min-height: 80rpx;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 4rpx rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s ease;
+}
+
+.ui5-process-flow-node:active {
+  transform: scale(0.98);
+  background-color: var(--sap-list-selection-background-color, #f5f5f5);
+}
+
+.ui5-process-flow-node-state-bar {
+  width: 8rpx;
+  flex-shrink: 0;
+  background-color: var(--sap-neutral-color, #6a6d70);
+}
+
+.ui5-process-flow-node-content {
+  flex: 1;
+  padding: 12rpx 16rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.ui5-process-flow-node-title--clickable {
+  color: var(--sap-link-color, #0064d2);
+  text-decoration: underline;
+}
+
+.ui5-process-flow-node-texts {
+  margin-top: 8rpx;
+  margin-bottom: 4rpx;
+}
+
+.ui5-process-flow-node-text {
+  font-size: 20rpx;
+  color: var(--sap-text-color, #32363a);
+  line-height: 1.4;
+  word-break: break-all;
+}
+
+.ui5-process-flow-node-id {
+  font-size: 20rpx;
+  color: var(--sap-text-secondary-color, #6a6d70);
+  margin-top: 4rpx;
+}
+
+/* States Mapping */
+.ui5-process-flow-node--Positive .ui5-process-flow-node-state-bar {
+  background-color: var(--sap-success-color, #107e3e);
+}
+
+.ui5-process-flow-node--Negative .ui5-process-flow-node-state-bar {
+  background-color: var(--sap-error-color, #bb0000);
+}
+
+.ui5-process-flow-node--Critical .ui5-process-flow-node-state-bar {
+  background-color: var(--sap-critical-color, #e9730c);
+}
+
+.ui5-process-flow-node--Information .ui5-process-flow-node-state-bar {
+  background-color: var(--sap-informative-color, #0a6ed1);
+}
+
+/* Selected & Focused */
+.ui5-process-flow-node--selected {
+  border: 2rpx solid var(--sap-selected-color, #0064d2);
+  background-color: var(--sap-list-selection-background-color, #f5f5f5);
+}
+
+.ui5-process-flow-node--focused::after {
+  content: '';
+  position: absolute;
+  top: 2rpx;
+  left: 2rpx;
+  right: 2rpx;
+  bottom: 2rpx;
+  border: 1rpx dotted var(--sap-content-focus-color, #000000);
+  pointer-events: none;
+}

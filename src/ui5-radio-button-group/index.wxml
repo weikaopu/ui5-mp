@@ -1,0 +1,7 @@
+<view class="ui5-radio-button-group-root ui5-radio-button-group--{{layout}} ui5Class" role="radiogroup"
+  aria-labelledby="ui5-radio-group-label" aria-label="{{accessibleName}}">
+  <ui5-label wx:if="{{label}}" id="ui5-radio-group-label" class="ui5-radio-group-label">{{label}}</ui5-label>
+  <view class="ui5-radio-group-content">
+    <slot></slot>
+  </view>
+</view>

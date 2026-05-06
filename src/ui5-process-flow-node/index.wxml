@@ -1,0 +1,21 @@
+<view
+  class="ui5-process-flow-node ui5-process-flow-node--{{state}} {{selected ? 'ui5-process-flow-node--selected' : ''}} {{focused ? 'ui5-process-flow-node--focused' : ''}} ui5Class"
+  bindtap="_onNodeTap">
+  <!-- 状态色条 -->
+  <view class="ui5-process-flow-node-state-bar"></view>
+
+  <view class="ui5-process-flow-node-content">
+    <ui5-text maxLines="{{2}}" class="{{isTitleClickable ? 'ui5-process-flow-node-title--clickable' : ''}}"
+      catchtap="_onTitleTap">
+      {{title}}
+    </ui5-text>
+    <view class="ui5-process-flow-node-texts" wx:if="{{texts && texts.length > 0}}">
+      <view wx:for="{{texts}}" wx:key="*this" class="ui5-process-flow-node-text">
+        {{item}}
+      </view>
+    </view>
+    <view class="ui5-process-flow-node-id">ID: {{nodeId}}</view>
+    <!-- 预留插槽用于自定义额外信息 -->
+    <slot />
+  </view>
+</view>

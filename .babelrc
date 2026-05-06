@@ -1,11 +1,15 @@
 {
-    "plugins": [
-        ["module-resolver", {
-            "root": ["./src"],
-            "alias": {}
-        }]
-    ],
-    "presets": [
-        ["env", {"loose": true, "modules": "commonjs"}]
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {}
+      }
     ]
+  ],
+  "presets": [
+    ["@babel/preset-env", { "loose": true, "modules": "commonjs" }],
+    "@babel/preset-typescript"
+  ]
 }

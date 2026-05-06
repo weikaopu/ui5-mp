@@ -1,0 +1,16 @@
+<ui5-busy-indicator active="{{loading}}" delay="{{loadingDelay}}" class="ui5-timeline-busy">
+  <scroll-view class="ui5-timeline ui5-timeline--{{layout}} ui5Class" role="list" aria-label="{{accessibleName}}"
+    scroll-x="{{layout === 'Horizontal'}}" enable-flex="{{true}}" bindscroll="_onScroll" enhanced="{{true}}">
+    <view class="ui5-timeline-focus-layer"></view>
+    <slot />
+
+    <view wx:if="{{growing === 'Button'}}" class="ui5-timeline-growing">
+      <ui5-button design="Transparent" bindclick="_onLoadMore">{{growingButtonText}}</ui5-button>
+    </view>
+  </scroll-view>
+
+  <view wx:if="{{layout === 'Horizontal' && _showStartMask}}"
+    class="ui5-timeline-scroll-mask ui5-timeline-scroll-mask--start"></view>
+  <view wx:if="{{layout === 'Horizontal' && _showEndMask}}"
+    class="ui5-timeline-scroll-mask ui5-timeline-scroll-mask--end"></view>
+</ui5-busy-indicator>

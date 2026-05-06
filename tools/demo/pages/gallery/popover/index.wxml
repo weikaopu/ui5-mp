@@ -103,8 +103,7 @@
         <ui5-popover id="longPopover" header-text="Select an Option">
           <view style="width: 400rpx;">
             <ui5-list>
-              <ui5-item wx:for="{{longList}}" wx:key="*this" title="{{item}}"
-                description="Sub-information for {{item}}" />
+              <ui5-li wx:for="{{longList}}" wx:key="*this" text="{{item}}" description="Sub-information for {{item}}" />
             </ui5-list>
           </view>
         </ui5-popover>

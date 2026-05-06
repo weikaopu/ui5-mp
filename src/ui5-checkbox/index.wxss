@@ -1,74 +1,95 @@
 :host {
-  display: inline-block;
-  margin-right: var(--sap-spacing-medium);
-  vertical-align: middle;
+  display: block;
 }
 
-.ui5-checkbox {
+.ui5-checkbox-root {
   display: flex;
-  align-items: center;
-  padding: 8px 0;
+  width: 100%;
+  align-items: flex-start;
+  padding: var(--sap-spacing-tiny, 8rpx) 0;
   cursor: pointer;
+  user-select: none;
+  outline: none;
 }
 
-.ui5-checkbox__box {
-  width: 18px;
-  height: 18px;
-  border: 1px solid var(--sap-field-border-color);
-  border-radius: var(--sap-border-radius);
-  /* SAP Horizon 通常是 4px 或 8px */
-  background-color: var(--sap-field-background-color);
+/* A11y: Focus state to align with SAP Fiori focus ring */
+.ui5-checkbox-root:active .ui5-checkbox-inner {
+  outline: 2rpx solid var(--sap-content-focus-color, #0854a0);
+  outline-offset: 4rpx;
+}
+
+.ui5-checkbox-inner {
+  width: 40rpx;
+  height: 40rpx;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  border: 2rpx solid var(--sap-field-border-color, #89919a);
+  border-radius: 6rpx;
+  background-color: var(--sap-content-color, #ffffff);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.1s ease-in;
-  position: relative;
 }
 
-.ui5-checkbox__label {
-  margin-left: 8px;
-  font-size: 14px;
-  color: var(--sap-text-color);
+.ui5-checkbox-active {
+  background-color: var(--sap-primary-color, #0854a0);
+  border-color: var(--sap-primary-color, #0854a0);
 }
 
-/* 选中状态 */
-.is-checked .ui5-checkbox__box {
-  background-color: var(--sap-primary-color);
-  border-color: var(--sap-primary-color);
+.ui5-checkbox-icon {
+  display: flex;
+  font-size: var(--sap-font-size-small, 24rpx);
+  color: var(--sap-text-inverted-color, #ffffff);
 }
 
-/* 纯 CSS 绘制勾选标记 (V 字) */
-.ui5-checkbox__checkmark {
-  width: 10px;
-  height: 5px;
-  border-left: 2px solid #ffffff;
-  border-bottom: 2px solid #ffffff;
-  transform: rotate(-45deg);
-  margin-top: -2px;
-  /* 微调位置 */
+.ui5-checkbox-label {
+  flex: 1;
+  min-width: 0;
+  margin-left: var(--sap-spacing-small, 16rpx);
 }
 
-/* 禁用状态 */
-.is-disabled {
+.ui5-checkbox-label-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  color: red;
+}
+
+/* Value States - Horizon */
+.ui5-checkbox-state-Error .ui5-checkbox-inner {
+  border-color: var(--sap-error-color, #bb0000);
+  border-width: 4rpx;
+}
+
+.ui5-checkbox-state-Warning .ui5-checkbox-inner {
+  border-color: var(--sap-warning-color, #e9730c);
+  border-width: 4rpx;
+}
+
+.ui5-checkbox-state-Success .ui5-checkbox-inner {
+  border-color: var(--sap-success-color, #107e3e);
+  border-width: 4rpx;
+}
+
+.ui5-checkbox-state-Information .ui5-checkbox-inner {
+  border-color: var(--sap-information-color, #0a6ed1);
+  border-width: 4rpx;
+}
+
+/* Disabled & Readonly */
+.ui5-checkbox-disabled {
   opacity: 0.4;
 }
 
-/* 交互态：点击时盒子稍微变暗 */
-.ui5-checkbox:active .ui5-checkbox__box {
-  opacity: 0.8;
+.ui5-checkbox-readonly .ui5-checkbox-inner {
+  background-color: var(--sap-background-color, #f7f7f7);
+  border-color: var(--sap-field-border-color, #89919a);
 }
 
-/* --- Value States --- */
-.ui5-checkbox.ui5-checkbox--Error .ui5-checkbox__box {
-  border-color: var(--sap-error-color);
-  border-width: 2px;
-}
-
-.ui5-checkbox.ui5-checkbox--Warning .ui5-checkbox__box {
-  border-color: var(--sap-warning-color);
-}
-
-/* 状态下的文字颜色（可选） */
-.ui5-checkbox--Error .ui5-checkbox__label {
-  color: var(--sap-error-color);
+.ui5-checkbox-readonly .ui5-checkbox-active {
+  background-color: var(--sap-field-border-color, #89919a);
+  border-color: var(--sap-field-border-color, #89919a);
 }

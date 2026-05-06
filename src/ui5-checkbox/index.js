@@ -1,33 +1,100 @@
+// https://ui5.github.io/webcomponents/components/CheckBox/
+const ValueState = require('../behaviors/ValueState')
+const baseBehavior = require('../behaviors/base-behavior')
+const textBehavior = require('../behaviors/text-behavior')
+
 Component({
-  options: { addGlobalClass: true },
+  externalClasses: ['ui5Class'],
+  options: {
+    addGlobalClass: true,
+    pureDataPattern: /^_/
+  },
+  behaviors: [ValueState, baseBehavior, textBehavior],
+  relations: {
+    '../ui5-checkbox-group/index': {
+      type: 'parent'
+    }
+  },
   properties: {
-    label: String,
     checked: {
       type: Boolean,
-      value: false
+      value: false,
     },
     disabled: {
       type: Boolean,
-      value: false
+      value: false,
     },
-    value: String, // 用于表单提交时的标识
-    // None, Error, Warning, Success
-    valueState: {
+    indeterminate: {
+      type: Boolean,
+      value: false,
+    },
+    readonly: {
+      type: Boolean,
+      value: false,
+    },
+    required: {
+      type: Boolean,
+      value: false,
+    },
+    text: {
       type: String,
-      value: 'None'
+      value: '',
+    },
+    value: {
+      type: String,
+      value: '',
+    },
+    name: {
+      type: String,
+      value: '',
+    },
+    accessibleName: {
+      type: String,
+      value: '',
+    }
+  },
+  data: {
+    _ariaChecked: 'false'
+  },
+  observers: {
+    value() {
+      const parent = this.getRelationNodes('../ui5-checkbox-group/index')[0]
+      if (parent) {
+        parent._syncChild(this)
+      }
+    },
+    'checked, indeterminate': function (checked, indeterminate) {
+      let state = 'false'
+      if (indeterminate) {
+        state = 'mixed'
+      } else if (checked) {
+        state = 'true'
+      }
+      this.setData({ _ariaChecked: state })
     }
   },
   methods: {
     onTap() {
-      if (this.data.disabled) return
+      if (this.data.disabled || this.data.readonly) return
 
       const newChecked = !this.data.checked
-      this.setData({ checked: newChecked })
 
-      // 触发事件，方便在页面监听
+      const parent = this.getRelationNodes('../ui5-checkbox-group/index')[0]
+      if (parent) {
+        // 如果在 Group 中，交由 Group 处理逻辑和状态同步
+        parent.onCheckboxChange({
+          detail: { value: this.data.value, checked: newChecked }
+        })
+      } else {
+        this.setData({
+          checked: newChecked,
+          indeterminate: false
+        })
+      }
+
       this.triggerEvent('change', {
-        value: this.data.value,
-        checked: newChecked
+        checked: newChecked,
+        value: this.data.value
       })
     }
   }

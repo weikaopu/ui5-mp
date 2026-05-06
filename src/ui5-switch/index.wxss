@@ -1,84 +1,90 @@
 :host {
   display: inline-block;
   vertical-align: middle;
+  outline: none;
 }
 
 .ui5-switch {
-  width: 52px;
-  /* 标准宽度 */
-  height: 30px;
-  box-sizing: border-box;
   position: relative;
+  display: inline-block;
+  width: 88rpx;
+  height: 44rpx;
+  background-color: var(--sap-button-track-color, #ebebeb);
+  border: 2rpx solid var(--sap-button-track-border-color, #89919a);
+  border-radius: 44rpx;
   cursor: pointer;
-}
-
-.ui5-switch__track {
-  width: 100%;
-  height: 100%;
-  background-color: var(--sap-field-background-color);
-  border: 1px solid var(--sap-field-border-color);
-  border-radius: 15px;
-  /* 完全圆角 */
-  position: relative;
-  transition: background-color 0.2s, border-color 0.2s;
+  transition: background-color 0.1s ease-in, border-color 0.1s ease-in;
+  box-sizing: border-box;
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.ui5-switch__handle {
+.ui5-switch--checked {
+  background-color: var(--sap-button-selected-background, #0854a0);
+  border-color: var(--sap-button-selected-border-color, #0854a0);
+}
+
+.ui5-switch-track {
   position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 22px;
-  height: 22px;
-  background-color: #fff;
-  border-radius: 50%;
-  box-shadow: var(--sap-shadow-level-1);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.ui5-switch-handle {
+  position: absolute;
+  top: 4rpx;
+  left: 4rpx;
+  width: 50rpx;
+  height: 32rpx;
+  background-color: var(--sap-button-handle-color, #ffffff);
+  border-radius: 20rpx;
   transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
   z-index: 2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* 文本/图标样式 */
-.ui5-switch__text {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 10px;
+.ui5-switch--checked .ui5-switch-handle {
+  transform: translateX(28rpx);
+}
+
+.ui5-switch-text {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18rpx;
   font-weight: bold;
-  transition: opacity 0.2s;
+  color: var(--sap-button-selected-background, #0070b1);
+  text-transform: uppercase;
+  box-sizing: border-box;
 }
 
-.ui5-switch__text--on {
-  left: 8px;
-  color: #fff;
-  opacity: 0;
+.ui5-switch--checked .ui5-switch-text {
+  color: var(--sap-button-selected-background, #0070b1);
 }
 
-.ui5-switch__text--off {
-  right: 8px;
-  color: var(--sap-text-secondary-color);
-  opacity: 1;
+.ui5-switch-text--graphical {
+  padding: 0 !important;
 }
 
-/* --- 选中状态 (Checked) --- */
-.is-checked .ui5-switch__track {
-  background-color: var(--sap-primary-color);
-  border-color: var(--sap-primary-color);
-}
-
-.is-checked .ui5-switch__handle {
-  transform: translateX(22px);
-  /* 移动到右侧 */
-}
-
-.is-checked .ui5-switch__text--on {
-  opacity: 1;
-}
-
-.is-checked .ui5-switch__text--off {
-  opacity: 0;
-}
-
-/* 禁用态 */
-.is-disabled {
+.ui5-switch--disabled {
   opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Active state simulation */
+.ui5-switch:active:not(.ui5-switch--disabled) .ui5-switch-handle {
+  transform: scale(0.95);
+}
+
+.ui5-switch-icon {
+  font-size: 20rpx !important;
+  color: inherit !important;
 }

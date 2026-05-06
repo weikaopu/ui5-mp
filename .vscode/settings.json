@@ -1,11 +1,14 @@
 {
-  "editor.formatOnSave": true,
-  "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
+  "css.validate": false,
   "html.validate.styles": false,
-  "css.validate": true,
-  "javascript.format.semicolons": "remove",
-  "typescript.format.semicolons": "remove",
-  "cSpell.words": ["bindlongpress", "bindtap", "wxml", "wxss"]
+  "editor.formatOnSave": true,
+  "cSpell.words": [
+    "aignore",
+    "bindlongpress",
+    "bindtap",
+    "miniprogram",
+    "shellbar",
+    "wxml",
+    "wxss"
+  ]
 }

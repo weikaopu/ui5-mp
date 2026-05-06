@@ -1,7 +1,6 @@
-const fs = require('fs')
-const path = require('path')
+const fs = require('node:fs')
+const path = require('node:path')
 
-// eslint-disable-next-line no-unused-vars
 const colors = require('colors')
 const through = require('through2')
 
@@ -86,7 +85,6 @@ async function recursiveMkdir(dirPath) {
  */
 function readJson(filePath) {
   try {
-    // eslint-disable-next-line import/no-dynamic-require
     const content = require(filePath)
     delete require.cache[require.resolve(filePath)]
     return content
@@ -102,7 +100,6 @@ async function readFile(filePath) {
   try {
     return await readFileSync(filePath, 'utf8')
   } catch (err) {
-    // eslint-disable-next-line no-console
     return console.error(err)
   }
 }
@@ -115,7 +112,6 @@ async function writeFile(filePath, data) {
     await recursiveMkdir(path.dirname(filePath))
     return await writeFileSync(filePath, data, 'utf8')
   } catch (err) {
-    // eslint-disable-next-line no-console
     return console.error(err)
   }
 }
@@ -149,7 +145,6 @@ function logger(action = 'copy') {
   return through.obj(function (file, enc, cb) {
     const type = path.extname(file.path).slice(1).toLowerCase()
 
-    // eslint-disable-next-line no-console
     console.log(`[${format(new Date(), 'yyyy-MM-dd HH:mm:ss').grey}] [${action.green} ${type.green}] ${'=>'.cyan} ${file.path}`)
 
     this.push(file)

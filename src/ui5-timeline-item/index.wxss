@@ -1,0 +1,186 @@
+:host {
+  display: block;
+}
+
+.ui5-timeline-item {
+  display: flex;
+  position: relative;
+  min-height: 80rpx;
+}
+
+/* 指示器和线 */
+.ui5-timeline-item-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+
+/* --- Horizontal Layout Styles --- */
+.ui5-timeline-item--Horizontal {
+  flex-direction: column;
+  flex: 1;
+  flex-shrink: 0;
+  min-width: 240rpx;
+  /* 确保水平模式下有足够宽度 */
+}
+
+.ui5-timeline-item--Horizontal .ui5-timeline-item-indicator {
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-right: 0;
+  margin-bottom: 16rpx;
+}
+
+.ui5-timeline-item--Horizontal .ui5-timeline-item-line {
+  width: auto;
+  height: 2rpx;
+  /* 水平线的高度 */
+  flex: 1;
+  margin: 0 0 0 8rpx;
+  /* 移除右边距，使线条能直接触及下一个条目的图标 */
+}
+
+.ui5-timeline-item--Horizontal .ui5-timeline-item-content {
+  padding-bottom: 0;
+  padding-right: 16rpx;
+}
+
+.ui5-timeline-item-icon-container {
+  width: 56rpx;
+  height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: transparent;
+}
+
+.ui5-timeline-item-avatar-slot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  /* 确保在 icon/dot 之上 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui5-timeline-item-icon {
+  width: 32rpx;
+  height: 32rpx;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.ui5-timeline-item-avatar-slot ui5-avatar {
+  width: 100%;
+  height: 100%;
+}
+
+.ui5-timeline-item-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* State Colors */
+.ui5-timeline-item-icon--Information {
+  color: var(--sap-information-color, #0a6ed1) !important;
+}
+
+.ui5-timeline-item-dot--Information {
+  background-color: var(--sap-information-color, #0a6ed1);
+}
+
+.ui5-timeline-item-icon--Positive {
+  color: var(--sap-success-color, #107e3e) !important;
+}
+
+.ui5-timeline-item-dot--Positive {
+  background-color: var(--sap-success-color, #107e3e);
+}
+
+.ui5-timeline-item-icon--Critical {
+  color: var(--sap-warning-color, #e9730c) !important;
+}
+
+.ui5-timeline-item-dot--Critical {
+  background-color: var(--sap-warning-color, #e9730c);
+}
+
+.ui5-timeline-item-icon--Negative {
+  color: var(--sap-error-color, #bb0000) !important;
+}
+
+.ui5-timeline-item-dot--Negative {
+  background-color: var(--sap-error-color, #bb0000);
+}
+
+.ui5-timeline-item-icon--None {
+  color: var(--sap-neutral-color, #6a6d70) !important;
+}
+
+.ui5-timeline-item-dot--None {
+  background-color: var(--sap-neutral-color, #6a6d70);
+}
+
+.ui5-timeline-item-line {
+  width: 2rpx;
+  flex: 1;
+  background-color: var(--sap-field-border-color, #89919a);
+  margin: 4rpx 0;
+}
+
+/* 内容区 */
+.ui5-timeline-item-content {
+  flex: 1;
+  padding-bottom: var(--sap-spacing-medium, 32rpx);
+  min-width: 0;
+}
+
+.ui5-timeline-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8rpx;
+}
+
+.ui5-timeline-item-title-row {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--sap-font-size, 28rpx);
+}
+
+.ui5-timeline-item-name {
+  font-weight: bold;
+  margin-right: 12rpx;
+}
+
+.ui5-timeline-item-name--clickable {
+  color: var(--sap-active-color, #0854a0);
+  text-decoration: underline;
+}
+
+.ui5-timeline-item-title {
+  color: var(--sap-text-color, #32363a);
+}
+
+.ui5-timeline-item-timestamp {
+  font-size: var(--sap-font-size-small, 24rpx);
+  color: var(--sap-text-secondary-color, #6a6d70);
+  margin-left: 16rpx;
+}
+
+.ui5-timeline-item-subtitle {
+  font-size: var(--sap-font-size-small, 24rpx);
+  color: var(--sap-text-secondary-color, #6a6d70);
+}

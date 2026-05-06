@@ -1,0 +1,93 @@
+:host {
+  display: block;
+}
+
+.ui5-process-flow-lane-header {
+  width: 240rpx;
+  min-height: 120rpx;
+  /* 允许标题区域根据内容自动撑开 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: var(--sap-background-color, #ffffff);
+  padding: 10rpx 0;
+}
+
+.ui5-process-flow-lane-header-donut {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12rpx;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ui5-process-flow-lane-header-donut-inner {
+  width: 56rpx;
+  height: 56rpx;
+  background-color: var(--sap-background-color, #ffffff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui5-process-flow-lane-header-icon {
+  display: block;
+  width: 32rpx;
+  height: 32rpx;
+  font-size: 32rpx;
+  /* 确保字体图标大小 */
+  color: inherit;
+  /* 继承父容器状态颜色 */
+}
+
+/* 状态图标颜色映射 - 对齐 Fiori 规范 */
+.ui5-process-flow-lane-header--Positive .ui5-process-flow-lane-header-icon {
+  color: var(--sap-success-color, #107e3e);
+}
+
+.ui5-process-flow-lane-header--Negative .ui5-process-flow-lane-header-icon {
+  color: var(--sap-error-color, #bb0000);
+}
+
+.ui5-process-flow-lane-header--Critical .ui5-process-flow-lane-header-icon {
+  color: var(--sap-critical-color, #e9730c);
+}
+
+.ui5-process-flow-lane-header--Information .ui5-process-flow-lane-header-icon {
+  color: var(--sap-informative-color, #0a6ed1);
+}
+
+.ui5-process-flow-lane-header-title {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: var(--sap-title-color, #32363a);
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  padding: 0 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-all;
+}
+
+/* 焦点状态 */
+.ui5-process-flow-lane-header--focused::before {
+  content: '';
+  position: absolute;
+  top: 4rpx;
+  left: 4rpx;
+  right: 4rpx;
+  bottom: 4rpx;
+  border: 1rpx dotted var(--sap-content-focus-color, #000000);
+  pointer-events: none;
+  z-index: 1;
+}

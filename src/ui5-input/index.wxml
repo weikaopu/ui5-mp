@@ -17,7 +17,7 @@
     <!-- 右侧图标区：清除按钮或状态图标 -->
     <view class="ui5-input__icon-area">
       <view wx:if="{{showClearIcon && value && !readonly}}" class="ui5-input__clear" bindtap="onClear">
-        <ui5-icon name="decline" size="12" color="var(--sap-neutral-color)" />
+        <ui5-icon name="decline" size="24" color="var(--sap-neutral-color)" />
       </view>
     </view>
   </view>

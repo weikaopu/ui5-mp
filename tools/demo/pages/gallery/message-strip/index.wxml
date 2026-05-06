@@ -1,0 +1,31 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Message Strip Components" />
+
+  <view class="fd-padding-md">
+
+    <!-- MessageStrip: 页面内嵌通知 -->
+    <ui5-card title="Message Strip">
+      <view class="fd-padding-md">
+        <ui5-message-strip type="information" hideCloseButton="true">
+          Information: New updates are available for this product.
+        </ui5-message-strip>
+
+        <ui5-message-strip type="success" style="margin-top: 10px;">
+          Success: Your profile has been updated.
+        </ui5-message-strip>
+
+        <ui5-message-strip type="warning" style="margin-top: 10px;">
+          Warning: Low disk space detected on the server.
+        </ui5-message-strip>
+
+        <ui5-message-strip type="error" style="margin-top: 10px;" bind:close="onStripClose">
+          Error: Failed to connect to the database.
+        </ui5-message-strip>
+      </view>
+    </ui5-card>
+
+  </view>
+
+  <!-- 全局组件定义 -->
+  <ui5-toast id="demoToast"></ui5-toast>
+</ui5-page>

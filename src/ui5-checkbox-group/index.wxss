@@ -1,16 +1,37 @@
 :host {
   display: block;
-  margin-bottom: var(--sap-spacing-medium);
+  margin-bottom: var(--sap-spacing-small, 16rpx);
 }
 
 .ui5-group-label {
-  font-size: 12px;
+  font-size: var(--sap-font-size-small, 24rpx);
   color: var(--sap-text-secondary-color);
-  margin-bottom: 8px;
+  margin-bottom: var(--sap-spacing-tiny, 8rpx);
+  /* 保持与 ui5-radio-button-group 标签间距一致 */
+  font-weight: bold;
+  /* 保持与 ui5-radio-button-group 标签字体粗细一致 */
 }
 
-.ui5-group-content {
+.ui5-checkbox-group-root {
   display: flex;
   flex-direction: column;
-  /* 默认垂直排列 */
+  /* 默认垂直排列，使标签和内容上下堆叠，与 ui5-radio-button-group 保持一致 */
+}
+
+.ui5-checkbox-group--Column .ui5-group-content {
+  display: flex;
+  /* 确保内容区域是 Flex 容器 */
+  flex-direction: column;
+}
+
+.ui5-checkbox-group--Row .ui5-group-content {
+  display: flex;
+  /* 确保内容区域是 Flex 容器 */
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* 在行布局下，为每个复选框添加间距 */
+.ui5-checkbox-group--Row ui5-checkbox {
+  margin-right: var(--sap-spacing-medium, 32rpx);
 }

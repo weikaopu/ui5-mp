@@ -1,0 +1,46 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="List Gallery (待重构)" show-back-button></ui5-shellbar>
+
+  <view class="fd-padding-md">
+    <view class="ui5-text-secondary fd-margin-bottom-sm">Event Log: {{lastEvent}}</view>
+
+    <!-- 基础列表 -->
+    <ui5-card title="Basic List" subtitle="Mode: None">
+      <ui5-list>
+        <ui5-li wx:for="{{items}}" wx:key="id" text="{{item.text}}" description="{{item.description}}"
+          icon="{{item.icon}}" additionalText="{{item.additionalText}}" bind:item-click="handleItemClick"></ui5-li>
+      </ui5-list>
+    </ui5-card>
+
+    <!-- 单选列表 -->
+    <ui5-card title="Selection Mode" subtitle="SingleSelect" class="fd-margin-top-sm">
+      <ui5-list mode="SingleSelect" selectedKey="{{selectedKey}}" bind:selection-change="handleSelectionChange">
+        <ui5-li wx:for="{{items}}" wx:key="id" value="{{item.id}}" text="{{item.text}}"
+          description="{{item.description}}"></ui5-li>
+      </ui5-list>
+    </ui5-card>
+
+    <!-- 多选列表 -->
+    <ui5-card title="Selection Mode" subtitle="MultiSelect" class="fd-margin-top-sm">
+      <ui5-list mode="MultiSelect" selectedKeys="{{selectedKeys}}" bind:selection-change="handleSelectionChange">
+        <ui5-li wx:for="{{items}}" wx:key="id" value="{{item.id}}" text="{{item.text}}"
+          description="{{item.description}}"></ui5-li>
+      </ui5-list>
+    </ui5-card>
+
+    <!-- 删除模式 -->
+    <ui5-card title="Action Mode" subtitle="Delete" class="fd-margin-top-sm">
+      <ui5-list mode="Delete" bind:item-delete="handleItemDelete">
+        <ui5-li wx:for="{{items}}" wx:key="id" value="{{item.id}}" text="{{item.text}}" type="Detail"></ui5-li>
+      </ui5-list>
+    </ui5-card>
+
+    <!-- 导航类型 -->
+    <ui5-card title="Item Types" subtitle="Navigation & Detail" class="fd-margin-top-sm">
+      <ui5-list>
+        <ui5-li text="Navigation Item" type="Navigation" description="Click to navigate"></ui5-li>
+        <ui5-li text="Detail Item" type="Detail" description="Click the edit icon"></ui5-li>
+      </ui5-list>
+    </ui5-card>
+  </view>
+</ui5-page>

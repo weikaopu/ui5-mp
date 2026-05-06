@@ -1,0 +1,15 @@
+# 排除第三方依赖，减少干扰并提高索引速度
+
+node_modules/
+
+# 排除版本控制系统
+
+.git/
+
+# 排除构建产物和测试覆盖率报告
+
+dist/
+coverage/
+\*.log
+miniprogram_dev
+temp

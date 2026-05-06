@@ -1,0 +1,38 @@
+<view
+  class="ui5-li-root ui5-li--type-{{type}} {{selected ? 'ui5-li--selected' : ''}} {{disabled ? 'ui5-li--disabled' : ''}} ui5Class"
+  bindtap="_handleTap" role="listitem">
+  <!-- 选择器区域 (Mode: MultiSelect / SingleSelect) -->
+  <view class="ui5-li-selection" wx:if="{{_mode === 'MultiSelect'}}">
+    <ui5-checkbox checked="{{selected}}" disabled="{{disabled}}"></ui5-checkbox>
+  </view>
+  <view class="ui5-li-selection" wx:elif="{{_mode === 'SingleSelect'}}">
+    <ui5-radio-button checked="{{selected}}" disabled="{{disabled}}"></ui5-radio-button>
+  </view>
+
+  <!-- 图标区域 -->
+  <ui5-icon wx:if="{{icon}}" name="{{icon}}" class="ui5-li-icon"></ui5-icon>
+
+  <!-- 内容区域 -->
+  <view class="ui5-li-content">
+    <view class="ui5-li-text-wrapper">
+      <view class="ui5-li-text">{{text}}</view>
+      <view wx:if="{{description}}" class="ui5-li-description">{{description}}</view>
+    </view>
+
+    <view class="ui5-li-additional-text" wx:if="{{additionalText}}">
+      {{additionalText}}
+    </view>
+  </view>
+
+  <!-- 导航/详情图标 -->
+  <view class="ui5-li-status-info">
+    <ui5-icon wx:if="{{type === 'Navigation'}}" name="slim-arrow-right" class="ui5-li-nav-icon"></ui5-icon>
+    <ui5-icon wx:if="{{type === 'Detail'}}" name="edit" class="ui5-li-detail-icon"
+      catchtap="_handleDetailClick"></ui5-icon>
+  </view>
+
+  <!-- 删除按钮 (Mode: Delete) -->
+  <view class="ui5-li-delete" wx:if="{{_mode === 'Delete'}}">
+    <ui5-icon name="decline" class="ui5-li-delete-icon"></ui5-icon>
+  </view>
+</view>

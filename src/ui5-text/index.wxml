@@ -1,7 +1,8 @@
 <!-- 根元素需要有 .ui5-mp-root 类名，以便 Behavior 能通过 createSelectorQuery 找到位置。 -->
 <view
-  class="ui5-mp-root ui5-text {{wrapping ? '' : 'ui5-text--no-wrapping'}} {{maxLines > 0 ? 'ui5-text--max-lines' : ''}} ui5Class"
-  style="{{maxLines > 0 ? '-webkit-line-clamp: ' + maxLines : ''}}" bindlongpress="openTooltip">
+  class="ui5-mp-root ui5-text ui5-text--wrapping-{{wrappingType}} {{wrappingType === 'Normal' && maxLines > 0 ? 'ui5-text--max-lines' : ''}} ui5Class"
+  style="text-align: {{textAlign}}; {{wrappingType === 'Normal' && maxLines > 0 ? '-webkit-line-clamp: ' + maxLines : ''}}"
+  bindlongpress="openTooltip">
   <slot></slot>
 
   <!-- Tooltip 浮层 (由 tooltip-behavior 驱动) -->

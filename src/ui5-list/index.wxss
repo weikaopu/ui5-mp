@@ -1,6 +1,8 @@
 :host {
   display: block;
   margin: var(--sap-spacing-medium) 0;
+  background-color: var(--sap-background-color);
+  /* 列表背景色 */
 }
 
 .ui5-list-container {
@@ -10,6 +12,8 @@
 }
 
 .ui5-list__header {
+  display: block;
+  /* 确保 headerText 独占一行 */
   padding: var(--sap-spacing-small) var(--sap-spacing-medium);
   background-color: var(--sap-background-color);
   color: var(--sap-text-secondary-color);
@@ -18,6 +22,8 @@
 }
 
 .ui5-list__footer {
+  display: block;
+  /* 确保 footerText 独占一行 */
   padding: var(--sap-spacing-small) var(--sap-spacing-medium);
   color: var(--sap-text-secondary-color);
   font-size: var(--sap-font-size-small);
@@ -25,7 +31,7 @@
 }
 
 /* 如果不需要最后一行分割线，可以通过此处的子元素选择器控制，
-   但由于小程序 Shadow DOM 限制，通常在 ui5-item 里处理 border-bottom */
+   但由于小程序 Shadow DOM 限制，通常在 ui5-li 里处理 border-bottom */
 .ui5-list--no-border .ui5-li {
   border-bottom: none;
 }

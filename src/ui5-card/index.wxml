@@ -1,27 +1,15 @@
-<view class="ui5-card {{interactive ? 'ui5-card--interactive' : ''}}" bindtap="onCardClick">
-  <block wx:if="{{title || subtitle}}">
-    <view class="ui5-card__header">
-      <!-- 卡片头部 -->
-      <view class="ui5-card__header-main">
-        <view wx:if="{{icon}}" class="ui5-card__header-icon">
-          <ui5-icon name="{{icon}}" size="20" color="var(--sap-primary-color)" />
-        </view>
-        <view class="ui5-card__header-text">
-          <view class="ui5-card__title">{{title}}</view>
-          <view wx:if="{{subtitle}}" class="ui5-card__subtitle">{{subtitle}}</view>
-        </view>
-      </view>
-      <!-- 右侧状态/数值 -->
-      <view wx:if="{{status}}" class="ui5-card__status">{{status}}</view>
-    </view>
-  </block>
+<ui5-busy-indicator active="{{loading}}" delay="{{loadingDelay}}" class="ui5-card-busy">
+  <view class="ui5-card ui5Class" role="region" aria-label="{{accessibleName}}">
+    <!-- 头部插槽 -->
+    <slot name="header" />
 
-  <!-- 卡片内容区，支持左右滑动 -->
-  <view class="ui5-card__content">
-    <view class="ui5-card__scroll">
-      <view class="ui5-card__scroll-inner">
-        <slot />
+    <!-- 内容区域 -->
+    <view class="ui5-card-content">
+      <view class="ui5-card-scroll">
+        <view class="ui5-card-inner">
+          <slot />
+        </view>
       </view>
     </view>
   </view>
-</view>
+</ui5-busy-indicator>

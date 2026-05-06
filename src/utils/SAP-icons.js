@@ -1,5 +1,3 @@
-/* eslint-disable quotes */
-/* eslint-disable quote-props */
 // https://github.com/UI5/webcomponents/blob/v2.21.1/packages/icons/src/v5/SAP-icons.json
 module.exports = {
   "collection": "SAP-icons-v5",

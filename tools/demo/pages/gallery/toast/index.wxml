@@ -1,0 +1,28 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Toast Gallery" show-back-button></ui5-shellbar>
+
+  <view class="fd-padding-md">
+    <!-- 基础 Toast -->
+    <ui5-card class="fd-margin-bottom-md">
+      <ui5-card-header slot="header" title-text="Basic Toast" subtitle-text="Default duration (3000ms)">
+        <ui5-icon name="home" slot="avatar" />
+      </ui5-card-header>
+      <view class="fd-padding-md">
+        <ui5-button bindtap="handleShowBasic">Show Basic Toast</ui5-button>
+      </view>
+    </ui5-card>
+
+    <!-- 长时间 Toast -->
+    <ui5-card class="fd-margin-bottom-md">
+      <ui5-card-header slot="header" title-text="Long Duration Toast" subtitle-text="duration='10000'">
+        <ui5-icon name="home" slot="avatar" />
+      </ui5-card-header>
+      <view class="fd-padding-md">
+        <ui5-button bindtap="handleShowLong">Show 10s Toast</ui5-button>
+      </view>
+    </ui5-card>
+  </view>
+
+  <ui5-toast id="wcToastBasic"></ui5-toast>
+  <ui5-toast id="wcToastLong" duration="10000"></ui5-toast>
+</ui5-page>

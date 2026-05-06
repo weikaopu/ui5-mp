@@ -1,0 +1,82 @@
+.ui5-li-root {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--sap-spacing-medium, 32rpx);
+    min-height: 88rpx;
+    background-color: var(--sap-content-color, #ffffff);
+    border-bottom: 1rpx solid var(--sap-field-border-color, #89919a);
+    transition: background-color 0.2s;
+}
+
+.ui5-li--selected {
+    background-color: var(--sap-selected-color, rgba(8, 84, 160, 0.05));
+}
+
+.ui5-li-root:active {
+    background-color: var(--sap-active-color, #f0f0f0);
+}
+
+.ui5-li-selection {
+    margin-right: var(--sap-spacing-small, 16rpx);
+    pointer-events: none;
+    /* 让点击穿透到 root */
+}
+
+.ui5-li-icon {
+    margin-right: var(--sap-spacing-small, 16rpx);
+    color: var(--sap-primary-color, #0854a0);
+    font-size: 32rpx;
+}
+
+.ui5-li-content {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 0;
+}
+
+.ui5-li-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.ui5-li-text {
+    font-size: var(--sap-font-size, 28rpx);
+    color: var(--sap-text-color, #32363a);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.ui5-li-description {
+    font-size: var(--sap-font-size-small, 24rpx);
+    color: var(--sap-text-secondary-color, #6a6d70);
+}
+
+.ui5-li-additional-text {
+    font-size: var(--sap-font-size-small, 24rpx);
+    color: var(--sap-text-secondary-color, #6a6d70);
+    margin-left: var(--sap-spacing-small, 16rpx);
+}
+
+.ui5-li-status-info {
+    margin-left: var(--sap-spacing-small, 16rpx);
+}
+
+.ui5-li-nav-icon,
+.ui5-li-detail-icon {
+    color: var(--sap-field-border-color, #89919a);
+    font-size: 28rpx;
+}
+
+.ui5-li-delete {
+    margin-left: var(--sap-spacing-small, 16rpx);
+    color: var(--sap-error-color, #bb0000);
+}
+
+.ui5-li--disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}

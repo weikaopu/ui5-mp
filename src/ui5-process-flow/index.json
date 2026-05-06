@@ -1,7 +1,9 @@
 {
   "component": true,
   "usingComponents": {
-    "ui5-icon": "../ui5-icon/index",
-    "ui5-badge": "../ui5-badge/index"
+    "ui5-process-flow-lane-header": "../ui5-process-flow-lane-header/index",
+    "ui5-process-flow-node": "../ui5-process-flow-node/index",
+    "ui5-text": "../ui5-text/index",
+    "ui5-popover": "../ui5-popover/index"
   }
 }

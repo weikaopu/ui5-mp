@@ -1,0 +1,13 @@
+<view
+  class="ui5-radio-button-root {{disabled ? 'ui5-radio-button-disabled' : ''}} {{readonly ? 'ui5-radio-button-readonly' : ''}} ui5-radio-button-state-{{valueState}} ui5Class"
+  bindtap="_handleTap" role="radio" aria-checked="{{_ariaChecked}}" aria-disabled="{{disabled}}"
+  aria-label="{{accessibleName || text}}">
+  <view class="ui5-radio-button-inner {{checked ? 'ui5-radio-button-checked' : ''}}">
+    <ui5-icon wx:if="{{checked}}" name="circle-task-2" size="{{24}}" ui5-class="ui5-radio-button-icon"></ui5-icon>
+  </view>
+  <ui5-label class="ui5-radio-button-label" wx:if="{{text}}" required="{{required}}" wrappingType="{{wrappingType}}"
+    ui5Class="ui5-radio-button-label-inner">{{text}}</ui5-label>
+  <view class="ui5-radio-button-label" wx:else>
+    <slot></slot>
+  </view>
+</view>

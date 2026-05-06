@@ -1,4 +1,7 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "ui5-li": "../ui5-li/index",
+    "ui5-busy-indicator": "../ui5-busy-indicator/index"
+  }
 }

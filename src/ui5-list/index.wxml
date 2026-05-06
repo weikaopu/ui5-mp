@@ -1,4 +1,5 @@
-<view class="ui5-list-container">
+<view class="ui5-list-container ui5Class" role="list" aria-label="{{accessibleName}}"
+  aria-multiselectable="{{mode === 'MultiSelect' ? 'true' : 'false'}}">
   <!-- 列表页眉（可选） -->
   <view wx:if="{{headerText}}" class="ui5-list__header">
     <text>{{headerText}}</text>

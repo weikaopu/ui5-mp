@@ -1,0 +1,60 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.ui5-timeline {
+  display: flex;
+  flex-direction: column;
+  padding: var(--sap-spacing-medium, 32rpx);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.ui5-timeline--Vertical {
+  flex-direction: column;
+}
+
+.ui5-timeline-busy {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.ui5-timeline--Horizontal {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.ui5-timeline-growing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--sap-spacing-small, 16rpx);
+  flex-shrink: 0;
+}
+
+.ui5-timeline--Horizontal .ui5-timeline-growing {
+  padding-left: var(--sap-spacing-medium);
+}
+
+.ui5-timeline-scroll-mask {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 64rpx;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.ui5-timeline-scroll-mask--start {
+  left: 0;
+  background: linear-gradient(to right, var(--sap-background-color, #ffffff), transparent);
+}
+
+.ui5-timeline-scroll-mask--end {
+  right: 0;
+  background: linear-gradient(to left, var(--sap-background-color, #ffffff), transparent);
+}

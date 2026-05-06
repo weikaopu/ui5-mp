@@ -1,0 +1,40 @@
+:host {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+.ui5-label-root {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  color: var(--sap-label-color, #6a6d70);
+  font-size: var(--sap-font-size, 28rpx);
+  font-family: var(--sap-font-family, "72", "72full", Arial, Helvetica, sans-serif);
+}
+
+.ui5-label-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.ui5-label-root.ui5-label-wrapping-Normal .ui5-label-text {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.ui5-label-required {
+  color: var(--sap-field-invalidColor, #b00);
+  margin-left: 4rpx;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.ui5-label-colon {
+  margin-left: 2rpx;
+  flex-shrink: 0;
+}

@@ -20,7 +20,7 @@
 
     <ui5-card title="Wrapping Control">
       <view class="fd-padding-md">
-        <ui5-title wrapping="false" level="H5">
+        <ui5-title wrappingType="None" level="H5">
           This is a long title that should not wrap and will be truncated with ellipsis.
         </ui5-title>
       </view>

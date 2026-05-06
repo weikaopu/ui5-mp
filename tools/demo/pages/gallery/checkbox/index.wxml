@@ -1,0 +1,96 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Checkbox Gallery" show-back-button></ui5-shellbar>
+
+  <view class="fd-padding-md">
+    <!-- 基础展示 -->
+    <ui5-card title="Basic Checkboxes">
+      <view class="fd-padding-md flex-column">
+        <ui5-checkbox text="Option A" checked="{{basicChecked}}" bind:change="handleCheckboxChange"></ui5-checkbox>
+        <ui5-checkbox text="Option B (with value)" value="B" bind:change="handleCheckboxChange"></ui5-checkbox>
+        <ui5-checkbox text="Indeterminate" indeterminate="{{indeterminate}}"
+          bind:change="handleCheckboxChange"></ui5-checkbox>
+        <view class="ui5-text-secondary fd-margin-top-sm">Event log: {{lastEvent}}</view>
+      </view>
+    </ui5-card>
+
+    <!-- 全选/反选示例 -->
+    <ui5-card title="Selection Management" subtitle="Using Group Methods" class="fd-margin-top-sm">
+      <view class="fd-padding-md">
+        <ui5-checkbox-group id="selectionGroup" label="Fruits Selection">
+          <ui5-checkbox text="Apple" value="Apple"></ui5-checkbox>
+          <ui5-checkbox text="Banana" value="Banana"></ui5-checkbox>
+          <ui5-checkbox text="Cherry" value="Cherry"></ui5-checkbox>
+        </ui5-checkbox-group>
+        <view class="fd-margin-top-sm">
+          <ui5-button design="Emphasized" bind:click="handleSelectAll" style="margin-right: 16rpx;">Select
+            All</ui5-button>
+          <ui5-button bind:click="handleDeselectAll">Deselect All</ui5-button>
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- 增加横向布局演示 -->
+    <ui5-card title="Horizontal Layout" class="fd-margin-top-sm">
+      <view class="fd-padding-md">
+        <ui5-checkbox-group layout="Row" label="Row Layout">
+          <ui5-checkbox text="Option 1"></ui5-checkbox>
+          <ui5-checkbox text="Option 2" ui5Class="fd-margin-begin-md"></ui5-checkbox>
+        </ui5-checkbox-group>
+      </view>
+    </ui5-card>
+
+    <!-- 组状态继承展示 -->
+    <ui5-card title="Group Level Status" subtitle="Inherited Value State" class="fd-margin-top-sm">
+      <view class="fd-padding-md">
+        <ui5-checkbox-group label="Global Error State" value-state="Error">
+          <ui5-checkbox text="Child A"></ui5-checkbox>
+          <ui5-checkbox text="Child B" checked></ui5-checkbox>
+        </ui5-checkbox-group>
+      </view>
+    </ui5-card>
+
+    <!-- 交互状态 -->
+    <ui5-card title="Interactions & States" class="fd-margin-top-sm">
+      <view class="fd-padding-md flex-column">
+        <ui5-checkbox text="Disabled" disabled checked></ui5-checkbox>
+        <ui5-checkbox text="Readonly" readonly checked></ui5-checkbox>
+        <ui5-checkbox text="Required" required></ui5-checkbox>
+      </view>
+    </ui5-card>
+
+    <!-- 值状态 (Value States) -->
+    <ui5-card title="Value States" class="fd-margin-top-sm">
+      <view class="fd-padding-md flex-column">
+        <ui5-checkbox text="Error State" value-state="Error"></ui5-checkbox>
+        <ui5-checkbox text="Warning State" value-state="Warning"></ui5-checkbox>
+        <ui5-checkbox text="Success State" value-state="Success"></ui5-checkbox>
+        <ui5-checkbox text="Information State" value-state="Information"></ui5-checkbox>
+      </view>
+    </ui5-card>
+
+    <!-- 文本换行逻辑 -->
+    <ui5-card title="Long Text Wrapping" class="fd-margin-top-sm">
+      <view class="fd-padding-md flex-column">
+        <view class="ui5-text-secondary fd-margin-bottom-sm">Truncated (Default):</view>
+        <view style="width: 300rpx;" class="fd-margin-bottom-md">
+          <ui5-checkbox text="This is a very long text that will be truncated by default"></ui5-checkbox>
+        </view>
+
+        <view class="ui5-text-secondary fd-margin-bottom-sm">Wrapping (Normal):</view>
+        <view style="width: 300rpx;">
+          <ui5-checkbox wrappingType="Normal"
+            text="This is a very long text that will wrap to multiple lines to show all content"></ui5-checkbox>
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- Slot 支持 -->
+    <ui5-card title="Custom Label (via Slot)" class="fd-margin-top-sm">
+      <view class="fd-padding-md">
+        <ui5-checkbox>
+          <text style="font-weight: bold; color: var(--sap-primary-color);">Custom Bold Label</text>
+        </ui5-checkbox>
+      </view>
+    </ui5-card>
+  </view>
+</ui5-page>

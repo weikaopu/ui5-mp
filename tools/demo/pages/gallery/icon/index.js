@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/extensions, import/no-unresolved
 const sapIcons = require('../../../components/utils/SAP-icons')
 const iconTags = require('./SAP-icons-tags')
 

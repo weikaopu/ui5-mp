@@ -1,3 +1,4 @@
+const fs = require('node:fs')
 const path = require('node:path')
 
 const webpack = require('webpack')
@@ -11,50 +12,25 @@ const src = path.resolve(__dirname, '../src')
 const dev = path.join(demoDist, 'components')
 const dist = path.resolve(__dirname, '../miniprogram_dist')
 
+// 自动扫描 src 目录下的所有 ui5-* 组件入口
+const getEntries = () => {
+  const entries = []
+  const items = fs.readdirSync(src)
+  items.forEach(item => {
+    const itemPath = path.join(src, item)
+    if (fs.statSync(itemPath).isDirectory() && item.startsWith('ui5-')) {
+      const hasJs = fs.existsSync(path.join(itemPath, 'index.js'))
+      const hasTs = fs.existsSync(path.join(itemPath, 'index.ts'))
+      if (hasJs || hasTs) {
+        entries.push(`${item}/index`)
+      }
+    }
+  })
+  return entries
+}
+
 module.exports = {
-  entry: [
-    'ui5-avatar/index',
-    'ui5-badge/index',
-    'ui5-bar/index',
-    'ui5-busy-indicator/index',
-    'ui5-button/index',
-    'ui5-card/index',
-    'ui5-checkbox/index',
-    'ui5-checkbox-group/index',
-    'ui5-dialog/index',
-    'ui5-form/index',
-    'ui5-form-group/index',
-    'ui5-icon/index',
-    'ui5-input/index',
-    'ui5-item/index',
-    'ui5-link/index',
-    'ui5-list/index',
-    'ui5-message-strip/index',
-    'ui5-page/index',
-    'ui5-popover/index',
-    'ui5-process-flow/index',
-    'ui5-range-slider/index',
-    'ui5-rating-indicator/index',
-    'ui5-segmented-button/index',
-    'ui5-segmented-button-item/index',
-    'ui5-select/index',
-    'ui5-shellbar/index',
-    'ui5-slider/index',
-    'ui5-step-input/index',
-    'ui5-switch/index',
-    'ui5-tab/index',
-    'ui5-tab-container/index',
-    'ui5-table/index',
-    'ui5-table-row/index',
-    'ui5-tag/index',
-    'ui5-text/index',
-    'ui5-textarea/index',
-    'ui5-title/index',
-    'ui5-toast/index',
-    'ui5-viz-column/index',
-    'ui5-viz-donut/index',
-    'ui5-viz-line/index',
-  ],
+  entry: getEntries(),
 
   isDev,
   isWatch,
@@ -74,13 +50,18 @@ module.exports = {
   },
 
   webpack: {
-    mode: 'production',
+    mode: isDev ? 'development' : 'production',
     output: {
       filename: '[name].js',
       libraryTarget: 'commonjs2',
+      path: isDev ? dev : dist,
     },
     target: 'node',
     externals: [nodeExternals()], // 忽略 node_modules
+    cache: {
+      type: 'filesystem',
+      buildDependencies: { config: [__filename] },
+    },
     module: {
       rules: [
         {
@@ -94,9 +75,6 @@ module.exports = {
               options: {
                 cacheDirectory: true,
               },
-            },
-            {
-              loader: 'eslint-loader',
             },
           ],
           exclude: /node_modules/,
@@ -121,25 +99,22 @@ module.exports = {
                 happyPackMode: true,
               },
             },
-            {
-              loader: 'eslint-loader',
-            },
           ],
         },
       ],
     },
     resolve: {
       modules: [src, 'node_modules'],
-      extensions: ['.js', '.json'],
+      extensions: ['.ts', '.js', '.json'],
     },
     plugins: [
       new webpack.DefinePlugin({}),
       new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
     ],
     optimization: {
-      minimize: false,
+      minimize: !isDev,
     },
-    devtool: 'source-map', // 生成 js sourcemap
+    devtool: isDev ? 'inline-source-map' : 'source-map',
     performance: {
       hints: 'warning',
       assetFilter: (assetFilename) => assetFilename.endsWith('.js'),

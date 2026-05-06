@@ -55,5 +55,6 @@
         <ui5-busy-indicator active="{{isFullScreenBusy}}" full-screen text="全屏加载中..."></ui5-busy-indicator>
       </view>
     </ui5-card>
+
   </view>
 </ui5-page>

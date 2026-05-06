@@ -1,0 +1,11 @@
+.spacer {
+  height: var(--sap-spacing-medium, 32rpx);
+}
+
+.demo-container {
+  padding: var(--sap-spacing-medium, 32rpx);
+}
+
+.fd-margin-top-sm {
+  margin-top: var(--sap-spacing-small, 16rpx);
+}

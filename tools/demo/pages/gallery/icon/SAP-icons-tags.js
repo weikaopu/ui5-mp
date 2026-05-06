@@ -1,5 +1,3 @@
-/* eslint-disable quotes */
-/* eslint-disable quote-props */
 module.exports = {
   "accelerated": {
     "tags": [

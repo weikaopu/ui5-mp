@@ -1,97 +1,54 @@
-.ui5-process-flow {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: nowrap;
+:host {
+  display: block;
+  width: 100%;
+  min-height: 400rpx;
+  /* 确保组件本身有最小高度 */
 }
 
-.ui5-process-flow--horizontal {
-  flex-direction: row;
+.ui5-process-flow-scroll {
+  width: 100%;
+  min-height: 300rpx;
+  /* 确保 scroll-view 有最小高度以显示内容 */
+  white-space: nowrap;
+  /* Ensures content stays in one line for horizontal scrolling */
 }
 
-.ui5-process-flow--vertical {
-  flex-direction: column;
+.ui5-process-flow-container {
+  position: relative;
+  display: inline-block;
+  /* Allows content to exceed scroll-view width */
+  min-width: 100%;
+  /* Ensures it takes at least 100% width, but can grow */
+  /* The actual width will be determined by its flex children */
 }
 
-.ui5-process-flow__item {
-  display: flex;
-  flex-direction: column;
-  min-width: 180px;
-  margin-right: 24px;
-  cursor: pointer;
+#connection-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  /* Canvas 应该在节点上方显示 */
+  pointer-events: none;
 }
 
-.ui5-process-flow--vertical .ui5-process-flow__item {
-  margin-right: 0;
-  margin-bottom: 20px;
+.ui5-process-flow-grid {
+  display: grid;
+  column-gap: 160rpx;
+  /* 增加垂直间距，确保双向 U 形路径有足够空间 */
+  row-gap: 120rpx;
+  /* 增加上下内边距，确保避让路径不被 Canvas 边界截断 */
+  padding: 120rpx 40rpx;
+  align-items: start;
+  align-items: start;
 }
 
-.ui5-process-flow__marker-row {
-  display: flex;
-  align-items: center;
-}
-
-.ui5-process-flow__marker {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 2px solid var(--sap-primary-color, #0854a0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--sap-primary-color, #0854a0);
-  font-size: 14px;
-  background: #fff;
-  flex-shrink: 0;
-}
-
-.ui5-process-flow__marker.completed {
-  border-color: transparent;
-  background: var(--sap-positive-color, #107e3e);
-  color: #fff;
-}
-
-.ui5-process-flow__marker.active {
-  box-shadow: 0 0 0 4px rgba(8, 84, 160, 0.12);
-}
-
-.ui5-process-flow__connector {
-  flex: 1;
-  height: 2px;
-  background: #d9dae0;
-  margin-left: 12px;
-}
-
-.ui5-process-flow__connector.completed {
-  background: var(--sap-positive-color, #107e3e);
-}
-
-.ui5-process-flow__content {
-  margin-top: 14px;
-}
-
-.ui5-process-flow__title {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--sap-text-color, #22313f);
-}
-
-.ui5-process-flow__subtitle {
-  margin-top: 6px;
-  font-size: 12px;
-  color: var(--sap-text-subtle-color, #6f7d8c);
-}
-
-.ui5-process-flow__description {
-  margin-top: 10px;
-  font-size: 12px;
-  line-height: 1.4;
-  color: var(--sap-text-color, #22313f);
-}
-
-.ui5-process-flow__badge-row {
-  margin-top: 10px;
-}
-
-.ui5-process-flow__item.active .ui5-process-flow__title {
-  color: var(--sap-primary-color, #0854a0);
+.ui5-process-flow-node-item {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  /* 显式开启事件响应 */
+  display: block;
+  /* 确保自定义组件作为块级元素以获得正确的尺寸和位置 */
 }

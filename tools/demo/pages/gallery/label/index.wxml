@@ -1,0 +1,42 @@
+<ui5-page>
+  <ui5-shellbar slot="header" title="Label Gallery" show-back-button></ui5-shellbar>
+
+  <view class="fd-padding-md">
+    <!-- 基础展示 -->
+    <ui5-card title="Basic Usage">
+      <view class="fd-padding-md">
+        <ui5-label>Standard Label</ui5-label>
+      </view>
+    </ui5-card>
+
+    <!-- 必填与冒号 -->
+    <ui5-card title="Properties" class="fd-margin-top-sm">
+      <view class="fd-padding-md flex-column">
+        <view class="fd-margin-bottom-sm">
+          <ui5-label required>Required Label</ui5-label>
+        </view>
+        <view class="fd-margin-bottom-sm">
+          <ui5-label show-colon>Label with Colon</ui5-label>
+        </view>
+        <view>
+          <ui5-label required show-colon>Required Label with Colon</ui5-label>
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- 溢出与换行 -->
+    <ui5-card title="Truncation vs Wrapping" class="fd-margin-top-sm">
+      <view class="fd-padding-md flex-column">
+        <view class="ui5-text-secondary fd-margin-bottom-sm">Truncated (Default):</view>
+        <view style="width: 300rpx;" class="fd-margin-bottom-md">
+          <ui5-label required>This is a long label that will truncate</ui5-label>
+        </view>
+
+        <view class="ui5-text-secondary fd-margin-bottom-sm">Wrapping:</view>
+        <view style="width: 300rpx;">
+          <ui5-label required wrappingType="Normal">This is a long label that will wrap to multiple lines</ui5-label>
+        </view>
+      </view>
+    </ui5-card>
+  </view>
+</ui5-page>

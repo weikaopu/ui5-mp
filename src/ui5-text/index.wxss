@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-.ui5-text--no-wrapping {
+.ui5-text--wrapping-None {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
