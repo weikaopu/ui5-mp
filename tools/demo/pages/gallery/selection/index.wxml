@@ -3,13 +3,82 @@
 
   <view class="fd-padding-md">
 
-    <!-- Select: 底部抽屉选择 -->
+    <!-- Select: 基础用法 -->
     <ui5-card title="Select">
       <view class="fd-padding-md">
-        <ui5-select label="Country/Region" options="{{countries}}" value="{{selectedCountry}}"
-          bind:change="onSelectChange" />
-        <ui5-select label="Shipping Method (Error)" options="{{shipping}}" valueState="Error"
-          valueStateText="This method is currently unavailable" style="margin-top: 16px;" />
+        <view class="fd-margin-bottom-sm">Basic Select:</view>
+        <ui5-select value="{{selectedCountry}}" bind:change="onSelectChange">
+          <ui5-option wx:for="{{countries}}" wx:key="value" value="{{item.value}}" text="{{item.text}}"
+            additionalText="{{item.value}}"></ui5-option>
+        </ui5-select>
+
+        <view class="fd-margin-top-md fd-margin-bottom-sm">With Icons:</view>
+        <ui5-select placeholder="Select with icons">
+          <ui5-option value="phone" text="Phone" icon="iphone"></ui5-option>
+          <ui5-option value="tablet" text="Tablet" icon="ipad"></ui5-option>
+          <ui5-option value="desktop" text="Desktop" icon="laptop"></ui5-option>
+        </ui5-select>
+      </view>
+    </ui5-card>
+
+
+    <!-- Select: 状态展示 -->
+    <ui5-card title="Select States" class="fd-margin-top-md">
+      <view class="fd-padding-md">
+        <view class="fd-margin-bottom-sm">Positive State:</view>
+        <ui5-select value-state="Positive" value="apple" class="fd-margin-bottom-md">
+          <ui5-option value="apple" icon="meal" text="Apple"></ui5-option>
+          <ui5-option value="avocado" icon="meal" text="Avocado"></ui5-option>
+          <ui5-option value="mango" icon="meal" text="Mango"></ui5-option>
+        </ui5-select>
+
+        <view class="fd-margin-bottom-sm">Information State:</view>
+        <ui5-select value-state="Information" value="apple" class="fd-margin-bottom-md">
+          <ui5-option value="apple" icon="meal" text="Apple"></ui5-option>
+          <ui5-option value="avocado" icon="meal" text="Avocado"></ui5-option>
+          <ui5-option value="mango" icon="meal" text="Mango"></ui5-option>
+        </ui5-select>
+
+        <view class="fd-margin-bottom-sm">Critical State:</view>
+        <ui5-select value-state="Critical" value="apple" class="fd-margin-bottom-md">
+          <ui5-option value="apple" icon="meal" text="Apple"></ui5-option>
+          <ui5-option value="avocado" icon="meal" text="Avocado"></ui5-option>
+          <ui5-option value="mango" icon="meal" text="Mango"></ui5-option>
+        </ui5-select>
+
+        <view class="fd-margin-bottom-sm">Negative State:</view>
+        <ui5-select value-state="Negative" value="apple" class="fd-margin-bottom-md">
+          <ui5-option value="apple" icon="meal" text="Apple"></ui5-option>
+          <ui5-option value="avocado" icon="meal" text="Avocado"></ui5-option>
+          <ui5-option value="mango" icon="meal" text="Mango"></ui5-option>
+        </ui5-select>
+
+        <view class="fd-margin-bottom-sm">Negative State with Message:</view>
+        <ui5-select value-state="Negative" placeholder="Custom value-state message" value="apple">
+          <ui5-option value="apple" icon="meal" text="Apple"></ui5-option>
+          <ui5-option value="avocado" icon="meal" text="Avocado"></ui5-option>
+          <ui5-option value="mango" icon="meal" text="Mango"></ui5-option>
+          <view slot="valueStateMessage">Please provide valid value</view>
+        </ui5-select>
+      </view>
+    </ui5-card>
+
+    <!-- Select: 交互限制 -->
+    <ui5-card title="Disabled & Readonly" class="fd-margin-top-md">
+      <view class="fd-padding-md">
+        <view class="fd-margin-bottom-sm">Readonly Select:</view>
+        <ui5-select readonly value="apple" class="fd-margin-bottom-md">
+          <ui5-option value="apple" icon="meal" text="Apple"></ui5-option>
+          <ui5-option value="avocado" icon="meal" text="Avocado"></ui5-option>
+          <ui5-option value="mango" icon="meal" text="Mango"></ui5-option>
+        </ui5-select>
+
+        <view class="fd-margin-bottom-sm">Disabled Select:</view>
+        <ui5-select disabled value="apple">
+          <ui5-option value="apple" icon="meal" text="Apple"></ui5-option>
+          <ui5-option value="avocado" icon="meal" text="Avocado"></ui5-option>
+          <ui5-option value="mango" icon="meal" text="Mango"></ui5-option>
+        </ui5-select>
       </view>
     </ui5-card>
 

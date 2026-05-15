@@ -1,11 +1,11 @@
 <view
-  class="ui5-li-root ui5-li--type-{{type}} {{selected ? 'ui5-li--selected' : ''}} {{disabled ? 'ui5-li--disabled' : ''}} ui5Class"
+  class="ui5-li-root ui5-li--type-{{type}} {{selected ? 'ui5-li--selected' : ''}} {{disabled ? 'ui5-li--disabled' : ''}} {{noBorder ? '' : 'ui5-li--border'}} ui5Class"
   bindtap="_handleTap" role="listitem">
   <!-- 选择器区域 (Mode: MultiSelect / SingleSelect) -->
-  <view class="ui5-li-selection" wx:if="{{_mode === 'MultiSelect'}}">
+  <view class="ui5-li-selection" wx:if="{{mode === 'MultiSelect'}}">
     <ui5-checkbox checked="{{selected}}" disabled="{{disabled}}"></ui5-checkbox>
   </view>
-  <view class="ui5-li-selection" wx:elif="{{_mode === 'SingleSelect'}}">
+  <view class="ui5-li-selection" wx:elif="{{mode === 'SingleSelect'}}">
     <ui5-radio-button checked="{{selected}}" disabled="{{disabled}}"></ui5-radio-button>
   </view>
 
@@ -32,7 +32,7 @@
   </view>
 
   <!-- 删除按钮 (Mode: Delete) -->
-  <view class="ui5-li-delete" wx:if="{{_mode === 'Delete'}}">
+  <view class="ui5-li-delete" wx:if="{{mode === 'Delete'}}">
     <ui5-icon name="decline" class="ui5-li-delete-icon"></ui5-icon>
   </view>
 </view>

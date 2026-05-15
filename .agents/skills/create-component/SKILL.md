@@ -50,7 +50,7 @@ user-invocable: false
 
      ```js
      // https://ui5.github.io/webcomponents/components/Toast/
-     const baseBehavior = require("../../behaviors/base-behavior");
+     const baseBehavior = require("../behaviors/base-behavior");
 
      Component({
        externalClasses: ["ui5Class"],

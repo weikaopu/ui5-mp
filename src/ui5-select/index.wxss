@@ -1,48 +1,155 @@
 :host {
-  display: block;
-  margin-bottom: var(--sap-spacing-medium);
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
 }
 
-.ui5-select__field-wrapper {
+.ui5-select-root {
   display: flex;
   align-items: center;
-  height: 36px;
-  background-color: var(--sap-field-background-color);
-  border: 1px solid var(--sap-field-border-color);
-  border-radius: var(--sap-border-radius);
-  padding: 0 12px;
+  height: 72rpx;
+  background: var(--sapField_BackgroundStyle);
+  border: 2rpx solid var(--sapField_BorderColor, #d9d9d9);
+  border-bottom: 4rpx solid var(--sapField_BottomBorderColor, #6a6d70);
+  /* 确保默认边框可见，并提供 fallback */
+  border-radius: var(--sapElement_BorderCornerRadius, 8rpx);
+  padding: 0 16rpx;
+  box-sizing: border-box;
+  cursor: pointer;
   position: relative;
 }
 
-.ui5-select__inner {
+.ui5-select-value-container {
   flex: 1;
-  font-size: 14px;
-  color: var(--sap-text-color);
-  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.ui5-select-value-icon {
+  margin-right: 16rpx;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.ui5-select-value-text {
+  flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--sapFontFamily);
+  font-size: var(--sapFontSize);
+  color: var(--sapField_TextColor);
 }
 
-.ui5-select__inner.is-placeholder {
-  color: var(--sap-text-secondary-color);
+.ui5-select-placeholder {
+  color: var(--sapField_PlaceholderTextColor);
 }
 
-/* 纯 CSS 绘制下拉箭头 (Fiori 细线风格) */
-.ui5-select__arrow {
-  width: 8px;
-  height: 8px;
-  border-right: 1.5px solid var(--sap-primary-color);
-  border-bottom: 1.5px solid var(--sap-primary-color);
-  transform: rotate(45deg);
-  margin-top: -4px;
-  margin-left: 8px;
+.ui5-select-icon-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
-.ui5-select--Error .ui5-select__field-wrapper {
-  border-color: var(--sap-error-color);
-  border-width: 2px;
+.ui5-select-icon {
+  display: flex;
+  align-items: center;
+  color: var(--sapContent_IconColor);
+  font-size: 32rpx;
+  margin-left: 16rpx;
 }
 
-.is-disabled {
-  opacity: 0.4;
+.ui5-select-popover {
+  display: block;
+  box-sizing: border-box;
+}
+
+.ui5-select-root:active:not(.ui5-select-disabled):not(.ui5-select-readonly) {
+  border-color: var(--sapField_Hover_BorderColor, #0854a0);
+  border-bottom-width: 4rpx;
+  background: var(--sapField_Hover_Background, #ebf5fe);
+}
+
+/* Value State Styles - Thin light sides, thick deep bottom */
+.ui5-select-state-Negative {
+  border-color: #ffcccc;
+  border-bottom-color: var(--sapField_InvalidColor, #bb0000);
+  background: var(--sapField_InvalidBackground, #fff2f2);
+  border-bottom-width: 4rpx;
+}
+
+.ui5-select-state-Critical {
+  border-color: #ffe0b2;
+  border-bottom-color: var(--sapField_WarningColor, #e9730c);
+  background: var(--sapField_WarningBackground, #fff9f5);
+  border-bottom-width: 4rpx;
+}
+
+.ui5-select-state-Positive {
+  border-color: #c8e6c9;
+  border-bottom-color: var(--sapField_SuccessColor, #107e3e);
+  background: var(--sapField_SuccessBackground, #f5faef);
+  border-bottom-width: 4rpx;
+}
+
+.ui5-select-state-Information {
+  border-color: #bbdefb;
+  border-bottom-color: var(--sapField_InformationColor, #0a6ed1);
+  background: var(--sapField_InformationBackground, #f4faff);
+  border-bottom-width: 4rpx;
+}
+
+/* Value State Message Styling */
+.ui5-select-value-state-message {
+  font-size: var(--sapFontSize, 28rpx);
+  border-bottom: 2rpx solid #d9d9d9;
+  /* 确保即使 slot 内容为空，也能被 createSelectorQuery 检测到 */
+  min-height: 0;
+  padding: 16rpx 24rpx;
+  /* 移动 padding 到这里，确保有内容时才生效 */
+  font-weight: bold;
+  min-height: 32rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ui5-select-message-Negative {
+  color: #bb0000;
+  background: #fff2f2;
+}
+
+.ui5-select-message-Critical {
+  color: #e9730c;
+  background: #fff9f5;
+}
+
+.ui5-select-message-Positive {
+  color: #107e3e;
+  background: #f5faef;
+}
+
+.ui5-select-message-Information {
+  color: #0a6ed1;
+  background: #f4faff;
+}
+
+/* Readonly and Disabled States */
+.ui5-select-disabled {
+  opacity: var(--sapContent_DisabledOpacity, 0.4);
+  background: var(--sapField_ReadOnly_Background, #ebebeb);
+  border-color: var(--sapField_ReadOnly_BorderColor, #cccccc);
+  pointer-events: none;
+  cursor: default;
+}
+
+.ui5-select-readonly {
+  border-color: transparent;
+  border-bottom-color: var(--sapField_BottomBorderColor, #6a6d70);
+  border-bottom-style: dashed;
+  border-bottom-width: 2rpx;
+  background: var(--sapField_ReadOnly_Background, #f2f2f2);
+  cursor: default;
 }

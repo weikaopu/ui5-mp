@@ -1,0 +1,7 @@
+<!--
+  ui5-option 在小程序中主要作为数据声明，不直接在页面文档流中渲染 UI。
+  它的内容由父组件 ui5-select 提取后在 Popover 中渲染。
+-->
+<view style="display: none;">
+    <slot></slot>
+</view>

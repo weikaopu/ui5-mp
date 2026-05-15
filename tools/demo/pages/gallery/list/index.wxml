@@ -14,7 +14,8 @@
 
     <!-- 单选列表 -->
     <ui5-card title="Selection Mode" subtitle="SingleSelect" class="fd-margin-top-sm">
-      <ui5-list mode="SingleSelect" selectedKey="{{selectedKey}}" bind:selection-change="handleSelectionChange">
+      <ui5-list mode="SingleSelect" separators="None" selectedKey="{{selectedKey}}"
+        bind:selection-change="handleSelectionChange">
         <ui5-li wx:for="{{items}}" wx:key="id" value="{{item.id}}" text="{{item.text}}"
           description="{{item.description}}"></ui5-li>
       </ui5-list>

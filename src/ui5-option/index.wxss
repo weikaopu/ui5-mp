@@ -1,0 +1,4 @@
+/* ui5-option 样式通常由父组件渲染出来的列表项决定 */
+:host {
+  display: none;
+}

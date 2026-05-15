@@ -45,11 +45,32 @@ Component({
       value: false
     },
     /**
+     * 定义列表项是否禁用。
+     */
+    disabled: {
+      type: Boolean,
+      value: false
+    },
+    /**
+     * 定义列表项关联的属性值。
+     */
+    value: {
+      type: String,
+      value: ""
+    },
+    /**
      * 内部属性：由父级 ui5-list 维护的模式 (None, SingleSelect, MultiSelect, Delete)
      */
-    _mode: {
+    mode: {
       type: String,
       value: 'None'
+    },
+    /**
+     * 内部属性：由父级 ui5-list 维护，用于控制边框显示。
+     */
+    noBorder: {
+      type: Boolean,
+      value: false
     }
   },
   data: {
@@ -66,7 +87,8 @@ Component({
 
       this.triggerEvent('item-click', {
         item: this,
-        text: this.data.text
+        text: this.data.text,
+        value: this.data.value
       })
     },
     _handleDetailClick() {

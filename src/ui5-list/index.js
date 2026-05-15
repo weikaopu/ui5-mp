@@ -10,11 +10,11 @@ Component({
   relations: {
     '../ui5-li/index': {
       type: 'child',
-      linked(child) {
-        this._updateChild(child)
+      linked() {
+        this._updateChildren()
       },
-      moved(child) {
-        this._updateChild(child)
+      moved() {
+        this._updateChildren()
       }
     }
   },
@@ -47,19 +47,38 @@ Component({
     /**
      * 列表的可访问名称。
      */
-    accessibleName: String
+    accessibleName: String,
+    /**
+     * 定义列表项的分割线模式。
+     * 可选值: "All", "Inner", "None"。
+     */
+    separators: {
+      type: String,
+      value: "All"
+    }
   },
   observers: {
-    'mode, selectedKey, selectedKeys': function () {
+    'mode, selectedKey, selectedKeys, separators': function () {
       this._updateChildren()
     }
   },
   methods: {
     _updateChildren() {
       const children = this.getRelationNodes('../ui5-li/index')
-      children.forEach(child => this._updateChild(child))
+      const { separators } = this.data
+
+      children.forEach((child, index) => {
+        let shouldHaveBorder = true // 默认应该有边框
+        if (separators === 'None') {
+          shouldHaveBorder = false
+        } else if (separators === 'Inner' && index === children.length - 1) {
+          shouldHaveBorder = false
+        }
+        this._updateChild(child, !shouldHaveBorder) // 将“是否应该有边框”取反，传递给 ui5-li 的 noBorder 属性
+      })
     },
-    _updateChild(child) {
+
+    _updateChild(child, noBorder) { // noBorder 现在是明确传递的值
       const { mode, selectedKey, selectedKeys, disabled } = this.data
       let isSelected = false
 
@@ -70,16 +89,24 @@ Component({
       }
 
       child.setData({
-        _mode: mode,
+        mode: mode,
+        noBorder: noBorder,
         selected: isSelected,
         disabled: disabled || child.data.disabled // 列表禁用会禁用所有子项
       })
     },
+
     _handleItemClick(itemComponent) {
       const { mode, selectedKey, selectedKeys } = this.data
       const itemValue = itemComponent.data.value
       let newSelectedKey = selectedKey
       let newSelectedKeys = [...selectedKeys]
+
+      // 必须触发 item-click，否则像 ui5-select 这样的父组件无法感知点击
+      this.triggerEvent('item-click', {
+        item: itemComponent,
+        value: itemValue
+      })
 
       if (mode === 'SingleSelect') {
         newSelectedKey = (itemValue === selectedKey) ? '' : itemValue // 切换选中状态

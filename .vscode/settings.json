@@ -2,6 +2,9 @@
   "css.validate": false,
   "html.validate.styles": false,
   "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "cSpell.words": [
     "aignore",
     "bindlongpress",
