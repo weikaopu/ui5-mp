@@ -41,6 +41,14 @@
   flex-direction: column;
   overflow: visible;
   border: 1rpx solid var(--sapGroup_TitleBorderColor, #d9d9d9);
+  /* ready 之前保持透明 */
+  opacity: 0;
+  transition: opacity 0.1s ease-in;
+}
+
+/* ready 之前保持透明 */
+.ui5-popover--ready {
+  opacity: 1;
 }
 
 .ui5-popover-header,

@@ -59,7 +59,8 @@ Component({
     popoverLeft: 0,
     arrowTop: 0,
     arrowLeft: 0,
-    actualPlacement: 'Bottom'
+    actualPlacement: 'Bottom',
+    isReady: false // 防闪现：标记位置是否计算就绪
   },
   observers: {
     open(open) {
@@ -90,7 +91,8 @@ Component({
 
         this.setData({
           visible: true,
-          open: true // 同步状态，防止外部覆盖
+          open: true, // 同步状态，防止外部覆盖
+          isReady: false // 开始计算前设为不可见，防止 (0,0) 闪烁
         }, () => {
           // 在显示后立即计算内容尺寸以修正位置
           this.createSelectorQuery().select('.ui5-popover-root').boundingClientRect((popover) => {
@@ -182,7 +184,8 @@ Component({
               popoverLeft: finalLeft,
               actualPlacement: placement,
               arrowLeft: arrowL,
-              arrowTop: arrowT
+              arrowTop: arrowT,
+              isReady: true // 计算完成，显示内容
             })
           }).exec()
         })

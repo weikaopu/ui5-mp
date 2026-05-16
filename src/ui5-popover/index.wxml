@@ -3,7 +3,8 @@
   <view class="ui5-popover-backdrop {{modal ? 'ui5-popover-backdrop--modal' : ''}}" bindtap="_onBackdropTap"></view>
 
   <!-- 弹出内容 -->
-  <view class="ui5-popover-root" style="top: {{popoverTop}}px; left: {{popoverLeft}}px;">
+  <view class="ui5-popover-root {{isReady ? 'ui5-popover--ready' : ''}}"
+    style="top: {{popoverTop}}px; left: {{popoverLeft}}px;">
     <view class="ui5-popover-header">
       <slot name="header" wx:if="{{!headerText}}"></slot>
       <ui5-bar wx:else design="Header">

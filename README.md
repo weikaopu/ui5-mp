@@ -39,7 +39,7 @@
 | **数据输入**   | `ui5-button`                  |  🟢  | 包含 6+ 种语义化变体               |
 |                | `ui5-input` / `textarea`      |  🟡  | 支持 ValueState 与建议列表         |
 |                | `ui5-step-input`              |  🟢  | 步进器，支持长按连发               |
-|                | `ui5-select`                  |  🟡  | 适配移动端原生拾取器               |
+|                | `ui5-select`                  |  🟢  | 适配移动端原生拾取器               |
 |                | `ui5-switch`                  |  🟢  | 符合 Horizon 图形标准              |
 |                | `ui5-checkbox` / `group`      |  🟢  | 语义化多选                         |
 |                | `ui5-radio-button` / `group`  |  🟢  | 语义化单选                         |
@@ -54,6 +54,8 @@
 |                | `ui5-tag` / `text` / `link`   |  🟢  | 基础展示组件                       |
 | **反馈与图表** | `ui5-toast`                   |  🟢  | 非侵入式提示                       |
 |                | `ui5-message-strip`           |  🟢  | 内嵌警告通知                       |
+|                | `ui5-popover`                 |  🟢  | 弹层                               |
+|                | `ui5-dialog`                  |  🟡  | 对话框                             |
 |                | `ui5-busy-indicator`          |  🟢  | 三种尺寸的“花瓣”加载动画           |
 |                | `ui5-viz-column` / `line`     |  🟡  | 简单的可视化图表组件               |
 | **高级组件**   | `ui5-process-flow`            |  🟡  | 拓扑布局与连线算法开发中           |
