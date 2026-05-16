@@ -20,7 +20,7 @@ user-invocable: false
 
 ## 实现规则
 
-- 你总是应该根据 .aignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
+- 你总是应该根据 .gitignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
 - 你需要读取 create-component 技能(`.agents/skills/create-component/SKILL.md`)的所有规则，但不必新建文件，因为文件都已经存在了。
 - 检查组件是否已引入 ../../behaviors/ 目录下的 Behavior，如果没有，请重构以支持通用属性。
 - 检查和对比该组件的实现和 UI5 设计规范，检查 observers 是否完整覆盖了 properties。如果 UI5 原生组件有而小程序组件没有的属性（Property），且该属性影响视觉渲染，则必须标记为待实现。我来确认是否需要实现，以及实现哪一些。

@@ -1,0 +1,2 @@
+<!-- SuggestionItem is a metadata-only component and does not render UI directly -->
+<slot></slot>

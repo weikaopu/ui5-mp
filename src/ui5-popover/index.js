@@ -6,7 +6,8 @@ Component({
   options: {
     addGlobalClass: true,
     pureDataPattern: /^_/,
-    multipleSlots: true
+    multipleSlots: true,
+    virtualHost: true
   },
   behaviors: [baseBehavior],
   properties: {
@@ -72,13 +73,29 @@ Component({
       }
     }
   },
+  lifetimes: {
+    attached() {
+      this._keyboardHeight = 0
+      // 监听键盘高度变化
+      this._keyboardFn = (res) => {
+        this._keyboardHeight = res.height
+      }
+      // 引入对键盘高度的监听。我们将获取到的 keyboardHeight 作为一个“动态避让区域”。
+      // 在计算 windowHeight 时，减去当前的键盘高度，得到的才是真正的“可视可用高度”。
+      wx.onKeyboardHeightChange(this._keyboardFn)
+    },
+    detached() {
+      // 清理监听
+      wx.offKeyboardHeightChange(this._keyboardFn)
+    }
+  },
   methods: {
     /**
      * 打开弹出框
      * @param {string} openerId 目标元素的 ID (不带 #)
      * @param {object} scope 可选，调用者的组件实例
      */
-    show(openerId, scope) {
+    show(openerId, scope, keyboardHeightFromInput = 0) { // Add keyboardHeightFromInput parameter
       const id = openerId || this.data.opener
       if (!id) {
         console.error('ui5-popover: openerId is required to calculate position.')
@@ -92,7 +109,7 @@ Component({
         this.setData({
           visible: true,
           open: true, // 同步状态，防止外部覆盖
-          isReady: false // 开始计算前设为不可见，防止 (0,0) 闪烁
+          isReady: this.data.visible // 如果已经可见，保持可见，防止重新定位时闪烁
         }, () => {
           // 在显示后立即计算内容尺寸以修正位置
           this.createSelectorQuery().select('.ui5-popover-root').boundingClientRect((popover) => {
@@ -101,9 +118,18 @@ Component({
             const margin = 8 // 与目标的间距
             const sys = wx.getSystemInfoSync()
             const windowWidth = sys.windowWidth
-            const windowHeight = sys.windowHeight
+            // 优先使用 input 传递的键盘高度，否则回退到内部监听器
+            const keyboardHeight = keyboardHeightFromInput > 0 ? keyboardHeightFromInput : (this._keyboardHeight || 0)
+
+            const windowHeight = sys.windowHeight - keyboardHeight
 
             let placement = this.data.placementType
+            const isKeyboardVisible = keyboardHeight > 0
+
+            // 优先级逻辑：如果键盘开启且原本设定在下方（如 Input Suggestions），强制翻转到上方
+            if (isKeyboardVisible && placement === 'Bottom') {
+              placement = 'Top'
+            }
 
             // 定义坐标计算函数
             const calculatePos = (p) => {
@@ -134,26 +160,30 @@ Component({
 
             let pos = calculatePos(placement)
 
-            // 自动检测空间不足并翻转逻辑
-            if (placement === 'Bottom' && pos.t + popover.height > windowHeight) {
-              if (anchor.top > (windowHeight - anchor.bottom)) {
-                placement = 'Top'
-                pos = calculatePos(placement)
-              }
-            } else if (placement === 'Top' && pos.t < 0) {
-              if ((windowHeight - anchor.bottom) > anchor.top) {
-                placement = 'Bottom'
-                pos = calculatePos(placement)
-              }
-            } else if (placement === 'Right' && pos.l + popover.width > windowWidth) {
-              if (anchor.left > (windowWidth - anchor.right)) {
-                placement = 'Left'
-                pos = calculatePos(placement)
-              }
-            } else if (placement === 'Left' && pos.l < 0) {
-              if ((windowWidth - anchor.right) > anchor.left) {
-                placement = 'Right'
-                pos = calculatePos(placement)
+            // 自动翻转逻辑：
+            // 1. 如果键盘可见，则不进行自动翻转，强制使用当前 placement (已在上方强制为 Top)
+            // 2. 如果键盘不可见，则进行常规的空间判断翻转
+            if (!isKeyboardVisible) { // 只有在键盘不可见时才进行空间判断翻转
+              if (placement === 'Bottom' && (pos.t + popover.height > windowHeight)) { // 下方空间不足
+                if (anchor.top > (windowHeight - anchor.bottom)) { // 上方空间更充足
+                  placement = 'Top'
+                  pos = calculatePos(placement)
+                }
+              } else if (placement === 'Top' && pos.t < 0) { // 上方超出屏幕
+                if ((windowHeight - anchor.bottom) > anchor.top) { // 下方空间更充足
+                  placement = 'Bottom'
+                  pos = calculatePos(placement)
+                }
+              } else if (placement === 'Right' && pos.l + popover.width > windowWidth) { // 右侧超出屏幕
+                if (anchor.left > (windowWidth - anchor.right)) { // 左侧空间更充足
+                  placement = 'Left'
+                  pos = calculatePos(placement)
+                }
+              } else if (placement === 'Left' && pos.l < 0) { // 左侧超出屏幕
+                if ((windowWidth - anchor.right) > anchor.left) { // 右侧空间更充足
+                  placement = 'Right'
+                  pos = calculatePos(placement)
+                }
               }
             }
 

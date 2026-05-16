@@ -20,7 +20,7 @@ user-invocable: false
 
 ## 实现规则
 
-- 你总是应该根据 .aignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
+- 你总是应该根据 .gitignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
 - 你需要去 src 目录下找到对应的 UI 组件，一般这个组件会有不同的 `property` 和一下 `method`，针对这些 features 做出一些 mock 数据。
 - 在 tools/demo/pages/gallery 目录下新建一个演示目录，目录名称和组件名称一致即可，比如：`ui5-toast` UI 组件的 demo 目录叫作 `toast`。
 - 在这个新建演示目录下新建 `index.{js,json,wxml,wxss}` 文件。比如：tools/demo/pages/gallery/toast/index.{js,json,wxml,wxss}。

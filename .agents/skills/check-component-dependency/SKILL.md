@@ -20,7 +20,7 @@ user-invocable: false
 
 ## 实现规则
 
-- 你总是应该根据 .aignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
+- 你总是应该根据 .gitignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
 - 你需要去 https://ui5.github.io/webcomponents/components/ 这里找到该组件的规范，从中判断出它是否有依赖组件。比如：`ui5-button` 依赖于 `ui5-icon`、`ui5-badge`。
 - **你需要在检查依赖时同时对比官方文档的 API 列表（包括 Properties, Slots, Events），确保完整识别由于功能实现需求而产生的潜在组件依赖。**
 - 你需要检测依赖组件在微信小程序的技术和规范范围内是否具有可行性。

@@ -1,26 +1,107 @@
 <ui5-page>
-  <ui5-shellbar slot="header" title="Input Component" />
+  <ui5-shellbar slot="header" title="Input Gallery" show-back-button />
 
   <view class="fd-padding-md">
-    <ui5-card title="Standard Inputs">
+    <!-- 1. 基础用法与类型 -->
+    <ui5-card class="fd-margin-bottom-md">
+      <ui5-card-header slot="header" title-text="Basic Inputs & Types" subtitle-text="Text, Password, Number, etc.">
+      </ui5-card-header>
       <view class="fd-padding-md">
-        <ui5-input label="Full Name" placeholder="Enter name" required />
-        <ui5-input label="Read-only Field" value="SAP Fiori" readonly />
-        <ui5-input label="Password" type="password" showClearIcon />
+        <view class="fd-margin-bottom-sm">
+          <ui5-label for="baseInput" show-colon>Standard Input</ui5-label>
+          <ui5-input id="baseInput" placeholder="Enter your name" showClearIcon bindinput="onInput" />
+        </view>
+
+        <view class="fd-margin-bottom-sm">
+          <ui5-label show-colon>Password Input</ui5-label>
+          <ui5-input type="Password" placeholder="Enter password" />
+        </view>
+
+        <view class="fd-margin-bottom-sm">
+          <ui5-label show-colon>Number Input</ui5-label>
+          <ui5-input type="Number" placeholder="Numeric values only" />
+        </view>
+
+        <view>
+          <ui5-label show-colon>Read-only & Disabled</ui5-label>
+          <ui5-input value="Read-only content" readonly />
+          <view class="fd-margin-top-xs">
+            <ui5-input value="Disabled content" disabled />
+          </view>
+        </view>
+
+        <view class="fd-margin-top-sm">
+          <ui5-label show-colon>Input with Max Length (10)</ui5-label>
+          <ui5-input placeholder="Max 10 characters" maxlength="{{10}}" confirm-type="search" />
+        </view>
       </view>
     </ui5-card>
 
-    <ui5-card title="Value States">
+    <!-- 2. 状态展示 -->
+    <ui5-card class="fd-margin-bottom-md">
+      <ui5-card-header slot="header" title-text="Value States" subtitle-text="Feedback for users">
+      </ui5-card-header>
       <view class="fd-padding-md">
-        <ui5-input label="Error State" valueState="Error" valueStateText="Invalid email address" />
-        <ui5-input label="Warning State" valueState="Warning" valueStateText="Password is weak" />
-        <ui5-input label="Success State" valueState="Success" />
+        <view class="fd-margin-bottom-sm">
+          <ui5-input showSuggestions valueState="Negative" valueStateMessage="Invalid entry. Please check your data."
+            placeholder="Error state">
+            <ui5-suggestion-item text="Apple" additionalText="Fruit" icon="nutrition-activity" />
+            <ui5-suggestion-item text="Apricot" additionalText="Fruit" icon="nutrition-activity" />
+            <ui5-suggestion-item text="Avocado" additionalText="Vegetable" icon="nutrition-activity" />
+          </ui5-input>
+        </view>
+        <view class="fd-margin-bottom-sm">
+          <ui5-input valueState="Critical" valueStateMessage="This might be a problem." placeholder="Warning state" />
+        </view>
+        <view class="fd-margin-bottom-sm">
+          <ui5-input valueState="Positive" placeholder="Success state" />
+        </view>
+        <view>
+          <ui5-input valueState="Information" valueStateMessage="Useful information here."
+            placeholder="Information state" />
+        </view>
       </view>
     </ui5-card>
 
-    <ui5-card title="Horizontal Layout">
+    <!-- 3. 建议列表 -->
+    <ui5-card class="fd-margin-bottom-md">
+      <ui5-card-header slot="header" title-text="Suggestions" subtitle-text="Type 'A' to see suggestions">
+      </ui5-card-header>
       <view class="fd-padding-md">
-        <ui5-input label="Label Left" labelLayout="Horizontal" placeholder="Aligned to left" />
+        <view class="fd-margin-bottom-sm">
+          <ui5-label show-colon>Basic Suggestions</ui5-label>
+          <ui5-input showSuggestions placeholder="Try typing..." bind:suggestion-item-select="onSuggestionSelect">
+            <ui5-suggestion-item text="Apple" additionalText="Fruit" icon="nutrition-activity" />
+            <ui5-suggestion-item text="Apricot" additionalText="Fruit" icon="nutrition-activity" />
+            <ui5-suggestion-item text="Avocado" additionalText="Vegetable" icon="nutrition-activity" />
+          </ui5-input>
+        </view>
+
+        <view>
+          <ui5-label show-colon>Grouped Suggestions</ui5-label>
+          <ui5-input showSuggestions placeholder="Grouped results" bind:suggestion-item-select="onSuggestionSelect">
+            <ui5-suggestion-item-group headerText="Fruits">
+              <ui5-suggestion-item text="Apple" />
+              <ui5-suggestion-item text="Banana" />
+            </ui5-suggestion-item-group>
+            <ui5-suggestion-item-group headerText="Vegetables">
+              <ui5-suggestion-item text="Carrot" />
+              <ui5-suggestion-item text="Broccoli" />
+            </ui5-suggestion-item-group>
+          </ui5-input>
+        </view>
+      </view>
+    </ui5-card>
+
+    <!-- 4. 图标插槽 -->
+    <ui5-card class="fd-margin-bottom-md">
+      <ui5-card-header slot="header" title-text="Input with Icons" subtitle-text="Using icon slot">
+      </ui5-card-header>
+      <view class="fd-padding-md">
+        <ui5-input placeholder="Search something..." icon="search" />
+        <view class="fd-margin-top-sm">
+          <ui5-input placeholder="Enter date" icon="appointment-2" />
+        </view>
       </view>
     </ui5-card>
   </view>

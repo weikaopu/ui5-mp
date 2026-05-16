@@ -1,8 +1,13 @@
 {
   "usingComponents": {
-    "ui5-card": "../../../components/ui5-card",
-    "ui5-input": "../../../components/ui5-input",
     "ui5-page": "../../../components/ui5-page",
-    "ui5-shellbar": "../../../components/ui5-shellbar"
+    "ui5-shellbar": "../../../components/ui5-shellbar",
+    "ui5-icon": "../../../components/ui5-icon",
+    "ui5-card": "../../../components/ui5-card",
+    "ui5-card-header": "../../../components/ui5-card-header",
+    "ui5-input": "../../../components/ui5-input",
+    "ui5-suggestion-item": "../../../components/ui5-suggestion-item",
+    "ui5-suggestion-item-group": "../../../components/ui5-suggestion-item-group",
+    "ui5-label": "../../../components/ui5-label"
   }
 }

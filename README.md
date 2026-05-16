@@ -40,6 +40,7 @@
 |                | `ui5-input` / `textarea`      |  🟡  | 支持 ValueState 与建议列表         |
 |                | `ui5-step-input`              |  🟢  | 步进器，支持长按连发               |
 |                | `ui5-select`                  |  🟢  | 适配移动端原生拾取器               |
+|                | `ui5-textarea`                |  🟡  | 多行文本框支持 ValueState          |
 |                | `ui5-switch`                  |  🟢  | 符合 Horizon 图形标准              |
 |                | `ui5-checkbox` / `group`      |  🟢  | 语义化多选                         |
 |                | `ui5-radio-button` / `group`  |  🟢  | 语义化单选                         |

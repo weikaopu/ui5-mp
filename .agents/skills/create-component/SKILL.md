@@ -20,7 +20,7 @@ user-invocable: false
 
 ## 实现规则
 
-- 你总是应该根据 .aignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
+- 你总是应该根据 .gitignore 文件来忽略不相干的东西，不必扫描根目录下的所有东西。
 - 这个新 UI 组件的代码必须同时遵循 SAP UI5 的设计规范和微信小程序 UI 规范。**不兼容和冲突的地方优先尊循小程序 UI 规范**。
 - 你需要读取 check-component-dependency 技能(.agents/skills/check-component-dependency/SKILL.md)的所有规则，得到它的报告结果。
   - 如果结果中存在“未实现”依赖组件，请立即终止技能，停止后续动作，告诉我哪些依赖组件未实现。

@@ -1,0 +1,4 @@
+/* SuggestionItem is a metadata-only component */
+:host {
+  display: none;
+}

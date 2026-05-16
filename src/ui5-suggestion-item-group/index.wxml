@@ -1,0 +1,2 @@
+<!-- 逻辑组件，用于对 suggestion-item 进行分组 -->
+<slot></slot>

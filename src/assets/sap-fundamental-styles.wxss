@@ -89,29 +89,216 @@ page {
   --sap-viz-axis-label: #6a6d70;
 }
 
-/* 基础辅助类：快速应用 SAP 边距 */
-.fd-margin-md {
-  margin: var(--sap-spacing-medium);
+/* --- 基础辅助类：快速应用 SAP 边距, Spacing Helper Classes (Fundamental Styles) --- */
+
+/* Margin: None */
+.fd-margin-none {
+  margin: 0 !important;
 }
 
-.fd-margin-top-md {
-  margin-top: var(--sap-spacing-medium);
+.fd-margin-top-none {
+  margin-top: 0 !important;
 }
 
-.fd-margin-bottom-md {
-  margin-bottom: var(--sap-spacing-medium);
+.fd-margin-bottom-none {
+  margin-bottom: 0 !important;
+}
+
+.fd-margin-begin-none {
+  margin-left: 0 !important;
+}
+
+.fd-margin-end-none {
+  margin-right: 0 !important;
+}
+
+/* Margin: XS (Tiny - 8rpx/4px) */
+.fd-margin-xs {
+  margin: var(--sap-spacing-tiny) !important;
+}
+
+.fd-margin-top-xs {
+  margin-top: var(--sap-spacing-tiny) !important;
+}
+
+.fd-margin-bottom-xs {
+  margin-bottom: var(--sap-spacing-tiny) !important;
+}
+
+.fd-margin-begin-xs {
+  margin-left: var(--sap-spacing-tiny) !important;
+}
+
+.fd-margin-end-xs {
+  margin-right: var(--sap-spacing-tiny) !important;
+}
+
+/* Margin: SM (Small - 16rpx/8px) */
+.fd-margin-sm {
+  margin: var(--sap-spacing-small) !important;
 }
 
 .fd-margin-top-sm {
-  margin-top: var(--sap-spacing-small);
+  margin-top: var(--sap-spacing-small) !important;
 }
 
 .fd-margin-bottom-sm {
-  margin-bottom: var(--sap-spacing-small);
+  margin-bottom: var(--sap-spacing-small) !important;
 }
 
+.fd-margin-begin-sm {
+  margin-left: var(--sap-spacing-small) !important;
+}
+
+.fd-margin-end-sm {
+  margin-right: var(--sap-spacing-small) !important;
+}
+
+/* Margin: MD (Medium - 32rpx/16px) */
+.fd-margin-md {
+  margin: var(--sap-spacing-medium) !important;
+}
+
+.fd-margin-top-md {
+  margin-top: var(--sap-spacing-medium) !important;
+}
+
+.fd-margin-bottom-md {
+  margin-bottom: var(--sap-spacing-medium) !important;
+}
+
+.fd-margin-begin-md {
+  margin-left: var(--sap-spacing-medium) !important;
+}
+
+.fd-margin-end-md {
+  margin-right: var(--sap-spacing-medium) !important;
+}
+
+/* Margin: LG (Large - 64rpx/32px) */
+.fd-margin-lg {
+  margin: var(--sap-spacing-large) !important;
+}
+
+.fd-margin-top-lg {
+  margin-top: var(--sap-spacing-large) !important;
+}
+
+.fd-margin-bottom-lg {
+  margin-bottom: var(--sap-spacing-large) !important;
+}
+
+.fd-margin-begin-lg {
+  margin-left: var(--sap-spacing-large) !important;
+}
+
+.fd-margin-end-lg {
+  margin-right: var(--sap-spacing-large) !important;
+}
+
+/* Padding: None */
+.fd-padding-none {
+  padding: 0 !important;
+}
+
+.fd-padding-top-none {
+  padding-top: 0 !important;
+}
+
+.fd-padding-bottom-none {
+  padding-bottom: 0 !important;
+}
+
+.fd-padding-begin-none {
+  padding-left: 0 !important;
+}
+
+.fd-padding-end-none {
+  padding-right: 0 !important;
+}
+
+/* Padding: XS (Tiny - 8rpx/4px) */
+.fd-padding-xs {
+  padding: var(--sap-spacing-tiny) !important;
+}
+
+.fd-padding-top-xs {
+  padding-top: var(--sap-spacing-tiny) !important;
+}
+
+.fd-padding-bottom-xs {
+  padding-bottom: var(--sap-spacing-tiny) !important;
+}
+
+.fd-padding-begin-xs {
+  padding-left: var(--sap-spacing-tiny) !important;
+}
+
+.fd-padding-end-xs {
+  padding-right: var(--sap-spacing-tiny) !important;
+}
+
+/* Padding: SM (Small - 16rpx/8px) */
+.fd-padding-sm {
+  padding: var(--sap-spacing-small) !important;
+}
+
+.fd-padding-top-sm {
+  padding-top: var(--sap-spacing-small) !important;
+}
+
+.fd-padding-bottom-sm {
+  padding-bottom: var(--sap-spacing-small) !important;
+}
+
+.fd-padding-begin-sm {
+  padding-left: var(--sap-spacing-small) !important;
+}
+
+.fd-padding-end-sm {
+  padding-right: var(--sap-spacing-small) !important;
+}
+
+/* Padding: MD (Medium - 32rpx/16px) */
 .fd-padding-md {
-  padding: var(--sap-spacing-medium);
+  padding: var(--sap-spacing-medium) !important;
+}
+
+.fd-padding-top-md {
+  padding-top: var(--sap-spacing-medium) !important;
+}
+
+.fd-padding-bottom-md {
+  padding-bottom: var(--sap-spacing-medium) !important;
+}
+
+.fd-padding-begin-md {
+  padding-left: var(--sap-spacing-medium) !important;
+}
+
+.fd-padding-end-md {
+  padding-right: var(--sap-spacing-medium) !important;
+}
+
+/* Padding: LG (Large - 64rpx/32px) */
+.fd-padding-lg {
+  padding: var(--sap-spacing-large) !important;
+}
+
+.fd-padding-top-lg {
+  padding-top: var(--sap-spacing-large) !important;
+}
+
+.fd-padding-bottom-lg {
+  padding-bottom: var(--sap-spacing-large) !important;
+}
+
+.fd-padding-begin-lg {
+  padding-left: var(--sap-spacing-large) !important;
+}
+
+.fd-padding-end-lg {
+  padding-right: var(--sap-spacing-large) !important;
 }
 
 /* 几何对齐辅助类：消除基线干扰，实现完美的中心对齐 */
